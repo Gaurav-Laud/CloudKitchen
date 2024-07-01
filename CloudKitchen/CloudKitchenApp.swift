@@ -11,7 +11,7 @@ import SwiftUI
 struct CloudKitchenApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            WelcomeViewController()
         }
     }
 }

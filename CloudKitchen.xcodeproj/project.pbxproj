@@ -14,6 +14,8 @@
 		EC7314B32C31AA830050B4A0 /* CloudKitchenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7314B22C31AA830050B4A0 /* CloudKitchenTests.swift */; };
 		EC7314BD2C31AA840050B4A0 /* CloudKitchenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7314BC2C31AA840050B4A0 /* CloudKitchenUITests.swift */; };
 		EC7314BF2C31AA840050B4A0 /* CloudKitchenUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7314BE2C31AA840050B4A0 /* CloudKitchenUITestsLaunchTests.swift */; };
+		EC7314CE2C31BD3F0050B4A0 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7314CD2C31BD3F0050B4A0 /* WelcomeViewController.swift */; };
+		EC7314D12C31BE750050B4A0 /* CloudButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7314D02C31BE750050B4A0 /* CloudButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		EC7314B82C31AA830050B4A0 /* CloudKitchenUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CloudKitchenUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC7314BC2C31AA840050B4A0 /* CloudKitchenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitchenUITests.swift; sourceTree = "<group>"; };
 		EC7314BE2C31AA840050B4A0 /* CloudKitchenUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitchenUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EC7314CD2C31BD3F0050B4A0 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		EC7314D02C31BE750050B4A0 /* CloudButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,8 @@
 		EC7314A02C31AA820050B4A0 /* CloudKitchen */ = {
 			isa = PBXGroup;
 			children = (
+				EC7314CF2C31BDCA0050B4A0 /* Components */,
+				EC7314CB2C31BCB00050B4A0 /* Modules */,
 				EC7314A12C31AA820050B4A0 /* CloudKitchenApp.swift */,
 				EC7314A32C31AA820050B4A0 /* ContentView.swift */,
 				EC7314A52C31AA830050B4A0 /* Assets.xcassets */,
@@ -125,6 +131,30 @@
 				EC7314BE2C31AA840050B4A0 /* CloudKitchenUITestsLaunchTests.swift */,
 			);
 			path = CloudKitchenUITests;
+			sourceTree = "<group>";
+		};
+		EC7314CB2C31BCB00050B4A0 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				EC7314CC2C31BCBF0050B4A0 /* WelcomeModule */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		EC7314CC2C31BCBF0050B4A0 /* WelcomeModule */ = {
+			isa = PBXGroup;
+			children = (
+				EC7314CD2C31BD3F0050B4A0 /* WelcomeViewController.swift */,
+			);
+			path = WelcomeModule;
+			sourceTree = "<group>";
+		};
+		EC7314CF2C31BDCA0050B4A0 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				EC7314D02C31BE750050B4A0 /* CloudButton.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +287,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC7314CE2C31BD3F0050B4A0 /* WelcomeViewController.swift in Sources */,
 				EC7314A42C31AA820050B4A0 /* ContentView.swift in Sources */,
 				EC7314A22C31AA820050B4A0 /* CloudKitchenApp.swift in Sources */,
+				EC7314D12C31BE750050B4A0 /* CloudButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,8 +459,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -455,8 +487,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -16,6 +16,7 @@
 		EC7314BF2C31AA840050B4A0 /* CloudKitchenUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7314BE2C31AA840050B4A0 /* CloudKitchenUITestsLaunchTests.swift */; };
 		EC7314CE2C31BD3F0050B4A0 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7314CD2C31BD3F0050B4A0 /* WelcomeViewController.swift */; };
 		EC7314D12C31BE750050B4A0 /* CloudButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7314D02C31BE750050B4A0 /* CloudButton.swift */; };
+		EC7314D42C32F7850050B4A0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7314D32C32F7850050B4A0 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		EC7314BE2C31AA840050B4A0 /* CloudKitchenUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitchenUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		EC7314CD2C31BD3F0050B4A0 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		EC7314D02C31BE750050B4A0 /* CloudButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudButton.swift; sourceTree = "<group>"; };
+		EC7314D32C32F7850050B4A0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 		EC7314A02C31AA820050B4A0 /* CloudKitchen */ = {
 			isa = PBXGroup;
 			children = (
+				EC7314D22C32F76F0050B4A0 /* Utility */,
 				EC7314CF2C31BDCA0050B4A0 /* Components */,
 				EC7314CB2C31BCB00050B4A0 /* Modules */,
 				EC7314A12C31AA820050B4A0 /* CloudKitchenApp.swift */,
@@ -155,6 +158,14 @@
 				EC7314D02C31BE750050B4A0 /* CloudButton.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		EC7314D22C32F76F0050B4A0 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				EC7314D32C32F7850050B4A0 /* Constants.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,6 +298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC7314D42C32F7850050B4A0 /* Constants.swift in Sources */,
 				EC7314CE2C31BD3F0050B4A0 /* WelcomeViewController.swift in Sources */,
 				EC7314A42C31AA820050B4A0 /* ContentView.swift in Sources */,
 				EC7314A22C31AA820050B4A0 /* CloudKitchenApp.swift in Sources */,

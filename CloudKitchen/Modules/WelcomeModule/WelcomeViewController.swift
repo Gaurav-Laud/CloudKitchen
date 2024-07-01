@@ -15,7 +15,7 @@ struct WelcomeViewController: View {
                 VStack(alignment: .center, spacing: geometry.size.height/15) {
                     titleView
                     featureStackView
-                    CloudButton(title: "GET STARTED")
+                    CloudButton(title: Constants.get_started)
                 }
                 .padding()
                 .padding(.top, geometry.size.height/5)
@@ -24,7 +24,7 @@ struct WelcomeViewController: View {
         }
     }
     private var backgroundImage: some View {
-        Image("WelcomeBackgroundImage", bundle: Bundle.main)
+        Image(Constants.WelcomeBackgroundImage, bundle: Bundle.main)
             .resizable()
             .mask {
                 LinearGradient(gradient: Gradient(colors: [.black, .black.opacity(-1)]), startPoint: .top, endPoint: .bottom)
@@ -32,29 +32,29 @@ struct WelcomeViewController: View {
     }
     private var titleView: some View {
         VStack(alignment: .center) {
-            Image("hot-food1", bundle: Bundle.main)
-            Text("Introducing")
+            Image(Constants.hot_food1, bundle: Bundle.main)
+            Text(Constants.introducing)
                 .font(.title)
-            Text("Home-Made\nKitchens")
+            Text(Constants.home_made_kitchens)
                 .multilineTextAlignment(.center)
-                .font(.custom("Times New Roman", size: 40))
+                .font(.custom(Constants.times_new_roman, size: 40))
         }
     }
     private var featureStackView: some View {
         HStack {
             Spacer()
             VStack {
-                Image("Guarantee", bundle: Bundle.main)
+                Image(Constants.guarantee, bundle: Bundle.main)
                     .resizable()
                     .frame(width: 64, height: 64)
-                Text("High Quality")
+                Text(Constants.high_quality)
             }
             Spacer()
             VStack {
-                Image("Expensive Price", bundle: Bundle.main)
+                Image(Constants.expensive_price, bundle: Bundle.main)
                     .resizable()
                     .frame(width: 64, height: 64)
-                Text("Cost Efficient")
+                Text(Constants.cost_efficient)
             }
             Spacer()
         }

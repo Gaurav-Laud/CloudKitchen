@@ -8,18 +8,19 @@
 import SwiftUI
 
 struct CloudButton: View {
-    private let button: Button<Text>
-    init(title: String, isTextCaps: Bool = false, action: @escaping () -> Void = { }) {
-        self.button = Button(isTextCaps ? title.uppercased() : title, action: action)
-    }
+    var title: String
+    var isTextCaps: Bool = false
+    var action: () -> Void = { }
     var body: some View {
-        button
-            .padding()
-            .frame(maxWidth: .infinity)
-            .fontWeight(.bold)
-            .foregroundStyle(.white)
-            .background(.yellow)
-            .clipShape(.rect(cornerRadius: 6))
+        Button(action: action, label: {
+            Text(isTextCaps ? title.uppercased() : title)
+                .padding()
+                .frame(maxWidth: .infinity)
+                .fontWeight(.bold)
+                .foregroundStyle(.white)
+                .background(.yellow)
+                .clipShape(.rect(cornerRadius: 6))
+        })
     }
 }
 

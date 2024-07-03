@@ -8,18 +8,24 @@
 import SwiftUI
 
 struct WelcomeViewController: View {
+    @State var navigateToLogin: Bool = false
     var body: some View {
-        GeometryReader { geometry in
-            ZStack {
-                backgroundImage
-                VStack(alignment: .center, spacing: geometry.size.height/15) {
-                    titleView
-                    featureStackView
-                    CloudButton(title: Constants.get_started)
+        NavigationStack {
+            GeometryReader { geometry in
+                ZStack {
+                    backgroundImage
+                    VStack(alignment: .center, spacing: geometry.size.height/15) {
+                        titleView
+                        featureStackView
+                        CloudButton(title: Constants.get_started) { navigateToLogin = true }
+                            .navigationDestination(isPresented: $navigateToLogin, destination: { LoginView()
+                                    .navigationBarBackButtonHidden()
+                            })
+                    }
+                    .padding()
+                    .padding(.top, geometry.size.height/5)
+                    .padding(.bottom, geometry.size.height/15)
                 }
-                .padding()
-                .padding(.top, geometry.size.height/5)
-                .padding(.bottom, geometry.size.height/15)
             }
         }
     }

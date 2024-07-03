@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		EC7314A22C31AA820050B4A0 /* CloudKitchenApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7314A12C31AA820050B4A0 /* CloudKitchenApp.swift */; };
-		EC7314A42C31AA820050B4A0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7314A32C31AA820050B4A0 /* ContentView.swift */; };
 		EC7314A62C31AA830050B4A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC7314A52C31AA830050B4A0 /* Assets.xcassets */; };
 		EC7314A92C31AA830050B4A0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC7314A82C31AA830050B4A0 /* Preview Assets.xcassets */; };
 		EC7314B32C31AA830050B4A0 /* CloudKitchenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7314B22C31AA830050B4A0 /* CloudKitchenTests.swift */; };
@@ -17,6 +16,11 @@
 		EC7314CE2C31BD3F0050B4A0 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7314CD2C31BD3F0050B4A0 /* WelcomeViewController.swift */; };
 		EC7314D12C31BE750050B4A0 /* CloudButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7314D02C31BE750050B4A0 /* CloudButton.swift */; };
 		EC7314D42C32F7850050B4A0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7314D32C32F7850050B4A0 /* Constants.swift */; };
+		EC7314D62C32FF410050B4A0 /* UserDefaultsUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7314D52C32FF410050B4A0 /* UserDefaultsUtility.swift */; };
+		EC7314D92C3302950050B4A0 /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7314D82C3302950050B4A0 /* APIHandler.swift */; };
+		EC7314DE2C342B140050B4A0 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7314DD2C342B140050B4A0 /* LoginView.swift */; };
+		EC7314E02C342B4F0050B4A0 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7314DF2C342B4F0050B4A0 /* LoginViewModel.swift */; };
+		EC9813DD2C343E1B00E19F6D /* CloudTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9813DC2C343E1B00E19F6D /* CloudTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +43,6 @@
 /* Begin PBXFileReference section */
 		EC73149E2C31AA820050B4A0 /* CloudKitchen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloudKitchen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC7314A12C31AA820050B4A0 /* CloudKitchenApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitchenApp.swift; sourceTree = "<group>"; };
-		EC7314A32C31AA820050B4A0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EC7314A52C31AA830050B4A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC7314A82C31AA830050B4A0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EC7314AE2C31AA830050B4A0 /* CloudKitchenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CloudKitchenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,6 +53,11 @@
 		EC7314CD2C31BD3F0050B4A0 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		EC7314D02C31BE750050B4A0 /* CloudButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudButton.swift; sourceTree = "<group>"; };
 		EC7314D32C32F7850050B4A0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		EC7314D52C32FF410050B4A0 /* UserDefaultsUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsUtility.swift; sourceTree = "<group>"; };
+		EC7314D82C3302950050B4A0 /* APIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
+		EC7314DD2C342B140050B4A0 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		EC7314DF2C342B4F0050B4A0 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		EC9813DC2C343E1B00E19F6D /* CloudTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,11 +108,11 @@
 		EC7314A02C31AA820050B4A0 /* CloudKitchen */ = {
 			isa = PBXGroup;
 			children = (
+				EC7314A12C31AA820050B4A0 /* CloudKitchenApp.swift */,
+				EC7314D72C33027D0050B4A0 /* Network */,
 				EC7314D22C32F76F0050B4A0 /* Utility */,
 				EC7314CF2C31BDCA0050B4A0 /* Components */,
 				EC7314CB2C31BCB00050B4A0 /* Modules */,
-				EC7314A12C31AA820050B4A0 /* CloudKitchenApp.swift */,
-				EC7314A32C31AA820050B4A0 /* ContentView.swift */,
 				EC7314A52C31AA830050B4A0 /* Assets.xcassets */,
 				EC7314A72C31AA830050B4A0 /* Preview Content */,
 			);
@@ -139,6 +147,7 @@
 		EC7314CB2C31BCB00050B4A0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				EC7314DA2C342AB30050B4A0 /* LoginModule */,
 				EC7314CC2C31BCBF0050B4A0 /* WelcomeModule */,
 			);
 			path = Modules;
@@ -156,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				EC7314D02C31BE750050B4A0 /* CloudButton.swift */,
+				EC9813DC2C343E1B00E19F6D /* CloudTextField.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -164,8 +174,42 @@
 			isa = PBXGroup;
 			children = (
 				EC7314D32C32F7850050B4A0 /* Constants.swift */,
+				EC7314D52C32FF410050B4A0 /* UserDefaultsUtility.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		EC7314D72C33027D0050B4A0 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				EC7314D82C3302950050B4A0 /* APIHandler.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		EC7314DA2C342AB30050B4A0 /* LoginModule */ = {
+			isa = PBXGroup;
+			children = (
+				EC7314DC2C342AC60050B4A0 /* ViewModel */,
+				EC7314DB2C342ABC0050B4A0 /* Views */,
+			);
+			path = LoginModule;
+			sourceTree = "<group>";
+		};
+		EC7314DB2C342ABC0050B4A0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EC7314DD2C342B140050B4A0 /* LoginView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EC7314DC2C342AC60050B4A0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EC7314DF2C342B4F0050B4A0 /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,8 +343,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC7314D42C32F7850050B4A0 /* Constants.swift in Sources */,
+				EC7314DE2C342B140050B4A0 /* LoginView.swift in Sources */,
+				EC7314D62C32FF410050B4A0 /* UserDefaultsUtility.swift in Sources */,
 				EC7314CE2C31BD3F0050B4A0 /* WelcomeViewController.swift in Sources */,
-				EC7314A42C31AA820050B4A0 /* ContentView.swift in Sources */,
+				EC7314E02C342B4F0050B4A0 /* LoginViewModel.swift in Sources */,
+				EC7314D92C3302950050B4A0 /* APIHandler.swift in Sources */,
+				EC9813DD2C343E1B00E19F6D /* CloudTextField.swift in Sources */,
 				EC7314A22C31AA820050B4A0 /* CloudKitchenApp.swift in Sources */,
 				EC7314D12C31BE750050B4A0 /* CloudButton.swift in Sources */,
 			);
@@ -471,8 +519,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -499,8 +546,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

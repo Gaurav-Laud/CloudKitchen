@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
     @ObservedObject var loginViewModel = LoginViewModel()
+    @State var showOTPVerificationView: Bool = false
     var body: some View {
         GeometryReader { geometry in
             VStack(alignment: .leading) {
@@ -17,10 +18,7 @@ struct LoginView: View {
                     .frame(height: geometry.size.height/2)
                     .clipShape(UnevenRoundedRectangle(cornerRadii: RectangleCornerRadii(bottomLeading: 44, bottomTrailing: 44)))
                 VStack(alignment: .leading) {
-                    Text(Constants.login)
-                        .font(.title)
-                        .foregroundStyle(.red)
-                        .bold()
+                    CloudLabel(text: Constants.login, font: .title, textColor: .red, fontWeight: .bold)
                     Text(Constants.enter_your_phone_number_to_proceed)
                         .font(.footnote)
                     self.getNumberView()
@@ -44,7 +42,9 @@ struct LoginView: View {
         .padding(.top, 40)
         CloudButton(title: Constants.authenticate) {
             self.loginViewModel.requestOTP(for: loginViewModel.mobileNumber)
+            showOTPVerificationView = true
         }
+        .navigationDestination(isPresented: $showOTPVerificationView, destination: { OTPVerificationScreen() })
     }
     
     @ViewBuilder

@@ -23,6 +23,7 @@
 		EC9813DD2C343E1B00E19F6D /* CloudTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9813DC2C343E1B00E19F6D /* CloudTextField.swift */; };
 		EC9813DF2C36285300E19F6D /* OTPVerificationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9813DE2C36285300E19F6D /* OTPVerificationScreen.swift */; };
 		EC9813E12C362F2200E19F6D /* CloudLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9813E02C362F2200E19F6D /* CloudLabel.swift */; };
+		EC9813E52C371A3F00E19F6D /* OtpView-SwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = EC9813E42C371A3F00E19F6D /* OtpView-SwiftUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC9813E52C371A3F00E19F6D /* OtpView-SwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +98,7 @@
 				EC7314B12C31AA830050B4A0 /* CloudKitchenTests */,
 				EC7314BB2C31AA830050B4A0 /* CloudKitchenUITests */,
 				EC73149F2C31AA820050B4A0 /* Products */,
+				EC9813E32C371A3F00E19F6D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -218,6 +221,13 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		EC9813E32C371A3F00E19F6D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -234,6 +244,9 @@
 			dependencies = (
 			);
 			name = CloudKitchen;
+			packageProductDependencies = (
+				EC9813E42C371A3F00E19F6D /* OtpView-SwiftUI */,
+			);
 			productName = CloudKitchen;
 			productReference = EC73149E2C31AA820050B4A0 /* CloudKitchen.app */;
 			productType = "com.apple.product-type.application";
@@ -306,6 +319,9 @@
 				Base,
 			);
 			mainGroup = EC7314952C31AA820050B4A0;
+			packageReferences = (
+				EC9813E22C3719A400E19F6D /* XCRemoteSwiftPackageReference "OtpView-SwiftUI" */,
+			);
 			productRefGroup = EC73149F2C31AA820050B4A0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -680,6 +696,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EC9813E22C3719A400E19F6D /* XCRemoteSwiftPackageReference "OtpView-SwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kenagt/OtpView-SwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EC9813E42C371A3F00E19F6D /* OtpView-SwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC9813E22C3719A400E19F6D /* XCRemoteSwiftPackageReference "OtpView-SwiftUI" */;
+			productName = "OtpView-SwiftUI";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EC7314962C31AA820050B4A0 /* Project object */;
 }

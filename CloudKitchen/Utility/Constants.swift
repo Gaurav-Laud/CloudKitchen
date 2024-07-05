@@ -37,4 +37,5 @@ struct Constants {
     // UserDefaults keys
     static let isSignedIn = "isSignedIn"
     static let accessToken = "accessToken"
+    static let userModel = "userModel"
 }

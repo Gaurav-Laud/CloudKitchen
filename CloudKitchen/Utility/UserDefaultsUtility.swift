@@ -20,4 +20,10 @@ class UserDefaultsUtility {
     static func getAccessToken() -> String {
         defaults.string(forKey: Constants.accessToken) ?? ""
     }
+    static func setUser(_ userModel: UserModel) {
+        defaults.setValue(userModel, forKey: Constants.userModel)
+    }
+    static func getUser() -> UserModel? {
+        defaults.value(forKey: Constants.userModel) as? UserModel
+    }
 }

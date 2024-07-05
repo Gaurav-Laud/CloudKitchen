@@ -8,6 +8,10 @@
 import Foundation
 class LoginViewModel: ObservableObject {
     @Published var mobileNumber: String = ""
+    var minTimeLimit: Int = 10
+    @Published var time: Int = 0
+    @Published var otp: String = ""
+    @Published var timer: Timer?
     func requestOTP(for mobileNumber: String) {
         let mobileNumber = "+91 \(mobileNumber)"
         Task {
@@ -50,5 +54,20 @@ class LoginViewModel: ObservableObject {
     }
     private func setUser(userModel: UserModel) {
         UserDefaultsUtility.setUser(userModel)
+    }
+    func setupTimer() {
+        time = 0
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] timer in
+            guard let self = self else { return }
+            self.time += Int(timer.timeInterval)
+            if self.time == minTimeLimit {
+                disableTimer()
+            }
+        })
+    }
+    func disableTimer() {
+        timer?.invalidate()
+        timer = nil
+        time = 0
     }
 }

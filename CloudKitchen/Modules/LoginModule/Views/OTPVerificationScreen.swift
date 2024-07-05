@@ -6,11 +6,9 @@
 //
 
 import SwiftUI
-
+import OtpView_SwiftUI
 struct OTPVerificationScreen: View {
-    @ObservedObject var loginViewModel = LoginViewModel()
-    @State var otp: String = ""
-    @State var otp2: Int = 0
+    @ObservedObject private var loginViewModel = LoginViewModel()
     var body: some View {
             VStack(alignment: .leading) {
                 CloudLabel(text: Constants.login, font: .title, textColor: .red, fontWeight: .bold)
@@ -18,6 +16,7 @@ struct OTPVerificationScreen: View {
                 Spacer()
             }
             .padding()
+            .onAppear(perform: { loginViewModel.setupTimer() })
     }
     @ViewBuilder
     private func getNumberView() -> some View {
@@ -31,51 +30,34 @@ struct OTPVerificationScreen: View {
         .padding(.top, 25)
         getOTPView()
             .padding(.leading, 30)
-        CloudButton(title: Constants.authenticate)
+        HStack {
+            Spacer()
+            self.resendButton(isEnabled: $loginViewModel.timer.wrappedValue == nil, time: loginViewModel.minTimeLimit - $loginViewModel.time.wrappedValue)
+        }
+        CloudButton(title: Constants.authenticate) {
+            loginViewModel.verifyOTP(loginViewModel.otp) { isOTPVerified in }
+        }
     }
     @ViewBuilder
     private func getOTPView() -> some View {
         HStack {
             CloudLabel(text: "OTP", font: .title3, textColor: .red, fontWeight: .heavy)
-            OTPView(numberOfDigits: 4)
-        }
-    }
-}
-
-struct OTPView: View {
-    var numberOfDigits: Int
-    @State private var digits: [String]
-    private var selectedIndex: Int
-    var otpValue: String {
-        digits.reduce("", { $0 + $1 })
-    }
-    init(numberOfDigits: Int) {
-        self.numberOfDigits = numberOfDigits
-        self.digits = Array(repeating: "", count: numberOfDigits)
-    }
-    var body: some View {
-        HStack {
-            ForEach(0..<numberOfDigits, id: \.self) { index in
-                getOTPTextField(text: $digits[index], valueChangedCallback: {
-                    if index == numberOfDigits - 1 {
-                        
-                    }
-                })
-            }
+            OtpView_SwiftUI(otpCode: $loginViewModel.otp, otpCodeLength: 4, textColor: .red, textSize: 20)
+                .frame(width: 250)
         }
     }
     @ViewBuilder
-    private func getOTPTextField(text: Binding<String>, valueChangedCallback: @escaping () -> Void = { }) -> some View {
-        VStack(alignment: .leading) {
-            TextField("", text: text)
-                .frame(width: 31)
-                .keyboardType(.numberPad)
-                .font(.title)
-                .onChange(of: text.wrappedValue, { valueChangedCallback() })
-            Rectangle()
-                .foregroundStyle(.red)
-                .frame(width: 31, height: 3)
-        }
+    private func resendButton(isEnabled: Bool, time: Int) -> some View {
+        Text(isEnabled ? "Resend OTP?" : "Resend in \(time) seconds")
+            .font(.body)
+        //            .underline()
+            .onTapGesture {
+                if isEnabled {
+                    self.loginViewModel.requestOTP(for: loginViewModel.mobileNumber)
+                    self.loginViewModel.disableTimer()
+                    self.loginViewModel.setupTimer()
+                }
+            }
     }
 }
 

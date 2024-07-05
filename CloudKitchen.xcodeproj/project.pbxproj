@@ -24,6 +24,8 @@
 		EC9813DF2C36285300E19F6D /* OTPVerificationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9813DE2C36285300E19F6D /* OTPVerificationScreen.swift */; };
 		EC9813E12C362F2200E19F6D /* CloudLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9813E02C362F2200E19F6D /* CloudLabel.swift */; };
 		EC9813E52C371A3F00E19F6D /* OtpView-SwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = EC9813E42C371A3F00E19F6D /* OtpView-SwiftUI */; };
+		EC9813E82C37D26300E19F6D /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9813E72C37D26300E19F6D /* UserModel.swift */; };
+		EC9813EA2C37E40100E19F6D /* CloudKitchenUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9813E92C37E40100E19F6D /* CloudKitchenUtility.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		EC9813DC2C343E1B00E19F6D /* CloudTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudTextField.swift; sourceTree = "<group>"; };
 		EC9813DE2C36285300E19F6D /* OTPVerificationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVerificationScreen.swift; sourceTree = "<group>"; };
 		EC9813E02C362F2200E19F6D /* CloudLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudLabel.swift; sourceTree = "<group>"; };
+		EC9813E72C37D26300E19F6D /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		EC9813E92C37E40100E19F6D /* CloudKitchenUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitchenUtility.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +187,7 @@
 			children = (
 				EC7314D32C32F7850050B4A0 /* Constants.swift */,
 				EC7314D52C32FF410050B4A0 /* UserDefaultsUtility.swift */,
+				EC9813E92C37E40100E19F6D /* CloudKitchenUtility.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -198,6 +203,7 @@
 		EC7314DA2C342AB30050B4A0 /* LoginModule */ = {
 			isa = PBXGroup;
 			children = (
+				EC9813E62C37D25000E19F6D /* Model */,
 				EC7314DC2C342AC60050B4A0 /* ViewModel */,
 				EC7314DB2C342ABC0050B4A0 /* Views */,
 			);
@@ -226,6 +232,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EC9813E62C37D25000E19F6D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EC9813E72C37D26300E19F6D /* UserModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -364,6 +378,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC9813EA2C37E40100E19F6D /* CloudKitchenUtility.swift in Sources */,
 				EC9813DF2C36285300E19F6D /* OTPVerificationScreen.swift in Sources */,
 				EC7314D42C32F7850050B4A0 /* Constants.swift in Sources */,
 				EC7314DE2C342B140050B4A0 /* LoginView.swift in Sources */,
@@ -374,6 +389,7 @@
 				EC9813DD2C343E1B00E19F6D /* CloudTextField.swift in Sources */,
 				EC9813E12C362F2200E19F6D /* CloudLabel.swift in Sources */,
 				EC7314A22C31AA820050B4A0 /* CloudKitchenApp.swift in Sources */,
+				EC9813E82C37D26300E19F6D /* UserModel.swift in Sources */,
 				EC7314D12C31BE750050B4A0 /* CloudButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

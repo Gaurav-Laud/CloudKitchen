@@ -26,6 +26,7 @@
 		EC9813E52C371A3F00E19F6D /* OtpView-SwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = EC9813E42C371A3F00E19F6D /* OtpView-SwiftUI */; };
 		EC9813E82C37D26300E19F6D /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9813E72C37D26300E19F6D /* UserModel.swift */; };
 		EC9813EA2C37E40100E19F6D /* CloudKitchenUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9813E92C37E40100E19F6D /* CloudKitchenUtility.swift */; };
+		EC9813EE2C381C0A00E19F6D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9813ED2C381C0A00E19F6D /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		EC9813E02C362F2200E19F6D /* CloudLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudLabel.swift; sourceTree = "<group>"; };
 		EC9813E72C37D26300E19F6D /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		EC9813E92C37E40100E19F6D /* CloudKitchenUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitchenUtility.swift; sourceTree = "<group>"; };
+		EC9813ED2C381C0A00E19F6D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 		EC7314CB2C31BCB00050B4A0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				EC9813EB2C381BA900E19F6D /* HomeModule */,
 				EC7314DA2C342AB30050B4A0 /* LoginModule */,
 				EC7314CC2C31BCBF0050B4A0 /* WelcomeModule */,
 			);
@@ -240,6 +243,22 @@
 				EC9813E72C37D26300E19F6D /* UserModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		EC9813EB2C381BA900E19F6D /* HomeModule */ = {
+			isa = PBXGroup;
+			children = (
+				EC9813EC2C381BE500E19F6D /* View */,
+			);
+			path = HomeModule;
+			sourceTree = "<group>";
+		};
+		EC9813EC2C381BE500E19F6D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EC9813ED2C381C0A00E19F6D /* HomeView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -379,6 +398,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC9813EA2C37E40100E19F6D /* CloudKitchenUtility.swift in Sources */,
+				EC9813EE2C381C0A00E19F6D /* HomeView.swift in Sources */,
 				EC9813DF2C36285300E19F6D /* OTPVerificationScreen.swift in Sources */,
 				EC7314D42C32F7850050B4A0 /* Constants.swift in Sources */,
 				EC7314DE2C342B140050B4A0 /* LoginView.swift in Sources */,

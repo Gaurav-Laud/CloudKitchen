@@ -22,6 +22,7 @@ struct Constants {
     static let terms_conditions = "Terms & Conditions"
     static let privacy_policy = "Privacy Policy"
     static let country_code = "+91"
+    static let verify = "verify"
     
     // Resource names
     static let WelcomeBackgroundImage = "WelcomeBackgroundImage"

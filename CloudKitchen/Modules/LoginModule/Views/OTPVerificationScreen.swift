@@ -11,7 +11,7 @@ struct OTPVerificationScreen: View {
     @ObservedObject private var loginViewModel = LoginViewModel()
     var body: some View {
             VStack(alignment: .leading) {
-                CloudLabel(text: Constants.login, font: .title, textColor: .red, fontWeight: .bold)
+                CloudLabel(text: Constants.verify.capitalized, font: .title, textColor: .red, fontWeight: .bold)
                 getNumberView()
                 Spacer()
             }
@@ -20,22 +20,26 @@ struct OTPVerificationScreen: View {
     }
     @ViewBuilder
     private func getNumberView() -> some View {
-        HStack {
-            Image(Constants.india_flag, bundle: Bundle.main)
-            Text(Constants.country_code)
-                .font(.title2)
-                .bold()
-            CloudTextField(placeholder: Constants.phone_number, inputString: $loginViewModel.mobileNumber, keyboardType: .numberPad)
-        }
-        .padding(.top, 25)
-        getOTPView()
-            .padding(.leading, 30)
-        HStack {
-            Spacer()
-            self.resendButton(isEnabled: $loginViewModel.timer.wrappedValue == nil, time: loginViewModel.minTimeLimit - $loginViewModel.time.wrappedValue)
-        }
-        CloudButton(title: Constants.authenticate) {
-            loginViewModel.verifyOTP(loginViewModel.otp) { isOTPVerified in }
+        VStack(spacing: 30) {
+            HStack {
+                Image(Constants.india_flag, bundle: Bundle.main)
+                Text(Constants.country_code)
+                    .font(.title2)
+                    .bold()
+                CloudTextField(placeholder: Constants.phone_number, inputString: $loginViewModel.mobileNumber, keyboardType: .numberPad)
+            }
+            .padding(.top, 25)
+            getOTPView()
+                .padding(.leading, 30)
+            HStack {
+                Spacer()
+                self.resendButton(isEnabled: $loginViewModel.timer.wrappedValue == nil, time: loginViewModel.minTimeLimit - $loginViewModel.time.wrappedValue)
+            }
+            CloudButton(title: Constants.verify, isTextCaps: true) {
+                loginViewModel.verifyOTP(loginViewModel.otp) { isOTPVerified in
+                    
+                }
+            }
         }
     }
     @ViewBuilder
@@ -48,9 +52,8 @@ struct OTPVerificationScreen: View {
     }
     @ViewBuilder
     private func resendButton(isEnabled: Bool, time: Int) -> some View {
-        Text(isEnabled ? "Resend OTP?" : "Resend in \(time) seconds")
+        Text(isEnabled ? "Resend OTP?" : "Resend OTP in \(time)")
             .font(.body)
-        //            .underline()
             .onTapGesture {
                 if isEnabled {
                     self.loginViewModel.requestOTP(for: loginViewModel.mobileNumber)

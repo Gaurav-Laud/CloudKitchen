@@ -70,4 +70,7 @@ class LoginViewModel: ObservableObject {
         timer = nil
         time = 0
     }
+    func verifyMobileNumber(_ mobileNumber: String) -> Bool {
+        mobileNumber.count == 10
+    }
 }

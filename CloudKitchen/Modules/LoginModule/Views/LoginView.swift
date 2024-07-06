@@ -10,6 +10,7 @@ import SwiftUI
 struct LoginView: View {
     @ObservedObject var loginViewModel = LoginViewModel()
     @State var showOTPVerificationView: Bool = false
+    @State var showAlert: Bool = false
     var body: some View {
         GeometryReader { geometry in
             VStack(alignment: .leading) {
@@ -26,6 +27,7 @@ struct LoginView: View {
                     self.getBottomView()
                 }
                 .padding()
+                .showToast(isPresenting: $showAlert, title: "Wrong Mobile Number")
             }
         }
     }
@@ -41,8 +43,12 @@ struct LoginView: View {
         }
         .padding(.top, 40)
         CloudButton(title: Constants.authenticate) {
-            self.loginViewModel.requestOTP(for: loginViewModel.mobileNumber)
-            showOTPVerificationView = true
+            if loginViewModel.verifyMobileNumber(loginViewModel.mobileNumber) {
+                self.loginViewModel.requestOTP(for: loginViewModel.mobileNumber)
+                showOTPVerificationView = true
+            } else {
+                showAlert = true
+            }
         }
         .navigationDestination(isPresented: $showOTPVerificationView, destination: { OTPVerificationScreen(loginViewModel: loginViewModel) })
     }

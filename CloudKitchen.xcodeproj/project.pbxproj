@@ -27,6 +27,8 @@
 		EC9813E82C37D26300E19F6D /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9813E72C37D26300E19F6D /* UserModel.swift */; };
 		EC9813EA2C37E40100E19F6D /* CloudKitchenUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9813E92C37E40100E19F6D /* CloudKitchenUtility.swift */; };
 		EC9813EE2C381C0A00E19F6D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9813ED2C381C0A00E19F6D /* HomeView.swift */; };
+		EC9813F12C38641500E19F6D /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = EC9813F02C38641500E19F6D /* AlertToast */; };
+		EC9813F32C38711000E19F6D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9813F22C38711000E19F6D /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,7 @@
 		EC9813E72C37D26300E19F6D /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		EC9813E92C37E40100E19F6D /* CloudKitchenUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitchenUtility.swift; sourceTree = "<group>"; };
 		EC9813ED2C381C0A00E19F6D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		EC9813F22C38711000E19F6D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +80,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC9813E52C371A3F00E19F6D /* OtpView-SwiftUI in Frameworks */,
+				EC9813F12C38641500E19F6D /* AlertToast in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,6 +185,7 @@
 				EC7314D02C31BE750050B4A0 /* CloudButton.swift */,
 				EC9813DC2C343E1B00E19F6D /* CloudTextField.swift */,
 				EC9813E02C362F2200E19F6D /* CloudLabel.swift */,
+				EC9813F22C38711000E19F6D /* Extensions.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -279,6 +284,7 @@
 			name = CloudKitchen;
 			packageProductDependencies = (
 				EC9813E42C371A3F00E19F6D /* OtpView-SwiftUI */,
+				EC9813F02C38641500E19F6D /* AlertToast */,
 			);
 			productName = CloudKitchen;
 			productReference = EC73149E2C31AA820050B4A0 /* CloudKitchen.app */;
@@ -354,6 +360,7 @@
 			mainGroup = EC7314952C31AA820050B4A0;
 			packageReferences = (
 				EC9813E22C3719A400E19F6D /* XCRemoteSwiftPackageReference "OtpView-SwiftUI" */,
+				EC9813EF2C38641500E19F6D /* XCRemoteSwiftPackageReference "AlertToast" */,
 			);
 			productRefGroup = EC73149F2C31AA820050B4A0 /* Products */;
 			projectDirPath = "";
@@ -407,6 +414,7 @@
 				EC7314E02C342B4F0050B4A0 /* LoginViewModel.swift in Sources */,
 				EC7314D92C3302950050B4A0 /* APIHandler.swift in Sources */,
 				EC9813DD2C343E1B00E19F6D /* CloudTextField.swift in Sources */,
+				EC9813F32C38711000E19F6D /* Extensions.swift in Sources */,
 				EC9813E12C362F2200E19F6D /* CloudLabel.swift in Sources */,
 				EC7314A22C31AA820050B4A0 /* CloudKitchenApp.swift in Sources */,
 				EC9813E82C37D26300E19F6D /* UserModel.swift in Sources */,
@@ -742,6 +750,14 @@
 				minimumVersion = 1.0.3;
 			};
 		};
+		EC9813EF2C38641500E19F6D /* XCRemoteSwiftPackageReference "AlertToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/elai950/AlertToast";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.9;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -749,6 +765,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EC9813E22C3719A400E19F6D /* XCRemoteSwiftPackageReference "OtpView-SwiftUI" */;
 			productName = "OtpView-SwiftUI";
+		};
+		EC9813F02C38641500E19F6D /* AlertToast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC9813EF2C38641500E19F6D /* XCRemoteSwiftPackageReference "AlertToast" */;
+			productName = AlertToast;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

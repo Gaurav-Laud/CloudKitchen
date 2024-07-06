@@ -8,7 +8,10 @@
 import SwiftUI
 import OtpView_SwiftUI
 struct OTPVerificationScreen: View {
-    @ObservedObject private var loginViewModel = LoginViewModel()
+    @ObservedObject private var loginViewModel: LoginViewModel
+    init(loginViewModel: LoginViewModel) {
+        self.loginViewModel = loginViewModel
+    }
     var body: some View {
             VStack(alignment: .leading) {
                 CloudLabel(text: Constants.verify.capitalized, font: .title, textColor: .red, fontWeight: .bold)
@@ -54,6 +57,7 @@ struct OTPVerificationScreen: View {
     private func resendButton(isEnabled: Bool, time: Int) -> some View {
         Text(isEnabled ? "Resend OTP?" : "Resend OTP in \(time)")
             .font(.body)
+            .foregroundStyle(isEnabled ? .black : .secondary)
             .onTapGesture {
                 if isEnabled {
                     self.loginViewModel.requestOTP(for: loginViewModel.mobileNumber)
@@ -65,5 +69,5 @@ struct OTPVerificationScreen: View {
 }
 
 #Preview {
-    OTPVerificationScreen()
+    OTPVerificationScreen(loginViewModel: LoginViewModel())
 }

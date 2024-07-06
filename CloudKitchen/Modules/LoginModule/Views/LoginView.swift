@@ -44,7 +44,7 @@ struct LoginView: View {
             self.loginViewModel.requestOTP(for: loginViewModel.mobileNumber)
             showOTPVerificationView = true
         }
-        .navigationDestination(isPresented: $showOTPVerificationView, destination: { OTPVerificationScreen() })
+        .navigationDestination(isPresented: $showOTPVerificationView, destination: { OTPVerificationScreen(loginViewModel: loginViewModel) })
     }
     
     @ViewBuilder

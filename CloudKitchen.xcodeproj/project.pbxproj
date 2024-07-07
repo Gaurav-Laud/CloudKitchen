@@ -29,6 +29,8 @@
 		EC9813EE2C381C0A00E19F6D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9813ED2C381C0A00E19F6D /* HomeView.swift */; };
 		EC9813F12C38641500E19F6D /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = EC9813F02C38641500E19F6D /* AlertToast */; };
 		EC9813F32C38711000E19F6D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9813F22C38711000E19F6D /* Extensions.swift */; };
+		EC9813F72C395E3700E19F6D /* KitchenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9813F62C395E3700E19F6D /* KitchenModel.swift */; };
+		EC9813F92C395E5F00E19F6D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9813F82C395E5F00E19F6D /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,8 @@
 		EC9813E92C37E40100E19F6D /* CloudKitchenUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitchenUtility.swift; sourceTree = "<group>"; };
 		EC9813ED2C381C0A00E19F6D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		EC9813F22C38711000E19F6D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		EC9813F62C395E3700E19F6D /* KitchenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenModel.swift; sourceTree = "<group>"; };
+		EC9813F82C395E5F00E19F6D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +257,8 @@
 		EC9813EB2C381BA900E19F6D /* HomeModule */ = {
 			isa = PBXGroup;
 			children = (
+				EC9813F52C395E1C00E19F6D /* Model */,
+				EC9813F42C395E0E00E19F6D /* ViewModel */,
 				EC9813EC2C381BE500E19F6D /* View */,
 			);
 			path = HomeModule;
@@ -264,6 +270,22 @@
 				EC9813ED2C381C0A00E19F6D /* HomeView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		EC9813F42C395E0E00E19F6D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EC9813F82C395E5F00E19F6D /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EC9813F52C395E1C00E19F6D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EC9813F62C395E3700E19F6D /* KitchenModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -404,10 +426,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC9813F92C395E5F00E19F6D /* HomeViewModel.swift in Sources */,
 				EC9813EA2C37E40100E19F6D /* CloudKitchenUtility.swift in Sources */,
 				EC9813EE2C381C0A00E19F6D /* HomeView.swift in Sources */,
 				EC9813DF2C36285300E19F6D /* OTPVerificationScreen.swift in Sources */,
 				EC7314D42C32F7850050B4A0 /* Constants.swift in Sources */,
+				EC9813F72C395E3700E19F6D /* KitchenModel.swift in Sources */,
 				EC7314DE2C342B140050B4A0 /* LoginView.swift in Sources */,
 				EC7314D62C32FF410050B4A0 /* UserDefaultsUtility.swift in Sources */,
 				EC7314CE2C31BD3F0050B4A0 /* WelcomeViewController.swift in Sources */,

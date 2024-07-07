@@ -8,8 +8,28 @@
 import SwiftUI
 
 struct HomeView: View {
+    @ObservedObject var homeViewModel = HomeViewModel()
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            VStack {
+                CloudTextField(inputString: $homeViewModel.searchString, image: "magnifyingglass")
+                    .padding()
+                Spacer()
+            }
+            .toolbarRole(.navigationStack)
+            .toolbar {
+                getToolBarView()
+            }
+        }
+        .onAppear(perform: { homeViewModel.fetchKitchens() })
+    }
+    @ToolbarContentBuilder
+    private func getToolBarView() -> some ToolbarContent {
+        ToolbarItem(placement: .topBarLeading, content: {
+            Image("HomeHeart", bundle: Bundle.main)
+                .resizable()
+                .frame(width: 31, height: 31)
+        })
     }
 }
 

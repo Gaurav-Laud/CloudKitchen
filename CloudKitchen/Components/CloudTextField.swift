@@ -11,20 +11,27 @@ struct CloudTextField: View {
     var placeholder: String = ""
     var inputString: Binding<String>
     var keyboardType: UIKeyboardType = .default
+    var image: String?
     var body: some View {
-        TextField(self.placeholder, text: inputString)
-            .padding()
-            .background(.white)
-            .tint(.secondary)
-            .clipShape(.rect(cornerRadius: 16))
-            .shadow(radius: 5)
-            .keyboardType(keyboardType)
+        HStack {
+            TextField(self.placeholder, text: inputString)
+                .keyboardType(keyboardType)
+            if let image = image {
+                Image(systemName: image)
+                    .foregroundStyle(.secondary)
+            }
+        }
+        .padding()
+        .background(.white)
+        .tint(.secondary)
+        .clipShape(.rect(cornerRadius: 16))
+        .shadow(radius: 5)
     }
 }
 
 #Preview {
     Group {
         @State var str: String = ""
-        CloudTextField(placeholder: "Phone Number", inputString: $str)
+        CloudTextField(placeholder: "Phone Number", inputString: $str, image: "magnifyingglass")
     }
 }

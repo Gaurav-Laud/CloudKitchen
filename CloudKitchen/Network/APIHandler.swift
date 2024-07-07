@@ -85,7 +85,10 @@ class APIHandler {
     }
     
     func verifyOTP(url: String, mobileNumber: String, OTP: String) async throws -> [String: Any]? {
-        let parameters: [String: Any] = [:]
+        let parameters: [String: Any] = [
+            "mobileNumber": mobileNumber,
+            "otp": OTP
+        ]
         let request = try prepareURLRequest(url: url, parameters: parameters, httpMethod: .put, accessToken: nil)
         let (data, _) = try await URLSession.shared.data(for: request)
         return try JSONSerialization.jsonObject(with: data) as? [String: Any]

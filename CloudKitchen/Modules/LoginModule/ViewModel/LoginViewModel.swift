@@ -28,7 +28,7 @@ class LoginViewModel: ObservableObject {
     func verifyOTP(_ otp: String, completion: @escaping (Result<Bool, Error>) -> Void) {
         Task {
             do {
-                let result = try await APIHandler.shared.verifyOTP(url: "https://whale-app-ct2dl.ondigitalocean.app/users/verifyOtp", mobileNumber: mobileNumber, OTP: otp)
+                let result = try await APIHandler.shared.verifyOTP(url: "https://whale-app-ct2dl.ondigitalocean.app/users/verifyOtp", mobileNumber: "+91 \(mobileNumber)", OTP: otp)
                 guard let data = result?["data"] as? [String: Any] else {
                     completion(.failure(DecodingError.dataCorrupted(.init(codingPath: [], debugDescription: ""))))
                     return

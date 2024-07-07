@@ -21,9 +21,12 @@ class UserDefaultsUtility {
         defaults.string(forKey: Constants.accessToken) ?? ""
     }
     static func setUser(_ userModel: UserModel) {
-        defaults.setValue(userModel, forKey: Constants.userModel)
+        if let data = try? JSONEncoder().encode(userModel) {
+            defaults.setValue(data, forKey: Constants.userModel)
+        }
     }
     static func getUser() -> UserModel? {
-        defaults.value(forKey: Constants.userModel) as? UserModel
+        guard let data = defaults.value(forKey: Constants.userModel) as? Data else { return nil }
+        return try? JSONDecoder().decode(UserModel.self, from: data)
     }
 }

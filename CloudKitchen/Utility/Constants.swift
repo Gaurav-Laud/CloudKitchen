@@ -23,6 +23,10 @@ struct Constants {
     static let privacy_policy = "Privacy Policy"
     static let country_code = "+91"
     static let verify = "verify"
+    static let OTP = "OTP"
+    static let resend_OTP = "Resend OTP?"
+    static let resend_OTP_in = "Resend OTP in"
+    static let kitchens_around_you = "Kitchens around you"
     
     // Resource names
     static let WelcomeBackgroundImage = "WelcomeBackgroundImage"
@@ -31,6 +35,8 @@ struct Constants {
     static let expensive_price = "Expensive Price"
     static let login_screen_image = "LoginScreenImage"
     static let india_flag = "IndiaFlag"
+    static let magnifying_glass = "magnifyingglass"
+    static let home_heart = "HomeHeart"
     
     // Font names
     static let times_new_roman = "Times New Roman"

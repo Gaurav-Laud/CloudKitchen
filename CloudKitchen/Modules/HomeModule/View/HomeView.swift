@@ -8,12 +8,17 @@
 import SwiftUI
 
 struct HomeView: View {
-    @ObservedObject var homeViewModel = HomeViewModel()
+    @StateObject private var homeViewModel = HomeViewModel()
     var body: some View {
         NavigationStack {
             VStack {
                 CloudTextField(inputString: $homeViewModel.searchString, image: "magnifyingglass")
                     .padding()
+                List($homeViewModel.kitchenModels, id: \._id) { kitchenModel in
+                    KitchenCellView(kitchenModel: kitchenModel.wrappedValue)
+                        .listRowSeparator(.hidden)
+                }
+                .listStyle(.inset)
                 Spacer()
             }
             .toolbarRole(.navigationStack)
@@ -21,6 +26,7 @@ struct HomeView: View {
                 getToolBarView()
             }
         }
+        .navigationBarBackButtonHidden()
         .onAppear(perform: { homeViewModel.fetchKitchens() })
     }
     @ToolbarContentBuilder

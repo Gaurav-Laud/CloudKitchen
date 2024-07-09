@@ -6,7 +6,7 @@
 //
 
 import Foundation
-class KitchenModel: Codable {
+class KitchenModel: Codable, Identifiable {
     var _id: String
     var name: String
     var description: String

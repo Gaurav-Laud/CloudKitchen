@@ -17,7 +17,7 @@ struct CloudKitchenApp: App {
     @ViewBuilder
     private func getInitialeView() -> some View {
         if UserDefaultsUtility.getSignedInStatus() {
-            HomeView()
+            MainTabView()
         } else {
             WelcomeViewController()
         }

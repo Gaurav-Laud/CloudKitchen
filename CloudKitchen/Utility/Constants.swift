@@ -39,6 +39,8 @@ struct Constants {
     static let magnifying_glass = "magnifyingglass"
     static let home_heart = "HomeHeart"
     static let star_fill = "star.fill"
+    static let order_tab_image = "OrderTabImage"
+    static let profile_tab_image = "ProfileTabImage"
     
     // Font names
     static let times_new_roman = "Times New Roman"

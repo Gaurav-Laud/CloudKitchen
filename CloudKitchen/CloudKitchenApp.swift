@@ -11,6 +11,14 @@ import SwiftUI
 struct CloudKitchenApp: App {
     var body: some Scene {
         WindowGroup {
+            getInitialeView()
+        }
+    }
+    @ViewBuilder
+    private func getInitialeView() -> some View {
+        if UserDefaultsUtility.getSignedInStatus() {
+            HomeView()
+        } else {
             WelcomeViewController()
         }
     }

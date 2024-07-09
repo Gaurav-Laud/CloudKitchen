@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WelcomeViewController: View {
-    @State var navigateToLogin: Bool = false
+    @State private var navigateToLogin: Bool = false
     var body: some View {
         NavigationStack {
             GeometryReader { geometry in

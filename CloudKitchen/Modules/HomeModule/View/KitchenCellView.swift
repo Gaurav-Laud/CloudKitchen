@@ -23,7 +23,7 @@ struct KitchenCellView: View {
             .background(.white)
             .clipShape(RoundedRectangle(cornerRadius: 16))
             .shadow(radius: 5)
-            .padding()
+//            .padding()
     }
     @ViewBuilder
     private func getBottomView() -> some View {

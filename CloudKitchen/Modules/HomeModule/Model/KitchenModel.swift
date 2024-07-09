@@ -97,7 +97,16 @@ class LocationModel: Codable {
     var state: String
     var pincode: String
     var country: String
-    
+    var coordinates: (Double, Double)?
+    private enum CodingKeys: String, CodingKey {
+        case houseNo
+        case addressLine1
+        case addressLine2
+        case city
+        case state
+        case pincode
+        case country
+    }
     required init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.houseNo = try container.decodeIfPresent(String.self, forKey: .houseNo) ?? ""

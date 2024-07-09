@@ -9,7 +9,24 @@ import SwiftUI
 
 struct MainTabView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TabView() {
+            HomeView()
+                .tabItem {
+                    Label("Order", image: ImageResource(name: Constants.order_tab_image, bundle: Bundle.main))
+                }
+            WelcomeViewController()
+                .tabItem {
+                    Label("Profile", image: ImageResource(name: Constants.profile_tab_image, bundle: Bundle.main))
+                }
+        }
+        .tint(.yellow)
+    }
+    @ViewBuilder
+    private func getTabItem(title: String, image: Image, tintColour: Color? = nil) -> some View {
+        VStack {
+            image
+            CloudLabel(text: title, textColor: .yellow)
+        }
     }
 }
 

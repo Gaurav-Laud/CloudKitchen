@@ -27,6 +27,7 @@ struct Constants {
     static let resend_OTP = "Resend OTP?"
     static let resend_OTP_in = "Resend OTP in"
     static let kitchens_around_you = "Kitchens around you"
+    static let starts_from = "Starts from"
     
     // Resource names
     static let WelcomeBackgroundImage = "WelcomeBackgroundImage"
@@ -37,6 +38,7 @@ struct Constants {
     static let india_flag = "IndiaFlag"
     static let magnifying_glass = "magnifyingglass"
     static let home_heart = "HomeHeart"
+    static let star_fill = "star.fill"
     
     // Font names
     static let times_new_roman = "Times New Roman"

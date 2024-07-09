@@ -19,6 +19,7 @@ struct HomeView: View {
                         .listRowSeparator(.hidden)
                 }
                 .listStyle(.inset)
+                .scrollIndicators(.never)
                 Spacer()
             }
             .toolbarRole(.navigationStack)
@@ -35,6 +36,12 @@ struct HomeView: View {
             Image("HomeHeart", bundle: Bundle.main)
                 .resizable()
                 .frame(width: 31, height: 31)
+        })
+        ToolbarItem(placement: .topBarLeading, content: {
+            VStack(content: {
+                Text("\(homeViewModel.selectedLocation?.addressLine1 ?? "")")
+                Text("\(homeViewModel.selectedLocation?.addressLine2 ?? "")")
+            })
         })
     }
 }

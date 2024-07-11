@@ -36,6 +36,7 @@
 		EC9C3F8B2C3D63F80027D2A8 /* CloudLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9C3F8A2C3D63F80027D2A8 /* CloudLocationManager.swift */; };
 		EC9C3F952C3E98EA0027D2A8 /* KitchenDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9C3F942C3E98EA0027D2A8 /* KitchenDetailsView.swift */; };
 		EC9C3F972C3E99290027D2A8 /* KitchenDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9C3F962C3E99290027D2A8 /* KitchenDetailsViewModel.swift */; };
+		EC9C3F9A2C4028540027D2A8 /* KitchenDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9C3F992C4028540027D2A8 /* KitchenDetailsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		EC9C3F8A2C3D63F80027D2A8 /* CloudLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudLocationManager.swift; sourceTree = "<group>"; };
 		EC9C3F942C3E98EA0027D2A8 /* KitchenDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenDetailsView.swift; sourceTree = "<group>"; };
 		EC9C3F962C3E99290027D2A8 /* KitchenDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenDetailsViewModel.swift; sourceTree = "<group>"; };
+		EC9C3F992C4028540027D2A8 /* KitchenDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenDetailsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -315,6 +317,7 @@
 		EC9C3F912C3E98B10027D2A8 /* KitchenDetailsModule */ = {
 			isa = PBXGroup;
 			children = (
+				EC9C3F982C40283E0027D2A8 /* Model */,
 				EC9C3F932C3E98CB0027D2A8 /* ViewModel */,
 				EC9C3F922C3E98C60027D2A8 /* View */,
 			);
@@ -335,6 +338,14 @@
 				EC9C3F962C3E99290027D2A8 /* KitchenDetailsViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EC9C3F982C40283E0027D2A8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EC9C3F992C4028540027D2A8 /* KitchenDetailsModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -489,6 +500,7 @@
 				EC7314CE2C31BD3F0050B4A0 /* WelcomeViewController.swift in Sources */,
 				EC7314E02C342B4F0050B4A0 /* LoginViewModel.swift in Sources */,
 				EC9C3F8B2C3D63F80027D2A8 /* CloudLocationManager.swift in Sources */,
+				EC9C3F9A2C4028540027D2A8 /* KitchenDetailsModel.swift in Sources */,
 				EC7314D92C3302950050B4A0 /* APIHandler.swift in Sources */,
 				EC9813DD2C343E1B00E19F6D /* CloudTextField.swift in Sources */,
 				EC9813F32C38711000E19F6D /* Extensions.swift in Sources */,

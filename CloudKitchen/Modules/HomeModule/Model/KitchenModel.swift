@@ -131,10 +131,34 @@ class LocationModel: Codable {
 class MealModel: Codable {
     var _id: String
     var name: String
-    
+    var description: String
+    var badges: [String]
+    var images: [String]
+    var price: Float
+    var weeklySubscriptionCost: Float
+    var monthlySubscriptionCost: Float
+    var ratingModel: RatingModel?
+    private enum CodingKeys: String, CodingKey {
+        case _id
+        case name
+        case description
+        case badges
+        case images
+        case price
+        case weeklySubscriptionCost
+        case monthlySubscriptionCost
+        case ratingModel = "rating"
+    }
     required init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self._id = try container.decode(String.self, forKey: ._id)
         self.name = try container.decodeIfPresent(String.self, forKey: .name) ?? ""
+        self.description = try container.decodeIfPresent(String.self, forKey: .description) ?? ""
+        self.badges = try container.decodeIfPresent([String].self, forKey: .badges) ?? []
+        self.images = try container.decodeIfPresent([String].self, forKey: .images) ?? []
+        self.price = try container.decodeIfPresent(Float.self, forKey: .price) ?? 0
+        self.weeklySubscriptionCost = try container.decodeIfPresent(Float.self, forKey: .weeklySubscriptionCost) ?? 0
+        self.monthlySubscriptionCost = try container.decodeIfPresent(Float.self, forKey: .monthlySubscriptionCost) ?? 0
+        self.ratingModel = try container.decodeIfPresent(RatingModel.self, forKey: .ratingModel)
     }
 }

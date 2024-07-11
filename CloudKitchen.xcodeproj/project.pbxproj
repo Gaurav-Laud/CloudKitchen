@@ -34,6 +34,8 @@
 		EC9813FB2C3A786B00E19F6D /* KitchenCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9813FA2C3A786B00E19F6D /* KitchenCellView.swift */; };
 		EC9C3F892C3D48600027D2A8 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9C3F882C3D48600027D2A8 /* MainTabView.swift */; };
 		EC9C3F8B2C3D63F80027D2A8 /* CloudLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9C3F8A2C3D63F80027D2A8 /* CloudLocationManager.swift */; };
+		EC9C3F952C3E98EA0027D2A8 /* KitchenDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9C3F942C3E98EA0027D2A8 /* KitchenDetailsView.swift */; };
+		EC9C3F972C3E99290027D2A8 /* KitchenDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9C3F962C3E99290027D2A8 /* KitchenDetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,8 @@
 		EC9C3F862C3D1F700027D2A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		EC9C3F882C3D48600027D2A8 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		EC9C3F8A2C3D63F80027D2A8 /* CloudLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudLocationManager.swift; sourceTree = "<group>"; };
+		EC9C3F942C3E98EA0027D2A8 /* KitchenDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenDetailsView.swift; sourceTree = "<group>"; };
+		EC9C3F962C3E99290027D2A8 /* KitchenDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenDetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +180,7 @@
 		EC7314CB2C31BCB00050B4A0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				EC9C3F912C3E98B10027D2A8 /* KitchenDetailsModule */,
 				EC9C3F872C3D48450027D2A8 /* MainTabView */,
 				EC9813EB2C381BA900E19F6D /* HomeModule */,
 				EC7314DA2C342AB30050B4A0 /* LoginModule */,
@@ -305,6 +310,31 @@
 				EC9C3F882C3D48600027D2A8 /* MainTabView.swift */,
 			);
 			path = MainTabView;
+			sourceTree = "<group>";
+		};
+		EC9C3F912C3E98B10027D2A8 /* KitchenDetailsModule */ = {
+			isa = PBXGroup;
+			children = (
+				EC9C3F932C3E98CB0027D2A8 /* ViewModel */,
+				EC9C3F922C3E98C60027D2A8 /* View */,
+			);
+			path = KitchenDetailsModule;
+			sourceTree = "<group>";
+		};
+		EC9C3F922C3E98C60027D2A8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EC9C3F942C3E98EA0027D2A8 /* KitchenDetailsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EC9C3F932C3E98CB0027D2A8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EC9C3F962C3E99290027D2A8 /* KitchenDetailsViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -447,6 +477,7 @@
 			files = (
 				EC9813F92C395E5F00E19F6D /* HomeViewModel.swift in Sources */,
 				EC9813EA2C37E40100E19F6D /* CloudKitchenUtility.swift in Sources */,
+				EC9C3F972C3E99290027D2A8 /* KitchenDetailsViewModel.swift in Sources */,
 				EC9813EE2C381C0A00E19F6D /* HomeView.swift in Sources */,
 				EC9813DF2C36285300E19F6D /* OTPVerificationScreen.swift in Sources */,
 				EC7314D42C32F7850050B4A0 /* Constants.swift in Sources */,
@@ -461,6 +492,7 @@
 				EC7314D92C3302950050B4A0 /* APIHandler.swift in Sources */,
 				EC9813DD2C343E1B00E19F6D /* CloudTextField.swift in Sources */,
 				EC9813F32C38711000E19F6D /* Extensions.swift in Sources */,
+				EC9C3F952C3E98EA0027D2A8 /* KitchenDetailsView.swift in Sources */,
 				EC9813E12C362F2200E19F6D /* CloudLabel.swift in Sources */,
 				EC7314A22C31AA820050B4A0 /* CloudKitchenApp.swift in Sources */,
 				EC9813E82C37D26300E19F6D /* UserModel.swift in Sources */,

@@ -12,11 +12,17 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                CloudTextField(inputString: $homeViewModel.searchString, image: "magnifyingglass")
+                CloudTextField(inputString: $homeViewModel.searchString, image: Constants.magnifying_glass)
                     .padding()
                 List($homeViewModel.kitchenModels, id: \._id) { kitchenModel in
-                    KitchenCellView(kitchenModel: kitchenModel.wrappedValue)
-                        .listRowSeparator(.hidden)
+                    ZStack {
+                        NavigationLink(destination: KitchenDetailsView(kitchenModel: kitchenModel.wrappedValue), label: {
+                            EmptyView()
+                        })
+                        KitchenCellView(kitchenModel: kitchenModel.wrappedValue)
+                    }
+                    .listRowSeparator(.hidden)
+                    .listRowBackground(Color.clear)
                 }
                 .listStyle(.inset)
                 .scrollIndicators(.never)
@@ -33,7 +39,7 @@ struct HomeView: View {
     @ToolbarContentBuilder
     private func getToolBarView() -> some ToolbarContent {
         ToolbarItem(placement: .topBarLeading, content: {
-            Image("HomeHeart", bundle: Bundle.main)
+            Image(Constants.home_heart, bundle: Bundle.main)
                 .resizable()
                 .frame(width: 31, height: 31)
         })

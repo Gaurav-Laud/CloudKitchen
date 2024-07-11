@@ -12,11 +12,13 @@ struct CloudLabel: View {
     var font: Font = .body
     var textColor: Color = .black
     var fontWeight: Font.Weight = .regular
+    var textAlignment: TextAlignment = .leading
     var body: some View {
         Text(text)
             .font(font)
             .foregroundStyle(textColor)
             .fontWeight(fontWeight)
+            .multilineTextAlignment(textAlignment)
     }
 }
 

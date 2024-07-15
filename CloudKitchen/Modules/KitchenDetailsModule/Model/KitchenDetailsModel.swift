@@ -30,6 +30,7 @@ class KitchenDetailsModel: Codable {
     var openingHours: String
     var paymentsAccepted: [String]
     var reviews: [ReviewModel]
+    var meals: [MealModel]
     
     required init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -56,6 +57,7 @@ class KitchenDetailsModel: Codable {
         self.openingHours = try container.decodeIfPresent(String.self, forKey: .openingHours) ?? ""
         self.paymentsAccepted = try container.decodeIfPresent([String].self, forKey: .paymentsAccepted) ?? []
         self.reviews = try container.decodeIfPresent([ReviewModel].self, forKey: .reviews) ?? []
+        self.meals = try container.decodeIfPresent([MealModel].self, forKey: .meals) ?? []
     }
 }
 

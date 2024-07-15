@@ -128,7 +128,7 @@ class LocationModel: Codable {
     }
 }
 
-class MealModel: Codable {
+class MealModel: Codable, Identifiable {
     var _id: String
     var name: String
     var description: String
@@ -138,6 +138,7 @@ class MealModel: Codable {
     var weeklySubscriptionCost: Float
     var monthlySubscriptionCost: Float
     var ratingModel: RatingModel?
+    var isAdded: Bool = false
     private enum CodingKeys: String, CodingKey {
         case _id
         case name

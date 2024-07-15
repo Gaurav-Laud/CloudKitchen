@@ -37,6 +37,7 @@
 		EC9C3F952C3E98EA0027D2A8 /* KitchenDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9C3F942C3E98EA0027D2A8 /* KitchenDetailsView.swift */; };
 		EC9C3F972C3E99290027D2A8 /* KitchenDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9C3F962C3E99290027D2A8 /* KitchenDetailsViewModel.swift */; };
 		EC9C3F9A2C4028540027D2A8 /* KitchenDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9C3F992C4028540027D2A8 /* KitchenDetailsModel.swift */; };
+		EC9C3F9C2C4301EF0027D2A8 /* MealCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9C3F9B2C4301EF0027D2A8 /* MealCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		EC9C3F942C3E98EA0027D2A8 /* KitchenDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenDetailsView.swift; sourceTree = "<group>"; };
 		EC9C3F962C3E99290027D2A8 /* KitchenDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenDetailsViewModel.swift; sourceTree = "<group>"; };
 		EC9C3F992C4028540027D2A8 /* KitchenDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenDetailsModel.swift; sourceTree = "<group>"; };
+		EC9C3F9B2C4301EF0027D2A8 /* MealCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -328,6 +330,7 @@
 			isa = PBXGroup;
 			children = (
 				EC9C3F942C3E98EA0027D2A8 /* KitchenDetailsView.swift */,
+				EC9C3F9B2C4301EF0027D2A8 /* MealCardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -487,6 +490,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC9813F92C395E5F00E19F6D /* HomeViewModel.swift in Sources */,
+				EC9C3F9C2C4301EF0027D2A8 /* MealCardView.swift in Sources */,
 				EC9813EA2C37E40100E19F6D /* CloudKitchenUtility.swift in Sources */,
 				EC9C3F972C3E99290027D2A8 /* KitchenDetailsViewModel.swift in Sources */,
 				EC9813EE2C381C0A00E19F6D /* HomeView.swift in Sources */,

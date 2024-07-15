@@ -15,10 +15,28 @@ class KitchenDetailsViewModel: ObservableObject {
         Task { @MainActor [weak self] in
             guard let self = self else { return }
             do {
-                self.kitchenDetailsModel = try await APIHandler.shared.makeFetchAPICall(KitchenDetailsModel.self, url: url)
+                let kitchenDetailsModel = try await APIHandler.shared.makeFetchAPICall(KitchenDetailsModel.self, url: url)
+                self.fetchKitchensDetailsSuccessResponse(kitchenDetailsModel: kitchenDetailsModel)
             } catch {
                 print("error while fetching kitchen details: \(error)")
             }
         }
+    }
+    private func fetchKitchensDetailsSuccessResponse(kitchenDetailsModel: KitchenDetailsModel) {
+        self.convertImageUrls(for: kitchenDetailsModel)
+        self.setupDefaultValues(kitchenDetailsModel: kitchenDetailsModel)
+        self.kitchenDetailsModel = kitchenDetailsModel
+    }
+    private func convertImageUrls(for kitchenDetailsModel: KitchenDetailsModel) {
+        kitchenDetailsModel.bannerImage = kitchenDetailsModel.bannerImage.replacingOccurrences(of: "http:", with: "https:")
+        let images = kitchenDetailsModel.images.map({ $0.replacingOccurrences(of: "http:", with: "https:") })
+        kitchenDetailsModel.images = images
+        kitchenDetailsModel.meals.forEach({
+            let mealImages = $0.images.map({ $0.replacingOccurrences(of: "http:", with: "https:") })
+            $0.images = mealImages
+        })
+    }
+    private func setupDefaultValues(kitchenDetailsModel: KitchenDetailsModel) {
+        kitchenDetailsModel.meals.first?.isAdded = true
     }
 }

@@ -28,6 +28,16 @@ struct Constants {
     static let resend_OTP_in = "Resend OTP in"
     static let kitchens_around_you = "Kitchens around you"
     static let starts_from = "Starts from"
+    static let view_plan = "View Plan"
+    static let veg = "Veg"
+    static let non_veg = "Non-Veg"
+    static let added = "Added"
+    static let add = "Add"
+    static let reviews = "Reviews"
+    static let weekly_subscription = "Weekly Subscription"
+    static let monthly_subscription = "Monthly Subscription"
+    static let meal = "Meal"
+    static let rupee_symbol = "\u{20B9}"
     
     // Resource names
     static let WelcomeBackgroundImage = "WelcomeBackgroundImage"
@@ -41,6 +51,12 @@ struct Constants {
     static let star_fill = "star.fill"
     static let order_tab_image = "OrderTabImage"
     static let profile_tab_image = "ProfileTabImage"
+    static let chevron_left = "chevron.left"
+    static let arrow_right = "arrow.right"
+    static let veg_symbol = "VegSymbol"
+    static let non_veg_symbol = "NonVegSymbol"
+    static let star = "star"
+    static let star_leadinghalf_filled = "star.leadinghalf.filled"
     
     // Font names
     static let times_new_roman = "Times New Roman"

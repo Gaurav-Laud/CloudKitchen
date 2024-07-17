@@ -128,6 +128,7 @@ class LocationModel: Codable {
     }
 }
 
+@Observable
 class MealModel: Codable, Identifiable {
     var _id: String
     var name: String
@@ -161,5 +162,21 @@ class MealModel: Codable, Identifiable {
         self.weeklySubscriptionCost = try container.decodeIfPresent(Float.self, forKey: .weeklySubscriptionCost) ?? 0
         self.monthlySubscriptionCost = try container.decodeIfPresent(Float.self, forKey: .monthlySubscriptionCost) ?? 0
         self.ratingModel = try container.decodeIfPresent(RatingModel.self, forKey: .ratingModel)
+    }
+    func encode(to encoder: any Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self._id, forKey: ._id)
+        try container.encode(self.name, forKey: .name)
+        try container.encode(self.description, forKey: .description)
+        try container.encode(self.badges, forKey: .badges)
+        try container.encode(self.images, forKey: .images)
+        try container.encode(self.price, forKey: .price)
+        try container.encode(self.weeklySubscriptionCost, forKey: .weeklySubscriptionCost)
+        try container.encode(self.monthlySubscriptionCost, forKey: .monthlySubscriptionCost)
+        try container.encode(self.ratingModel, forKey: .ratingModel)
+        try container.encode(self._id, forKey: ._id)
+        try container.encode(self.name, forKey: .name)
+        try container.encode(self.description, forKey: .description)
+        try container.encode(self.badges, forKey: .badges)
     }
 }

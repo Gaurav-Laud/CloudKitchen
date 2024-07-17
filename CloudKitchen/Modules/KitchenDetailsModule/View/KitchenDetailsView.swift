@@ -99,10 +99,11 @@ struct KitchenDetailsView: View {
     }
     @ViewBuilder
     func getMealListView() -> some View {
-        List(kitchenDetailsViewModel.kitchenDetailsModel?.meals ?? []) {
-            MealCardView(mealModel: $0)
+        List(kitchenDetailsViewModel.kitchenDetailsModel?.meals ?? []) { meal in
+            MealCardView(mealModel: meal)
                 .listRowSeparator(.hidden)
                 .listRowBackground(Color.clear)
+                .onTapGesture(perform: { kitchenDetailsViewModel.selectMeal(with: meal._id) })
         }
         .listStyle(.inset)
         .scrollIndicators(.never)

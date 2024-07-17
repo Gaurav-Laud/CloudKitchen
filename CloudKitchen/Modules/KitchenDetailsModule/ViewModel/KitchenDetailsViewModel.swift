@@ -39,4 +39,7 @@ class KitchenDetailsViewModel: ObservableObject {
     private func setupDefaultValues(kitchenDetailsModel: KitchenDetailsModel) {
         kitchenDetailsModel.meals.first?.isAdded = true
     }
+    func selectMeal(with id: String) {
+        kitchenDetailsModel?.meals.forEach({ $0.isAdded = $0._id == id })
+    }
 }

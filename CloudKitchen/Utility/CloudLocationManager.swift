@@ -8,13 +8,16 @@
 import Foundation
 import CoreLocation
 class CloudLocationManager: NSObject {
+    static let shared = CloudLocationManager()
     private let locationManager = CLLocationManager()
     private var didUpdateCallback: (((latitude: Double, longitude: Double)) -> Void)?
     func getLocation(_ callback: @escaping ((latitude: Double, longitude: Double)) -> Void) {
         locationManager.delegate = self
+        locationManager.requestAlwaysAuthorization()
         didUpdateCallback = callback
+        locationManager.startUpdatingLocation()
     }
-    func retreiveCityName(latitude: Double, longitude: Double, completionHandler: @escaping (LocationModel) -> Void) {
+    func getCityName(latitude: Double, longitude: Double, completionHandler: @escaping (LocationModel) -> Void) {
         CLGeocoder().reverseGeocodeLocation(CLLocation(latitude: latitude, longitude: longitude)) { (placeMarks, error) in
             if let placeMark = placeMarks?.first {
                 let geoLocation = LocationModel(with: placeMark)

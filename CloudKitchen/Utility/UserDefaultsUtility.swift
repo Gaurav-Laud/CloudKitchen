@@ -21,12 +21,19 @@ class UserDefaultsUtility {
         defaults.string(forKey: Constants.accessToken) ?? ""
     }
     static func setUser(_ userModel: UserModel) {
-        if let data = try? JSONEncoder().encode(userModel) {
-            defaults.setValue(data, forKey: Constants.userModel)
-        }
+        guard let data = try? JSONEncoder().encode(userModel) else { return }
+        defaults.setValue(data, forKey: Constants.userModel)
     }
     static func getUser() -> UserModel? {
         guard let data = defaults.value(forKey: Constants.userModel) as? Data else { return nil }
         return try? JSONDecoder().decode(UserModel.self, from: data)
+    }
+    static func setSelectedAddress(_ address: LocationModel) {
+        guard let data = try? JSONEncoder().encode(address) else { return }
+        defaults.setValue(data, forKey: Constants.selectedAddress)
+    }
+    static func getSelectedAddress() -> LocationModel? {
+        guard let data = defaults.value(forKey: Constants.selectedAddress) as? Data else { return nil }
+        return try? JSONDecoder().decode(LocationModel.self, from: data)
     }
 }

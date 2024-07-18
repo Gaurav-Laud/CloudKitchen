@@ -38,6 +38,7 @@ struct Constants {
     static let monthly_subscription = "Monthly Subscription"
     static let meal = "Meal"
     static let rupee_symbol = "\u{20B9}"
+    static let add_select_location = "Add/Select location"
     
     // Resource names
     static let WelcomeBackgroundImage = "WelcomeBackgroundImage"
@@ -57,6 +58,8 @@ struct Constants {
     static let non_veg_symbol = "NonVegSymbol"
     static let star = "star"
     static let star_leadinghalf_filled = "star.leadinghalf.filled"
+    static let xmark = "xmark"
+    static let plus_circle_fill = "plus.circle.fill"
     
     // Font names
     static let times_new_roman = "Times New Roman"
@@ -65,4 +68,5 @@ struct Constants {
     static let isSignedIn = "isSignedIn"
     static let accessToken = "accessToken"
     static let userModel = "userModel"
+    static let selectedAddress = "selectedAddress"
 }

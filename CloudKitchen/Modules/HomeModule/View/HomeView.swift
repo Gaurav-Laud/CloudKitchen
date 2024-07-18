@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject private var homeViewModel = HomeViewModel()
+    @State private var showAddressManagementView = false
     var body: some View {
         NavigationStack {
             VStack {
@@ -28,6 +29,7 @@ struct HomeView: View {
                 .scrollIndicators(.never)
                 Spacer()
             }
+            .navigationDestination(isPresented: $showAddressManagementView, destination: { AddressManagementView() })
             .toolbarRole(.navigationStack)
             .toolbar {
                 getToolBarView()
@@ -38,17 +40,23 @@ struct HomeView: View {
     }
     @ToolbarContentBuilder
     private func getToolBarView() -> some ToolbarContent {
-        ToolbarItem(placement: .topBarLeading, content: {
+        ToolbarItem(placement: .topBarLeading) {
             Image(Constants.home_heart, bundle: Bundle.main)
                 .resizable()
                 .frame(width: 31, height: 31)
-        })
-        ToolbarItem(placement: .topBarLeading, content: {
+                .onTapGesture {
+                    showAddressManagementView = true
+                }
+        }
+        ToolbarItem(placement: .topBarLeading) {
             VStack(content: {
-                Text("\(homeViewModel.selectedLocation?.addressLine1 ?? "")")
-                Text("\(homeViewModel.selectedLocation?.addressLine2 ?? "")")
+                Text("\(CloudKitchenUtility.shared.selectedAddress?.houseNo ?? "")")
+                Text("\(CloudKitchenUtility.shared.selectedAddress?.addressLine1 ?? "")")
             })
-        })
+            .onTapGesture {
+                showAddressManagementView = true
+            }
+        }
     }
 }
 

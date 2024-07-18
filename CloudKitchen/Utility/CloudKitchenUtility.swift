@@ -26,3 +26,16 @@ extension JSONDecoder {
         }
     }
 }
+
+class CloudKitchenUtility {
+    static let shared = CloudKitchenUtility()
+    var selectedAddress: LocationModel? {
+        set {
+            guard let address = newValue else { return }
+            UserDefaultsUtility.setSelectedAddress(address)
+        }
+        get {
+            UserDefaultsUtility.getSelectedAddress()
+        }
+    }
+}

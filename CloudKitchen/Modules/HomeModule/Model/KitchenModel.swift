@@ -88,8 +88,8 @@ class ReviewModel: Codable {
         self.user = try container.decode(UserModel.self, forKey: .user)
     }
 }
-
-class LocationModel: Codable {
+@Observable
+class LocationModel: Codable, Identifiable {
     var houseNo: String
     var addressLine1: String
     var addressLine2: String
@@ -98,6 +98,7 @@ class LocationModel: Codable {
     var pincode: String
     var country: String
     var coordinates: (Double, Double)?
+    var name: String?
     private enum CodingKeys: String, CodingKey {
         case houseNo
         case addressLine1
@@ -125,6 +126,16 @@ class LocationModel: Codable {
         self.state = ""
         self.pincode = ""
         self.country = ""
+    }
+    func encode(to encoder: any Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.houseNo, forKey: .houseNo)
+        try container.encode(self.addressLine1, forKey: .addressLine1)
+        try container.encode(self.addressLine2, forKey: .addressLine2)
+        try container.encode(self.city, forKey: .city)
+        try container.encode(self.state, forKey: .state)
+        try container.encode(self.pincode, forKey: .pincode)
+        try container.encode(self.country, forKey: .country)
     }
 }
 

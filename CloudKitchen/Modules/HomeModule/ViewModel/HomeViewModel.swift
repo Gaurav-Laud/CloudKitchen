@@ -9,7 +9,6 @@ import Foundation
 class HomeViewModel: ObservableObject {
     @Published var searchString: String = ""
     @Published var kitchenModels: [KitchenModel] = []
-    @Published var selectedLocation: LocationModel?
     
     func fetchKitchens() {
         Task { @MainActor [weak self] in

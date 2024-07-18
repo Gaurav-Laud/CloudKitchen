@@ -15,4 +15,8 @@ extension View {
                 AlertToast(type: .regular, title: title)
             })
     }
+    func roundCorners(_ radius: Float = 16) -> some View {
+        self
+            .clipShape(RoundedRectangle(cornerRadius: CGFloat(radius)))
+    }
 }

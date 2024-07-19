@@ -49,13 +49,16 @@ struct HomeView: View {
                 }
         }
         ToolbarItem(placement: .topBarLeading) {
-            VStack(content: {
+            VStack(alignment: .leading) {
                 Text("\(CloudKitchenUtility.shared.selectedAddress?.houseNo ?? "")")
                 Text("\(CloudKitchenUtility.shared.selectedAddress?.addressLine1 ?? "")")
-            })
+            }
             .onTapGesture {
                 showAddressManagementView = true
             }
+            .onReceive(NotificationCenter.default.publisher(for: CloudKitchenUtility.shared.addressNotificationKey), perform: { data in
+                homeViewModel.selectedAddress = data.userInfo?[CloudKitchenUtility.shared.addressNotificationKey.rawValue] as? LocationModel
+            })
         }
     }
 }

@@ -10,11 +10,12 @@ import Foundation
 class AddressManagementViewModel {
     var addresses: [LocationModel] = []
     var searchString: String = ""
-    func getLocation(_ completion: (LocationModel) -> Void) {
+    func getLocation(_ completion: @escaping (LocationModel) -> Void) {
         CloudLocationManager.shared.getLocation { [weak self] latitude, longitude in
-            guard let self = self else { return }
+            guard let _ = self else { return }
             CloudLocationManager.shared.getCityName(latitude: latitude, longitude: longitude) { location in
                 CloudKitchenUtility.shared.selectedAddress = location
+                completion(location)
             }
         }
     }

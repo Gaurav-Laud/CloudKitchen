@@ -29,10 +29,12 @@ extension JSONDecoder {
 
 class CloudKitchenUtility {
     static let shared = CloudKitchenUtility()
+    let addressNotificationKey = Notification.Name("addressNotificationKey")
     var selectedAddress: LocationModel? {
         set {
             guard let address = newValue else { return }
             UserDefaultsUtility.setSelectedAddress(address)
+            NotificationCenter.default.post(name: self.addressNotificationKey, object: nil, userInfo: [addressNotificationKey.rawValue: address])
         }
         get {
             UserDefaultsUtility.getSelectedAddress()

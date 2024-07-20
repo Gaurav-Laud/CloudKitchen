@@ -12,10 +12,12 @@ struct CloudTextField: View {
     var inputString: Binding<String>
     var keyboardType: UIKeyboardType = .default
     var image: String?
+    var onTextChange: ((String, String) -> Void) = { _, _ in }
     var body: some View {
         HStack {
             TextField(self.placeholder, text: inputString)
                 .keyboardType(keyboardType)
+                .onChange(of: inputString.wrappedValue, onTextChange)
             if let image = image {
                 Image(systemName: image)
                     .foregroundStyle(.secondary)

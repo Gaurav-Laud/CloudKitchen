@@ -40,6 +40,8 @@
 		EC9C3F9C2C4301EF0027D2A8 /* MealCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9C3F9B2C4301EF0027D2A8 /* MealCardView.swift */; };
 		EC9C3FA12C47AB620027D2A8 /* AddressManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9C3FA02C47AB620027D2A8 /* AddressManagementView.swift */; };
 		EC9C3FA52C47AC4A0027D2A8 /* AddressManagementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9C3FA42C47AC4A0027D2A8 /* AddressManagementViewModel.swift */; };
+		ECEF10372C4A4105008C9E00 /* AddAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEF10362C4A4105008C9E00 /* AddAddressView.swift */; };
+		ECEF10392C4A4A4C008C9E00 /* AddAddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEF10382C4A4A4C008C9E00 /* AddAddressViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +97,8 @@
 		EC9C3F9B2C4301EF0027D2A8 /* MealCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCardView.swift; sourceTree = "<group>"; };
 		EC9C3FA02C47AB620027D2A8 /* AddressManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressManagementView.swift; sourceTree = "<group>"; };
 		EC9C3FA42C47AC4A0027D2A8 /* AddressManagementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressManagementViewModel.swift; sourceTree = "<group>"; };
+		ECEF10362C4A4105008C9E00 /* AddAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressView.swift; sourceTree = "<group>"; };
+		ECEF10382C4A4A4C008C9E00 /* AddAddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -369,6 +373,7 @@
 			isa = PBXGroup;
 			children = (
 				EC9C3FA02C47AB620027D2A8 /* AddressManagementView.swift */,
+				ECEF10362C4A4105008C9E00 /* AddAddressView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -377,6 +382,7 @@
 			isa = PBXGroup;
 			children = (
 				EC9C3FA42C47AC4A0027D2A8 /* AddressManagementViewModel.swift */,
+				ECEF10382C4A4A4C008C9E00 /* AddAddressViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -528,6 +534,7 @@
 				EC9813DF2C36285300E19F6D /* OTPVerificationScreen.swift in Sources */,
 				EC7314D42C32F7850050B4A0 /* Constants.swift in Sources */,
 				EC9C3FA52C47AC4A0027D2A8 /* AddressManagementViewModel.swift in Sources */,
+				ECEF10392C4A4A4C008C9E00 /* AddAddressViewModel.swift in Sources */,
 				EC9C3F892C3D48600027D2A8 /* MainTabView.swift in Sources */,
 				EC9813F72C395E3700E19F6D /* KitchenModel.swift in Sources */,
 				EC7314DE2C342B140050B4A0 /* LoginView.swift in Sources */,
@@ -539,6 +546,7 @@
 				EC9C3F9A2C4028540027D2A8 /* KitchenDetailsModel.swift in Sources */,
 				EC7314D92C3302950050B4A0 /* APIHandler.swift in Sources */,
 				EC9813DD2C343E1B00E19F6D /* CloudTextField.swift in Sources */,
+				ECEF10372C4A4105008C9E00 /* AddAddressView.swift in Sources */,
 				EC9813F32C38711000E19F6D /* Extensions.swift in Sources */,
 				EC9C3F952C3E98EA0027D2A8 /* KitchenDetailsView.swift in Sources */,
 				EC9813E12C362F2200E19F6D /* CloudLabel.swift in Sources */,

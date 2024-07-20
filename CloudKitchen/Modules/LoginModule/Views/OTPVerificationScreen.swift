@@ -48,7 +48,7 @@ struct OTPVerificationScreen: View {
                     }
                 }
             }
-            .navigationDestination(isPresented: $navigateToHome, destination: { HomeView() })
+            .navigationDestination(isPresented: $navigateToHome, destination: { MainTabView() })
         }
     }
     @ViewBuilder

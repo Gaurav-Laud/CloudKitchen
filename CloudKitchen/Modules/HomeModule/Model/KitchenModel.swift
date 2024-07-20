@@ -98,7 +98,9 @@ class LocationModel: Codable, Identifiable {
     var pincode: String
     var country: String
     var coordinates: (Double, Double)?
-    var name: String?
+    var type: String?
+    var fullName: String
+    var phoneNumber: String
     private enum CodingKeys: String, CodingKey {
         case houseNo
         case addressLine1
@@ -107,6 +109,9 @@ class LocationModel: Codable, Identifiable {
         case state
         case pincode
         case country
+        case type
+        case fullName
+        case phoneNumber
     }
     required init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -117,6 +122,9 @@ class LocationModel: Codable, Identifiable {
         self.state = try container.decodeIfPresent(String.self, forKey: .state) ?? ""
         self.pincode = try container.decodeIfPresent(String.self, forKey: .pincode) ?? ""
         self.country = try container.decodeIfPresent(String.self, forKey: .country) ?? ""
+        self.type = try container.decodeIfPresent(String.self, forKey: .type) ?? ""
+        self.fullName = try container.decodeIfPresent(String.self, forKey: .fullName) ?? ""
+        self.phoneNumber = try container.decodeIfPresent(String.self, forKey: .phoneNumber) ?? ""
     }
     init() {
         self.houseNo = ""
@@ -126,6 +134,21 @@ class LocationModel: Codable, Identifiable {
         self.state = ""
         self.pincode = ""
         self.country = ""
+        self.type = ""
+        self.fullName = ""
+        self.phoneNumber = ""
+    }
+    init(houseNo: String = "", addressLine1: String = "", addressLine2: String = "", city: String = "", state: String = "", pincode: String = "", country: String = "", type: String = "", fullName: String = "", phoneNumber: String = "") {
+        self.houseNo = houseNo
+        self.addressLine1 = addressLine1
+        self.addressLine2 = addressLine2
+        self.city = city
+        self.state = state
+        self.pincode = pincode
+        self.country = country
+        self.type = type
+        self.fullName = fullName
+        self.phoneNumber = phoneNumber  
     }
     func encode(to encoder: any Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
@@ -136,6 +159,9 @@ class LocationModel: Codable, Identifiable {
         try container.encode(self.state, forKey: .state)
         try container.encode(self.pincode, forKey: .pincode)
         try container.encode(self.country, forKey: .country)
+        try container.encode(self.type, forKey: .type)
+        try container.encode(self.fullName, forKey: .fullName)
+        try container.encode(self.phoneNumber, forKey: .phoneNumber)
     }
 }
 

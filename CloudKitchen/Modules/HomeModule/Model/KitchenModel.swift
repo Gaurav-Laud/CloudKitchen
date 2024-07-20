@@ -101,6 +101,7 @@ class LocationModel: Codable, Identifiable {
     var type: String?
     var fullName: String
     var phoneNumber: String
+    var isSelected: Bool = false
     private enum CodingKeys: String, CodingKey {
         case houseNo
         case addressLine1

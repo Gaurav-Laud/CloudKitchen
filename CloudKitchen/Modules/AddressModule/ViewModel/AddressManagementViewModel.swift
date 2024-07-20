@@ -35,4 +35,10 @@ class AddressManagementViewModel {
         guard !searchTerm.isEmpty else { return addresses }
         return addresses.filter({ $0.fullName.contains(searchTerm) })
     }
+    func selectAddress(_ address: LocationModel) {
+        addresses.forEach({ $0.isSelected = $0.id == address.id })
+    }
+    func setGlobalSelectedAddress() {
+        CloudKitchenUtility.shared.selectedAddress = addresses.filter({ $0.isSelected }).first
+    }
 }

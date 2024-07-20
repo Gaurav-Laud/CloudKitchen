@@ -69,11 +69,17 @@ struct AddressManagementView: View {
         .padding()
         .background(.white)
         .roundCorners()
-        .shadow(radius: 5)
+        .shadow(color: .yellow, radius: 5)
+        .onTapGesture {
+            addressManagementViewModel.selectAddress(address)
+        }
     }
     @ViewBuilder
     private func getBottomButton() -> some View {
-        CloudButton(title: "USE THIS ADDRESS")
+        CloudButton(title: "USE THIS ADDRESS", action: {
+            addressManagementViewModel.setGlobalSelectedAddress()
+            dismiss()
+        })
     }
     @ToolbarContentBuilder
     private func getToolbarView() -> some ToolbarContent {

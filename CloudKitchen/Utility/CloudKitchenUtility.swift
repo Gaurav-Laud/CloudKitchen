@@ -26,6 +26,17 @@ extension JSONDecoder {
         }
     }
 }
+extension JSONEncoder {
+    public static func fromModelToJSON<T: Codable>(_ object: T) throws -> Any? {
+        do {
+            let data = try JSONEncoder().encode(object)
+            return try JSONSerialization.jsonObject(with: data)
+        } catch {
+            print("error encoding \(String(describing: T.self)): \(error)");
+            throw error
+        }
+    }
+}
 
 class CloudKitchenUtility {
     static let shared = CloudKitchenUtility()

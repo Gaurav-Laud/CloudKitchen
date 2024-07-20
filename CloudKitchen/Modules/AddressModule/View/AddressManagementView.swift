@@ -10,9 +10,13 @@ import SwiftUI
 struct AddressManagementView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var addressManagementViewModel = AddressManagementViewModel()
+    @State private var presentAddView = false
     var body: some View {
         VStack(alignment: .leading, spacing: 25) {
-            CloudTextField(placeholder: "Search area, town, city.....", inputString: $addressManagementViewModel.searchString, image: Constants.magnifying_glass)
+            CloudTextField(placeholder: "Search area, town, city.....", inputString: $addressManagementViewModel.searchString, image: Constants.magnifying_glass, onTextChange: { _, searchString in
+                addressManagementViewModel.searchString = searchString
+                addressManagementViewModel.displayAddresses = addressManagementViewModel.getSearchResults(for: addressManagementViewModel.searchString)
+            })
             getMyLocationView()
             CloudLabel(text: Constants.add_select_location, font: .title2, fontWeight: .bold, textAlignment: .leading)
             getAddressGridView()
@@ -22,6 +26,11 @@ struct AddressManagementView: View {
         .padding()
         .toolbar { getToolbarView() }
         .navigationBarBackButtonHidden()
+        .sheet(isPresented: $presentAddView, content: { AddAddressView() })
+        .onAppear {
+            guard let userId = UserDefaultsUtility.getUser()?.id else { return }
+            addressManagementViewModel.fetchAddresses(for: userId)
+        }
     }
     @ViewBuilder
     private func getMyLocationView() -> some View {
@@ -46,7 +55,7 @@ struct AddressManagementView: View {
     @ViewBuilder
     private func getAddressGridView() -> some View {
         LazyVGrid(columns: [GridItem(), GridItem()], spacing: 8) {
-            ForEach(addressManagementViewModel.addresses) {
+            ForEach(addressManagementViewModel.displayAddresses) {
                 getAddressView(address: $0)
             }
         }
@@ -54,9 +63,10 @@ struct AddressManagementView: View {
     @ViewBuilder
     private func getAddressView(address: LocationModel) -> some View {
         VStack(alignment: .leading) {
-            CloudLabel(text: address.name ?? "", font: .title3, textAlignment: .leading)
+            CloudLabel(text: address.fullName, font: .title3, textAlignment: .leading)
             CloudLabel(text: "\(address.houseNo), \(address.addressLine1)", font: .footnote, textAlignment: .leading)
         }
+        .padding()
         .background(.white)
         .roundCorners()
         .shadow(radius: 5)
@@ -77,7 +87,7 @@ struct AddressManagementView: View {
             CloudLabel(text: Constants.add_select_location, fontWeight: .bold, textAlignment: .leading)
         }
         ToolbarItem(placement: .topBarTrailing) {
-            Button(action: { dismiss() }, label: {
+            Button(action: { presentAddView = true }, label: {
                 Image(systemName: "plus.circle.fill")
                     .tint(.yellow)
             })

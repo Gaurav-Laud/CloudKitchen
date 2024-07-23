@@ -36,45 +36,53 @@ class APIHandler {
     
     func makeFetchAPICall<T: Codable>(_ type: T.Type, url: String, parameters: [String: Any]? = nil) async throws -> T {
         let request = try prepareURLRequest(url: url, parameters: parameters, httpMethod: .get)
-        let (data, _) = try await URLSession.shared.data(for: request)
-        if type == [String: Any].self || type == [Any].self {
-            return try JSONSerialization.jsonObject(with: data) as! T
-        } else {
-            return try dataToModel(type, data)
+        let (data, response) = try await URLSession.shared.data(for: request)
+        guard let response = response as? HTTPURLResponse else { throw URLError(.badServerResponse) }
+        guard (200..<300).contains(response.statusCode) else {
+            let responseData = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
+            print("error response while GET API: \(responseData ?? [:])")
+            throw URLError(URLError.Code(rawValue: response.statusCode))
         }
+        return try dataToModel(type, data)
     }
     
     func makePostAPICall<T: Codable>(_ type: T.Type? = nil, url: String, parameters: [String: Any]? = nil) async throws -> T? {
         let request = try prepareURLRequest(url: url, parameters: parameters, httpMethod: .post)
-        let (data, _) = try await URLSession.shared.data(for: request)
-        guard let type = type else { return nil }
-        if type == [String: Any].self || type == [Any].self {
-            return try JSONSerialization.jsonObject(with: data) as? T
-        } else {
-            return try dataToModel(type, data)
+        let (data, response) = try await URLSession.shared.data(for: request)
+        guard let response = response as? HTTPURLResponse else { throw URLError(.badServerResponse) }
+        guard (200..<300).contains(response.statusCode) else {
+            let responseData = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
+            print("error response while POST API: \(responseData ?? [:])")
+            throw URLError(URLError.Code(rawValue: response.statusCode))
         }
+        guard let type = type else { return nil }
+        return try dataToModel(type, data)
     }
     
     func makePutAPICall<T: Codable>(_ type: T.Type? = nil, url: String, parameters: [String: Any]? = nil) async throws -> T? {
         let request = try prepareURLRequest(url: url, parameters: parameters, httpMethod: .put)
-        let (data, _) = try await URLSession.shared.data(for: request)
-        guard let type = type else { return nil }
-        if type == [String: Any].self || type == [Any].self {
-            return try JSONSerialization.jsonObject(with: data) as? T
-        } else {
-            return try dataToModel(type, data)
+        let (data, response) = try await URLSession.shared.data(for: request)
+        guard let response = response as? HTTPURLResponse else { throw URLError(.badServerResponse) }
+        guard (200..<300).contains(response.statusCode) else {
+            let responseData = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
+            print("error response while POST API: \(responseData ?? [:])")
+            throw URLError(URLError.Code(rawValue: response.statusCode))
         }
+        guard let type = type else { return nil }
+        return try dataToModel(type, data)
     }
     
     func makeDeleteAPICall<T: Codable>(_ type: T.Type? = nil, url: String, parameters: [String: Any]? = nil) async throws -> T? {
         let request = try prepareURLRequest(url: url, parameters: parameters, httpMethod: .delete)
-        let (data, _) = try await URLSession.shared.data(for: request)
-        guard let type = type else { return nil }
-        if type == [String: Any].self || type == [Any].self {
-            return try JSONSerialization.jsonObject(with: data) as? T
-        } else {
-            return try dataToModel(type, data)
+        let (data, response) = try await URLSession.shared.data(for: request)
+        guard let response = response as? HTTPURLResponse else { throw URLError(.badServerResponse) }
+        guard (200..<300).contains(response.statusCode) else {
+            let responseData = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
+            print("error response while POST API: \(responseData ?? [:])")
+            throw URLError(URLError.Code(rawValue: response.statusCode))
         }
+        guard let type = type else { return nil }
+        return try dataToModel(type, data)
     }
     
     func requestOTP(url: String, mobileNumber: String) async throws -> [String: Any]? {

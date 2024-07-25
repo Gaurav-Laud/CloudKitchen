@@ -36,7 +36,7 @@ struct OTPVerificationScreen: View {
                 .padding(.leading, 30)
             HStack {
                 Spacer()
-                self.resendButton(isEnabled: $loginViewModel.timer.wrappedValue == nil, time: loginViewModel.minTimeLimit - $loginViewModel.time.wrappedValue)
+                self.resendButton(isEnabled: loginViewModel.timer == nil, time: loginViewModel.minTimeLimit - loginViewModel.time)
             }
             CloudButton(title: Constants.verify, isTextCaps: true) {
                 loginViewModel.verifyOTP(loginViewModel.otp) { _ in }

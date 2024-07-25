@@ -13,15 +13,18 @@ class AddressManagementViewModel {
     var searchString: String = ""
     func getLocation(_ completion: @escaping (LocationModel) -> Void) {
         CloudLocationManager.shared.getLocation { [weak self] latitude, longitude in
-            guard let _ = self else { return }
+            guard let self = self else { return }
             CloudLocationManager.shared.getCityName(latitude: latitude, longitude: longitude) { location in
                 CloudKitchenUtility.shared.selectedAddress = location
+                self.addresses.append(location)
+                self.postAddress(locationModel: location)
                 completion(location)
             }
         }
     }
     func fetchAddresses(for userId: String) {
-        Task {
+        Task { [weak self] in
+            guard let self = self else { return }
             do {
                 let userInfo = try await APIHandler.shared.makeFetchAPICall(UserModel.self, url: "https://whale-app-ct2dl.ondigitalocean.app/users/\(userId)")
                 self.addresses = userInfo.addresses
@@ -40,5 +43,19 @@ class AddressManagementViewModel {
     }
     func setGlobalSelectedAddress() {
         CloudKitchenUtility.shared.selectedAddress = addresses.filter({ $0.isSelected }).first
+    }
+    private func postAddress(locationModel: LocationModel) {
+        Task { [weak self] in
+            guard let self = self else { return }
+            do {
+                let userModel = UserDefaultsUtility.getUser()
+                userModel?.addresses = addresses
+                guard let userId = userModel?.id else { return }
+                guard let userDict = try JSONEncoder.fromModelToJSON(userModel?.addresses) as? [[String: Any]] else { return }
+                let user = try await APIHandler.shared.makePutAPICall(UserModel.self, url: "https://whale-app-ct2dl.ondigitalocean.app/users/\(userId)", parameters: ["addresses": userDict])
+            } catch {
+                print("Error while saving address: \(error)")
+            }
+        }
     }
 }

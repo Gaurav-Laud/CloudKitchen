@@ -20,6 +20,7 @@ struct MainTabView: View {
                 }
         }
         .tint(.yellow)
+        .navigationBarBackButtonHidden()
     }
     @ViewBuilder
     private func getTabItem(title: String, image: Image, tintColour: Color? = nil) -> some View {

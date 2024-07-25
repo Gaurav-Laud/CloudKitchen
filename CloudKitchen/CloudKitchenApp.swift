@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct CloudKitchenApp: App {
+    @State var rootViewManager = RootViewManager.shared
     var body: some Scene {
         WindowGroup {
             getInitialeView()
@@ -16,10 +17,18 @@ struct CloudKitchenApp: App {
     }
     @ViewBuilder
     private func getInitialeView() -> some View {
-        if UserDefaultsUtility.getSignedInStatus() {
+        if rootViewManager.isUserLoggedIn {
             MainTabView()
         } else {
             WelcomeViewController()
         }
+    }
+}
+@Observable
+class RootViewManager {
+    static let shared = RootViewManager()
+    var isUserLoggedIn: Bool
+    private init() {
+        isUserLoggedIn = UserDefaultsUtility.getSignedInStatus()
     }
 }

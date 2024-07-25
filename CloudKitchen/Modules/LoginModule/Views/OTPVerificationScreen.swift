@@ -9,18 +9,17 @@ import SwiftUI
 import OtpView_SwiftUI
 struct OTPVerificationScreen: View {
     @ObservedObject private var loginViewModel: LoginViewModel
-    @State private var navigateToHome: Bool = false
     init(loginViewModel: LoginViewModel) {
         self.loginViewModel = loginViewModel
     }
     var body: some View {
-            VStack(alignment: .leading) {
-                CloudLabel(text: Constants.verify.capitalized, font: .title, textColor: .red, fontWeight: .bold)
-                getNumberView()
-                Spacer()
-            }
-            .padding()
-            .onAppear(perform: { loginViewModel.setupTimer() })
+        VStack(alignment: .leading) {
+            CloudLabel(text: Constants.verify.capitalized, font: .title, textColor: .red, fontWeight: .bold)
+            getNumberView()
+            Spacer()
+        }
+        .padding()
+        .onAppear(perform: { loginViewModel.setupTimer() })
     }
     @ViewBuilder
     private func getNumberView() -> some View {
@@ -40,15 +39,8 @@ struct OTPVerificationScreen: View {
                 self.resendButton(isEnabled: $loginViewModel.timer.wrappedValue == nil, time: loginViewModel.minTimeLimit - $loginViewModel.time.wrappedValue)
             }
             CloudButton(title: Constants.verify, isTextCaps: true) {
-                loginViewModel.verifyOTP(loginViewModel.otp) { result in
-                    switch result {
-                    case .success(let isVerified):
-                        navigateToHome = isVerified
-                    case .failure(_): break
-                    }
-                }
+                loginViewModel.verifyOTP(loginViewModel.otp) { _ in }
             }
-            .navigationDestination(isPresented: $navigateToHome, destination: { MainTabView() })
         }
     }
     @ViewBuilder

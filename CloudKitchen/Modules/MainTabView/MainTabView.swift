@@ -10,14 +10,14 @@ import SwiftUI
 struct MainTabView: View {
     var body: some View {
         TabView() {
-            HomeView()
-                .tabItem {
-                    Label("Order", image: ImageResource(name: Constants.order_tab_image, bundle: Bundle.main))
-                }
-            WelcomeViewController()
-                .tabItem {
-                    Label("Profile", image: ImageResource(name: Constants.profile_tab_image, bundle: Bundle.main))
-                }
+            NavigationStack { HomeView() }
+            .tabItem {
+                Label("Order", image: ImageResource(name: Constants.order_tab_image, bundle: Bundle.main))
+            }
+            NavigationStack { Text("Profile") }
+            .tabItem {
+                Label("Profile", image: ImageResource(name: Constants.profile_tab_image, bundle: Bundle.main))
+            }
         }
         .tint(.yellow)
         .navigationBarBackButtonHidden()

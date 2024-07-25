@@ -50,6 +50,7 @@ class LoginViewModel: ObservableObject {
     }
     private func verificationSuccessResponce(_ isSuccess: Bool, with accessToken: String) {
         UserDefaultsUtility.setSignedInStatus(isSuccess)
+        RootViewManager.shared.isUserLoggedIn = isSuccess
         UserDefaultsUtility.setAccessToken(accessToken)
     }
     private func setUser(userModel: UserModel) {

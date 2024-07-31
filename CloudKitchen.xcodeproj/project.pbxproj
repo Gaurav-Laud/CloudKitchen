@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC68857E2C58150800A3A9A7 /* MealDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68857D2C58150800A3A9A7 /* MealDetailsViewModel.swift */; };
+		EC6885802C58163B00A3A9A7 /* MealDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68857F2C58163B00A3A9A7 /* MealDetailsView.swift */; };
+		EC6885822C581E2A00A3A9A7 /* MealDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6885812C581E2A00A3A9A7 /* MealDetailModel.swift */; };
+		EC6885842C5823FF00A3A9A7 /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6885832C5823FF00A3A9A7 /* MenuItemView.swift */; };
+		EC6885882C5A637300A3A9A7 /* PlanSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6885872C5A637300A3A9A7 /* PlanSelectionView.swift */; };
 		EC7314A22C31AA820050B4A0 /* CloudKitchenApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7314A12C31AA820050B4A0 /* CloudKitchenApp.swift */; };
 		EC7314A62C31AA830050B4A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC7314A52C31AA830050B4A0 /* Assets.xcassets */; };
 		EC7314A92C31AA830050B4A0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC7314A82C31AA830050B4A0 /* Preview Assets.xcassets */; };
@@ -62,6 +67,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EC68857D2C58150800A3A9A7 /* MealDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailsViewModel.swift; sourceTree = "<group>"; };
+		EC68857F2C58163B00A3A9A7 /* MealDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailsView.swift; sourceTree = "<group>"; };
+		EC6885812C581E2A00A3A9A7 /* MealDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailModel.swift; sourceTree = "<group>"; };
+		EC6885832C5823FF00A3A9A7 /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
+		EC6885872C5A637300A3A9A7 /* PlanSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanSelectionView.swift; sourceTree = "<group>"; };
 		EC73149E2C31AA820050B4A0 /* CloudKitchen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloudKitchen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC7314A12C31AA820050B4A0 /* CloudKitchenApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitchenApp.swift; sourceTree = "<group>"; };
 		EC7314A52C31AA830050B4A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -128,6 +138,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EC6885792C5814D700A3A9A7 /* MealDetailsModule */ = {
+			isa = PBXGroup;
+			children = (
+				EC68857C2C5814F300A3A9A7 /* Model */,
+				EC68857B2C5814EC00A3A9A7 /* View */,
+				EC68857A2C5814E300A3A9A7 /* ViewModel */,
+			);
+			path = MealDetailsModule;
+			sourceTree = "<group>";
+		};
+		EC68857A2C5814E300A3A9A7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EC68857D2C58150800A3A9A7 /* MealDetailsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EC68857B2C5814EC00A3A9A7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EC68857F2C58163B00A3A9A7 /* MealDetailsView.swift */,
+				EC6885832C5823FF00A3A9A7 /* MenuItemView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EC68857C2C5814F300A3A9A7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EC6885812C581E2A00A3A9A7 /* MealDetailModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EC6885852C5A634900A3A9A7 /* PlanSelectionModule */ = {
+			isa = PBXGroup;
+			children = (
+				EC6885862C5A636300A3A9A7 /* View */,
+			);
+			path = PlanSelectionModule;
+			sourceTree = "<group>";
+		};
+		EC6885862C5A636300A3A9A7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EC6885872C5A637300A3A9A7 /* PlanSelectionView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		EC7314952C31AA820050B4A0 = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +253,8 @@
 		EC7314CB2C31BCB00050B4A0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				EC6885852C5A634900A3A9A7 /* PlanSelectionModule */,
+				EC6885792C5814D700A3A9A7 /* MealDetailsModule */,
 				EC9C3F9F2C47AB390027D2A8 /* AddressModule */,
 				EC9C3F912C3E98B10027D2A8 /* KitchenDetailsModule */,
 				EC9C3F872C3D48450027D2A8 /* MainTabView */,
@@ -530,12 +593,15 @@
 				EC9813EA2C37E40100E19F6D /* CloudKitchenUtility.swift in Sources */,
 				EC9C3FA12C47AB620027D2A8 /* AddressManagementView.swift in Sources */,
 				EC9C3F972C3E99290027D2A8 /* KitchenDetailsViewModel.swift in Sources */,
+				EC6885882C5A637300A3A9A7 /* PlanSelectionView.swift in Sources */,
 				EC9813EE2C381C0A00E19F6D /* HomeView.swift in Sources */,
 				EC9813DF2C36285300E19F6D /* OTPVerificationScreen.swift in Sources */,
 				EC7314D42C32F7850050B4A0 /* Constants.swift in Sources */,
 				EC9C3FA52C47AC4A0027D2A8 /* AddressManagementViewModel.swift in Sources */,
+				EC6885822C581E2A00A3A9A7 /* MealDetailModel.swift in Sources */,
 				ECEF10392C4A4A4C008C9E00 /* AddAddressViewModel.swift in Sources */,
 				EC9C3F892C3D48600027D2A8 /* MainTabView.swift in Sources */,
+				EC6885842C5823FF00A3A9A7 /* MenuItemView.swift in Sources */,
 				EC9813F72C395E3700E19F6D /* KitchenModel.swift in Sources */,
 				EC7314DE2C342B140050B4A0 /* LoginView.swift in Sources */,
 				EC9813FB2C3A786B00E19F6D /* KitchenCellView.swift in Sources */,
@@ -546,6 +612,8 @@
 				EC9C3F9A2C4028540027D2A8 /* KitchenDetailsModel.swift in Sources */,
 				EC7314D92C3302950050B4A0 /* APIHandler.swift in Sources */,
 				EC9813DD2C343E1B00E19F6D /* CloudTextField.swift in Sources */,
+				EC68857E2C58150800A3A9A7 /* MealDetailsViewModel.swift in Sources */,
+				EC6885802C58163B00A3A9A7 /* MealDetailsView.swift in Sources */,
 				ECEF10372C4A4105008C9E00 /* AddAddressView.swift in Sources */,
 				EC9813F32C38711000E19F6D /* Extensions.swift in Sources */,
 				EC9C3F952C3E98EA0027D2A8 /* KitchenDetailsView.swift in Sources */,
@@ -713,9 +781,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CloudKitchen/Preview Content\"";
+				DEVELOPMENT_TEAM = U6UPZ8KCS7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Please provide location access to access your address";
@@ -733,6 +803,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = freelance.CloudKitchen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -744,9 +815,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CloudKitchen/Preview Content\"";
+				DEVELOPMENT_TEAM = U6UPZ8KCS7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Please provide location access to access your address";
@@ -764,6 +837,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = freelance.CloudKitchen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

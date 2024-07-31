@@ -10,6 +10,7 @@ import SwiftUI
 struct KitchenDetailsView: View {
     @Environment(\.dismiss) private var dismiss
     @ObservedObject private var kitchenDetailsViewModel = KitchenDetailsViewModel()
+    @State var presentMealDetailsView: Bool = false
     init(kitchenModel: KitchenModel? = nil) {
         self.kitchenDetailsViewModel.kitchenModel = kitchenModel
     }
@@ -20,6 +21,7 @@ struct KitchenDetailsView: View {
             self.getMealListView()
             self.getBottomButton()
         }
+        .navigationDestination(isPresented: $presentMealDetailsView, destination: { MealDetailsView(mealId: kitchenDetailsViewModel.kitchenDetailsModel?.meals.filter({ $0.isAdded }).first?._id ?? "") })
         .toolbar { getToolbarView() }
         .toolbar(.visible, for: .navigationBar)
         .toolbar(.hidden, for: .tabBar)
@@ -80,8 +82,9 @@ struct KitchenDetailsView: View {
     }
     @ViewBuilder
     private func getBottomButton() -> some View {
-        let title = kitchenDetailsViewModel.kitchenDetailsModel?.meals.first(where: { $0.isAdded })?.name ?? ""
-        Button(action: { }, label: {
+        let selectedMeal = kitchenDetailsViewModel.kitchenDetailsModel?.meals.first(where: { $0.isAdded })
+        let title = selectedMeal?.name ?? ""
+        Button(action: { presentMealDetailsView = true }, label: {
             HStack {
                 Text(title)
                 Spacer()

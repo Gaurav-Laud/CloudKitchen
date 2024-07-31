@@ -52,7 +52,7 @@ class AddressManagementViewModel {
                 userModel?.addresses = addresses
                 guard let userId = userModel?.id else { return }
                 guard let userDict = try JSONEncoder.fromModelToJSON(userModel?.addresses) as? [[String: Any]] else { return }
-                let user = try await APIHandler.shared.makePutAPICall(UserModel.self, url: "https://whale-app-ct2dl.ondigitalocean.app/users/\(userId)", parameters: ["addresses": userDict])
+                let _ = try await APIHandler.shared.makePutAPICall(UserModel.self, url: "https://whale-app-ct2dl.ondigitalocean.app/users/\(userId)", parameters: ["addresses": userDict])
             } catch {
                 print("Error while saving address: \(error)")
             }

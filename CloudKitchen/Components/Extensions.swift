@@ -19,4 +19,11 @@ extension View {
         self
             .clipShape(RoundedRectangle(cornerRadius: CGFloat(radius)))
     }
+    func addBorder(cornerRadius: CGFloat = 16, borderColor: Color = .yellow, width: CGFloat = 2) -> some View {
+        self
+            .overlay(
+                RoundedRectangle(cornerRadius: cornerRadius)
+                    .stroke(borderColor, lineWidth: width)
+            )
+    }
 }

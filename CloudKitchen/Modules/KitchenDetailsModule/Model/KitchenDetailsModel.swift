@@ -56,7 +56,7 @@ class KitchenDetailsModel: Codable {
         self.thumbUrl = try container.decodeIfPresent(String.self, forKey: .thumbUrl) ?? ""
         self.openingHours = try container.decodeIfPresent(String.self, forKey: .openingHours) ?? ""
         self.paymentsAccepted = try container.decodeIfPresent([String].self, forKey: .paymentsAccepted) ?? []
-        self.reviews = try container.decodeIfPresent([ReviewModel].self, forKey: .reviews) ?? []
+        self.reviews = try container.decodeIfPresent([KitchenReviewModel].self, forKey: .reviews) ?? []
         self.meals = try container.decodeIfPresent([MealModel].self, forKey: .meals) ?? []
     }
 }

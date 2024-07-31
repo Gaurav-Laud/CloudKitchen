@@ -14,7 +14,7 @@ class KitchenModel: Codable, Identifiable {
     var availablePlans: [PlanModel]
     var avgRating: Float
     var noOfRatings: Int
-    var reviews: [ReviewModel]
+    var reviews: [KitchenReviewModel]
     var images: [String]
     var location: LocationModel
     var badges: [String]
@@ -36,7 +36,7 @@ class KitchenModel: Codable, Identifiable {
         self.availablePlans = try container.decodeIfPresent([PlanModel].self, forKey: .availablePlans) ?? []
         self.avgRating = try container.decodeIfPresent(Float.self, forKey: .avgRating) ?? 0
         self.noOfRatings = try container.decodeIfPresent(Int.self, forKey: .noOfRatings) ?? 0
-        self.reviews = try container.decodeIfPresent([ReviewModel].self, forKey: .reviews) ?? []
+        self.reviews = try container.decodeIfPresent([KitchenReviewModel].self, forKey: .reviews) ?? []
         self.images = try container.decodeIfPresent([String].self, forKey: .images) ?? []
         self.location = try container.decodeIfPresent(LocationModel.self, forKey: .location) ?? LocationModel()
         self.badges = try container.decodeIfPresent([String].self, forKey: .badges) ?? []
@@ -69,23 +69,40 @@ class PlanModel: Codable {
 class ReviewModel: Codable {
     var _id: String
     var comment: String
-    var kitchenId: String
     var feedback: String
     var rating: Float
     var createdAt: String
     var updatedAt: String
     var user: UserModel
-    
+    private enum CodingKeys: String, CodingKey {
+        case _id
+        case comment
+        case feedback
+        case rating
+        case createdAt
+        case updatedAt
+        case user
+    }
     required init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self._id = try container.decode(String.self, forKey: ._id)
         self.comment = try container.decodeIfPresent(String.self, forKey: .comment) ?? ""
-        self.kitchenId = try container.decodeIfPresent(String.self, forKey: .kitchenId) ?? ""
         self.feedback = try container.decodeIfPresent(String.self, forKey: .feedback) ?? ""
         self.rating = try container.decodeIfPresent(Float.self, forKey: .rating) ?? 0.0
         self.createdAt = try container.decodeIfPresent(String.self, forKey: .createdAt) ?? ""
         self.updatedAt = try container.decodeIfPresent(String.self, forKey: .updatedAt) ?? ""
         self.user = try container.decode(UserModel.self, forKey: .user)
+    }
+}
+class KitchenReviewModel: ReviewModel {
+    var kitchenId: String
+    private enum CodingKeys: String, CodingKey {
+        case kitchenId
+    }
+    required init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.kitchenId = try container.decodeIfPresent(String.self, forKey: .kitchenId) ?? ""
+        try super.init(from: decoder)
     }
 }
 @Observable

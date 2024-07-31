@@ -62,6 +62,7 @@ struct MealCardView: View {
             .padding(.vertical, 5)
             .background(background)
             .clipShape(RoundedRectangle(cornerRadius: 5))
+            .addBorder(cornerRadius: 5)
     }
     @ViewBuilder
     func getReviewView() -> some View {

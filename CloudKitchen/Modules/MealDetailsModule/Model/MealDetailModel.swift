@@ -14,7 +14,7 @@ class MealDetailModel: Codable {
     var images: [String]
     var ingredients: [String]
     var monthlyMenu: [String: [MenuItemModel]]
-    var monthlySubscriptionCost: Int
+    var monthlySubscriptionCost: Double
     var name: String
     var price: Double
     var status: String

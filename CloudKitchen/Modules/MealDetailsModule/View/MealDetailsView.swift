@@ -10,6 +10,7 @@ import SwiftUI
 struct MealDetailsView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var mealDetailsViewModel = MealDetailsViewModel()
+    @State private var presentPlanSelectionView = false
     init(mealId: String) {
         mealDetailsViewModel.mealId = mealId
     }
@@ -20,8 +21,9 @@ struct MealDetailsView: View {
             CloudLabel(text: mealDetailsViewModel.mealDetailModel?.description ?? "", font: .caption)
             CloudLabel(text: "Overview", font: .title2, fontWeight: .bold)
             getMenuView()
-            CloudButton(title: "Select Plan")
+           getBottomButton()
         }
+        .navigationDestination(isPresented: $presentPlanSelectionView, destination: { PlanSelectionView(mealDetailModel: mealDetailsViewModel.mealDetailModel) })
         .padding()
         .toolbar { getToolbarView() }
         .navigationBarBackButtonHidden()
@@ -79,6 +81,10 @@ struct MealDetailsView: View {
             })
             .tint(.black)
         }
+    }
+    @ViewBuilder
+    private func getBottomButton() -> some View {
+        CloudButton(title: "Select Plan", action: { presentPlanSelectionView = true })
     }
 }
 

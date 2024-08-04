@@ -9,6 +9,10 @@ import SwiftUI
 
 struct PlanSelectionView: View {
     @Environment(\.dismiss) private var dismiss
+    @State var planSelectionViewModel = PlanSelectionViewModel()
+    init(mealDetailModel: MealDetailModel?) {
+        self.planSelectionViewModel.mealDetailModel = mealDetailModel
+    }
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
             CloudLabel(text: "Select your Plan", font: .title, fontWeight: .bold, textAlignment: .leading)
@@ -36,8 +40,8 @@ struct PlanSelectionView: View {
         HStack {
             VStack(alignment: .leading, spacing: 4) {
                 CloudLabel(text: "Weekly Subscription", font: .title3)
-                CloudLabel(text: "(6 Meals)")
-                CloudLabel(text: "70/Meal", font: .title2, fontWeight: .bold)
+                CloudLabel(text: "(5 Meals)")
+                CloudLabel(text: "\(Constants.rupee_symbol) \(planSelectionViewModel.mealDetailModel?.weeklySubscriptionCost ?? 0)/Meal", font: .title2, fontWeight: .bold)
             }
             Spacer()
             getAddButton(isAdded: true)
@@ -51,8 +55,8 @@ struct PlanSelectionView: View {
         HStack {
             VStack(alignment: .leading, spacing: 4) {
                 CloudLabel(text: "Monthly Subscription", font: .title3)
-                CloudLabel(text: "(26 Meals)")
-                CloudLabel(text: "65/Meal", font: .title2, fontWeight: .bold)
+                CloudLabel(text: "(25 Meals)")
+                CloudLabel(text: "\(Constants.rupee_symbol) \(planSelectionViewModel.mealDetailModel?.monthlySubscriptionCost ?? 0)/Meal", font: .title2, fontWeight: .bold)
             }
             Spacer()
             getAddButton(isAdded: false)
@@ -86,7 +90,7 @@ struct PlanSelectionView: View {
         CloudButton(title: "SELECT MENU")
     }
 }
-
-#Preview {
-    PlanSelectionView()
-}
+//
+//#Preview {
+//    PlanSelectionView()
+//}

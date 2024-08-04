@@ -58,7 +58,7 @@ class MealDetailModel: Codable {
         self.images = try container.decodeIfPresent([String].self, forKey: .images) ?? []
         self.ingredients = try container.decodeIfPresent([String].self, forKey: .ingredients) ?? []
         self.monthlyMenu = try container.decodeIfPresent([String : [MenuItemModel]].self, forKey: .monthlyMenu) ?? [:]
-        self.monthlySubscriptionCost = try container.decodeIfPresent(Int.self, forKey: .monthlySubscriptionCost) ?? 0
+        self.monthlySubscriptionCost = try container.decodeIfPresent(Double.self, forKey: .monthlySubscriptionCost) ?? 0
         self.name = try container.decodeIfPresent(String.self, forKey: .name) ?? ""
         self.price = try container.decodeIfPresent(Double.self, forKey: .price) ?? 0
         self.status = try container.decodeIfPresent(String.self, forKey: .status) ?? ""

@@ -68,7 +68,7 @@ struct DurationSelectionView: View {
             HStack {
                 CloudLabel(text: "\(slot.startTime) - \(slot.endTime)")
                 Spacer()
-                CloudLabel(text: "Select" , textColor: .white)
+                CloudLabel(text: "Select", textColor: .white)
                     .padding(.horizontal, 20)
                     .padding(.vertical, 5)
                     .background(.yellow)

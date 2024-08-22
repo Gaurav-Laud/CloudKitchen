@@ -22,6 +22,7 @@ struct PlanSelectionView: View {
             getBottomButton()
         }
         .padding()
+        .navigationBarBackButtonHidden()
         .toolbar {
             getToolbarView()
         }
@@ -44,7 +45,10 @@ struct PlanSelectionView: View {
                 CloudLabel(text: "\(Constants.rupee_symbol) \(planSelectionViewModel.mealDetailModel?.weeklySubscriptionCost ?? 0)/Meal", font: .title2, fontWeight: .bold)
             }
             Spacer()
-            getAddButton(isAdded: true)
+            getAddButton(isAdded: planSelectionViewModel.mealDetailModel?.selectedSubscriptionType == .weekly)
+                .onTapGesture {
+                    planSelectionViewModel.selectSubscription(.weekly)
+                }
         }
         .padding()
         .roundCorners(16)
@@ -59,7 +63,10 @@ struct PlanSelectionView: View {
                 CloudLabel(text: "\(Constants.rupee_symbol) \(planSelectionViewModel.mealDetailModel?.monthlySubscriptionCost ?? 0)/Meal", font: .title2, fontWeight: .bold)
             }
             Spacer()
-            getAddButton(isAdded: false)
+            getAddButton(isAdded: planSelectionViewModel.mealDetailModel?.selectedSubscriptionType == .monthly)
+                .onTapGesture {
+                    planSelectionViewModel.selectSubscription(.monthly)
+                }
         }
         .padding()
         .roundCorners(16)

@@ -9,4 +9,8 @@ import Foundation
 @Observable
 class PlanSelectionViewModel {
     var mealDetailModel: MealDetailModel?
+    
+    func selectSubscription(_ type: SubscriptionType) {
+        mealDetailModel?.selectedSubscriptionType = type
+    }
 }

@@ -6,6 +6,11 @@
 //
 
 import Foundation
+enum SubscriptionType: String {
+    case weekly
+    case monthly
+}
+@Observable
 class MealDetailModel: Codable {
     var _id: String
     var badges: [String]
@@ -27,6 +32,9 @@ class MealDetailModel: Codable {
     var updatedBy: String
     var kitchen: String
     var reviews: [MealReviewModel]
+    
+    var selectedSubscriptionType: SubscriptionType = .weekly
+    
     private enum CodingKeys: String, CodingKey {
         case _id
         case badges
@@ -71,6 +79,29 @@ class MealDetailModel: Codable {
         self.updatedBy = try container.decodeIfPresent(String.self, forKey: .updatedBy) ?? ""
         self.kitchen = try container.decodeIfPresent(String.self, forKey: .kitchen) ?? ""
         self.reviews = try container.decodeIfPresent([MealReviewModel].self, forKey: .reviews) ?? []
+    }
+    func encode(to encoder: any Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self._id, forKey: ._id)
+        try container.encode(self.badges, forKey: .badges)
+        try container.encode(self.category, forKey: .category)
+        try container.encode(self.description, forKey: .description)
+        try container.encode(self.images, forKey: .images)
+        try container.encode(self.ingredients, forKey: .ingredients)
+        try container.encode(self.monthlyMenu, forKey: .monthlyMenu)
+        try container.encode(self.monthlySubscriptionCost, forKey: .monthlySubscriptionCost)
+        try container.encode(self.name, forKey: .name)
+        try container.encode(self.price, forKey: .price)
+        try container.encode(self.status, forKey: .status)
+        try container.encode(self.type, forKey: .type)
+        try container.encode(self.weeklyMenu, forKey: .weeklyMenu)
+        try container.encode(self.weeklySubscriptionCost, forKey: .weeklySubscriptionCost)
+        try container.encode(self.avgRating, forKey: .avgRating)
+        try container.encode(self.noOfRatings, forKey: .noOfRatings)
+        try container.encode(self.bannerImage, forKey: .bannerImage)
+        try container.encode(self.updatedBy, forKey: .updatedBy)
+        try container.encode(self.kitchen, forKey: .kitchen)
+        try container.encode(self.reviews, forKey: .reviews)
     }
 }
 class MenuItemModel: Codable {

@@ -29,8 +29,8 @@ struct KitchenCellView: View {
     private func getBottomView() -> some View {
         HStack(alignment: .top) {
             VStack(alignment: .leading) {
-                CloudLabel(text: self.kitchenModel.name, font: .title,textColor: .yellow, fontWeight: .bold)
-                Text(self.kitchenModel.description)
+                CloudLabel(text: self.kitchenModel.name, font: .title,textColor: .yellow, fontWeight: .bold, textAlignment: .leading)
+                CloudLabel(text: self.kitchenModel.description)
             }
             Spacer()
             VStack(alignment: .trailing) {

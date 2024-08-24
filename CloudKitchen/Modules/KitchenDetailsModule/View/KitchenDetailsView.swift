@@ -21,7 +21,7 @@ struct KitchenDetailsView: View {
             self.getMealListView()
             self.getBottomButton()
         }
-        .navigationDestination(isPresented: $presentMealDetailsView, destination: { MealDetailsView(mealId: kitchenDetailsViewModel.kitchenDetailsModel?.meals.filter({ $0.isAdded }).first?._id ?? "") })
+        .navigationDestination(isPresented: $presentMealDetailsView, destination: { MealDetailsView(mealId: kitchenDetailsViewModel.kitchenDetailsModel?.meals.filter({ $0.isAdded }).first?._id ?? "", kitchenModel: self.kitchenDetailsViewModel.kitchenModel) })
         .toolbar { getToolbarView() }
         .toolbar(.visible, for: .navigationBar)
         .toolbar(.hidden, for: .tabBar)

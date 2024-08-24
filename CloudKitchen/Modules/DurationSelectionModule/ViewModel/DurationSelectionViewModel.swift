@@ -10,6 +10,7 @@ import Foundation
 class DurationSelectionViewModel {
     var startDate: Date = Date()
     var endDate: Date = Date()
+    var kitchenModel: KitchenModel?
     var mealDetailModel: MealDetailModel?
     var slotModels: [SlotModel] = [
         SlotModel(slotNo: 1, startTime: "12:30", endTime: "01:00", isSelected: true),

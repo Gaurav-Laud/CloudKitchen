@@ -9,6 +9,7 @@ import Foundation
 enum SubscriptionType: String {
     case weekly
     case monthly
+    
 }
 @Observable
 class MealDetailModel: Codable {
@@ -35,6 +36,8 @@ class MealDetailModel: Codable {
     
     var selectedSubscriptionType: SubscriptionType = .weekly
     var slot: SlotModel?
+    var startDate: String?
+    var endDate: String?
     
     private enum CodingKeys: String, CodingKey {
         case _id

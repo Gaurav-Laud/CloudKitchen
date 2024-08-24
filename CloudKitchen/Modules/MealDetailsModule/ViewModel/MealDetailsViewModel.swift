@@ -10,6 +10,7 @@ import Foundation
 class MealDetailsViewModel {
     var mealId: String = ""
     var selectedWeek: String = ""
+    var kitchenModel: KitchenModel?
     var mealDetailModel: MealDetailModel?
     var weeks: [String] = []
     func fetchMealDetails(for mealId: String) {

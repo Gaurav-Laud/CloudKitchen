@@ -11,7 +11,8 @@ struct DurationSelectionView: View {
     @Environment(\.dismiss) private var dismiss
     @State var durationSelectionViewModel = DurationSelectionViewModel()
     @State var showOrderView = false
-    init(mealDetailModel: MealDetailModel?) {
+    init(kitchenModel: KitchenModel?, mealDetailModel: MealDetailModel?) {
+        self.durationSelectionViewModel.kitchenModel = kitchenModel
         self.durationSelectionViewModel.mealDetailModel = mealDetailModel
     }
     var body: some View {

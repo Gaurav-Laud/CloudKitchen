@@ -11,7 +11,8 @@ struct PlanSelectionView: View {
     @Environment(\.dismiss) private var dismiss
     @State var planSelectionViewModel = PlanSelectionViewModel()
     @State var presentDurationView = false
-    init(mealDetailModel: MealDetailModel?) {
+    init(kitchenModel: KitchenModel?, mealDetailModel: MealDetailModel?) {
+        self.planSelectionViewModel.kitchenModel = kitchenModel
         self.planSelectionViewModel.mealDetailModel = mealDetailModel
     }
     var body: some View {
@@ -22,7 +23,7 @@ struct PlanSelectionView: View {
             Spacer()
             getBottomButton()
         }
-        .navigationDestination(isPresented: $presentDurationView, destination: { DurationSelectionView(mealDetailModel: self.planSelectionViewModel.mealDetailModel) })
+        .navigationDestination(isPresented: $presentDurationView, destination: { DurationSelectionView(kitchenModel: self.planSelectionViewModel.kitchenModel, mealDetailModel: self.planSelectionViewModel.mealDetailModel) })
         .padding()
         .navigationBarBackButtonHidden()
         .toolbar {

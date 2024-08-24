@@ -8,6 +8,7 @@
 import Foundation
 @Observable
 class PlanSelectionViewModel {
+    var kitchenModel: KitchenModel?
     var mealDetailModel: MealDetailModel?
     
     func selectSubscription(_ type: SubscriptionType) {

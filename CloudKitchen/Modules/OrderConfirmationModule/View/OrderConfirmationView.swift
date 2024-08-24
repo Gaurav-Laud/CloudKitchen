@@ -10,7 +10,10 @@ import SwiftUI
 struct OrderConfirmationView: View {
     @Environment(\.dismiss) private var dismiss
     @State var orderConfirmationViewModel = OrderConfirmationViewModel()
-    init(mealDetailModel: MealDetailModel?) {
+    @State var presentDurationView = false
+    @State var presentPlanView = false
+    init(kitchenModel: KitchenModel?, mealDetailModel: MealDetailModel?) {
+        self.orderConfirmationViewModel.kitchenModel = kitchenModel
         self.orderConfirmationViewModel.mealDetailModel = mealDetailModel
     }
     var body: some View {
@@ -46,7 +49,7 @@ struct OrderConfirmationView: View {
                 .frame(width: 40, height: 40)
             VStack(alignment: .leading) {
                 CloudLabel(text: "Deliver at Home")
-                CloudLabel(text: "8358 Liaison De la Passerelle, 92235 Tremblay-en-France", font: .caption, textColor: .gray)
+                CloudLabel(text: CloudKitchenUtility.shared.selectedAddress?.addressLine1 ?? "", font: .caption, textColor: .gray)
             }
             Spacer()
             CloudLabel(text: "Change", textColor: .red)
@@ -74,20 +77,20 @@ struct OrderConfirmationView: View {
                     Image(Constants.veg_symbol, bundle: Bundle.main)
                         .resizable()
                         .frame(width: 17, height: 17)
-                    CloudLabel(text: "House of Meals", font: .title2, fontWeight: .bold)
+                    CloudLabel(text: self.orderConfirmationViewModel.kitchenModel?.name ?? "", font: .title2, fontWeight: .bold)
                 }
-                CloudLabel(text: "Biryani · North Indian · Salads · Cakes · Meals · Shakes · Rolls · Pizza", font: .caption, textColor: .gray)
+                CloudLabel(text: self.orderConfirmationViewModel.mealDetailModel?.description ?? "", font: .caption, textColor: .gray)
             }
             Spacer()
             VStack(alignment: .trailing) {
                 self.getSubscriptionTypeView()
-                CloudLabel(text: "₹ 420.00 (6 Meals)", font: .caption, textColor: .gray)
+                CloudLabel(text: "\(Constants.rupee_symbol) \(self.orderConfirmationViewModel.getSubscriptionCost()) (\(self.orderConfirmationViewModel.getMealCount()) Meals)", font: .caption, textColor: .gray)
             }
         }
     }
     @ViewBuilder
     private func getSubscriptionTypeView() -> some View {
-        CloudLabel(text: "title" , textColor: .red)
+        CloudLabel(text: self.orderConfirmationViewModel.mealDetailModel?.selectedSubscriptionType.rawValue.uppercased() ?? "" , textColor: .red)
             .padding(.horizontal, 20)
             .padding(.vertical, 5)
             .background(.white)
@@ -101,16 +104,19 @@ struct OrderConfirmationView: View {
                 CloudLabel(text: "SUBSCRIPTION", font: .title3, textColor: .gray, fontWeight: .bold)
                 Spacer()
                 CloudLabel(text: "Change", textColor: .red)
+                    .onTapGesture {
+                        presentDurationView = true
+                    }
             }
             HStack {
                 CloudLabel(text: "Plan duration", font: .title3, textColor: .gray)
                 Spacer()
-                CloudLabel(text: "10 Apr-16 Apr")
+                CloudLabel(text: "\(self.orderConfirmationViewModel.mealDetailModel?.startDate ?? "") - \(self.orderConfirmationViewModel.mealDetailModel?.endDate ?? "")")
             }
             HStack {
                 CloudLabel(text: "Delivery Slot", font: .title3, textColor: .gray)
                 Spacer()
-                CloudLabel(text: "12:30 P.M - 01:00 P.M")
+                CloudLabel(text: "\(self.orderConfirmationViewModel.mealDetailModel?.slot?.startTime ?? "") - \(self.orderConfirmationViewModel.mealDetailModel?.slot?.endTime ?? "")")
             }
         }
     }
@@ -118,19 +124,19 @@ struct OrderConfirmationView: View {
     private func getCostView() -> some View {
         VStack {
             HStack {
-                CloudLabel(text: "Monthly Subscription", font: .title3, textColor: .gray)
+                CloudLabel(text: "\(self.orderConfirmationViewModel.mealDetailModel?.selectedSubscriptionType.rawValue.capitalized ?? "") Subscription", font: .title3, textColor: .gray)
                 Spacer()
-                CloudLabel(text: "₹420", textColor: .gray)
+                CloudLabel(text: "\(Constants.rupee_symbol) \(self.orderConfirmationViewModel.getSubscriptionCost())", textColor: .gray)
             }
             HStack {
                 CloudLabel(text: "Delivery Charges", font: .title3, textColor: .gray)
                 Spacer()
-                CloudLabel(text: "₹0", textColor: .gray)
+                CloudLabel(text: "\(Constants.rupee_symbol) \(self.orderConfirmationViewModel.getSubscriptionCost())", textColor: .gray)
             }
             HStack {
                 CloudLabel(text: "Grand Total", font: .title2, fontWeight: .bold)
                 Spacer()
-                CloudLabel(text: "₹420")
+                CloudLabel(text: "\(Constants.rupee_symbol) \(self.orderConfirmationViewModel.getTotalCost())")
             }
         }
     }

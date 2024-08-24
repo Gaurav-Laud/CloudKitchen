@@ -34,6 +34,7 @@ class MealDetailModel: Codable {
     var reviews: [MealReviewModel]
     
     var selectedSubscriptionType: SubscriptionType = .weekly
+    var slot: SlotModel?
     
     private enum CodingKeys: String, CodingKey {
         case _id

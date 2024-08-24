@@ -21,5 +21,6 @@ class DurationSelectionViewModel {
         slotModels.forEach({ $0.isSelected = false })
         guard let index = slotModels.firstIndex(where: { $0.slotNo == slot.slotNo }) else { return }
         slotModels[index].isSelected = true
+        mealDetailModel?.slot = slotModels[index]
     }
 }

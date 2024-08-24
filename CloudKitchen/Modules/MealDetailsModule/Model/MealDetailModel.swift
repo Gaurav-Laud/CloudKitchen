@@ -109,6 +109,15 @@ class MenuItemModel: Codable {
     var dayCount: Int
     var items: [String]
     var image: String
+    
+    required init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decode(Int.self, forKey: .id)
+        self.dayCount = try container.decodeIfPresent(Int.self, forKey: .dayCount) ?? 0
+        let items = try container.decodeIfPresent([String?].self, forKey: .items) ?? []
+        self.image = try container.decodeIfPresent(String.self, forKey: .image) ?? ""
+        self.items = items.compactMap({ $0 })
+    }
 }
 class MealReviewModel: ReviewModel {
     var mealId: String

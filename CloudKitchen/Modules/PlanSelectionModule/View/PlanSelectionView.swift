@@ -10,6 +10,7 @@ import SwiftUI
 struct PlanSelectionView: View {
     @Environment(\.dismiss) private var dismiss
     @State var planSelectionViewModel = PlanSelectionViewModel()
+    @State var presentDurationView = false
     init(mealDetailModel: MealDetailModel?) {
         self.planSelectionViewModel.mealDetailModel = mealDetailModel
     }
@@ -21,6 +22,7 @@ struct PlanSelectionView: View {
             Spacer()
             getBottomButton()
         }
+        .navigationDestination(isPresented: $presentDurationView, destination: { DurationSelectionView(mealDetailModel: self.planSelectionViewModel.mealDetailModel) })
         .padding()
         .navigationBarBackButtonHidden()
         .toolbar {
@@ -94,7 +96,9 @@ struct PlanSelectionView: View {
     }
     @ViewBuilder
     private func getBottomButton() -> some View {
-        CloudButton(title: "SELECT MENU")
+        CloudButton(title: "SELECT MENU") {
+            self.presentDurationView = true
+        }
     }
 }
 //

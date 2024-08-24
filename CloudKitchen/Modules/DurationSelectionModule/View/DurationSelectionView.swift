@@ -11,6 +11,9 @@ struct DurationSelectionView: View {
     @Environment(\.dismiss) private var dismiss
     @State var durationSelectionViewModel = DurationSelectionViewModel()
     @State var showOrderView = false
+    init(mealDetailModel: MealDetailModel?) {
+        self.durationSelectionViewModel.mealDetailModel = mealDetailModel
+    }
     var body: some View {
         VStack(alignment: .leading) {
             Group {
@@ -27,6 +30,8 @@ struct DurationSelectionView: View {
             getBottomButton()
                 .padding()
         }
+        .navigationDestination(isPresented: $showOrderView, destination: { OrderConfirmationView(mealDetailModel: self.durationSelectionViewModel.mealDetailModel) })
+        .navigationBarBackButtonHidden()
         .toolbar {
             getToolbarView()
         }
@@ -68,12 +73,7 @@ struct DurationSelectionView: View {
             HStack {
                 CloudLabel(text: "\(slot.startTime) - \(slot.endTime)")
                 Spacer()
-                CloudLabel(text: "Select", textColor: .white)
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 5)
-                    .background(.yellow)
-                    .clipShape(RoundedRectangle(cornerRadius: 5))
-                    .addBorder(cornerRadius: 5)
+                getAddButton(isAdded: slot.isSelected)
                     .onTapGesture {
                     durationSelectionViewModel.selectSlot(slot)
                 }
@@ -86,10 +86,29 @@ struct DurationSelectionView: View {
     }
     @ViewBuilder
     private func getBottomButton() -> some View {
-        CloudButton(title: "SELECT MENU")
+        CloudButton(title: "PLACE ORDER") {
+            self.showOrderView = true
+        }
+    }
+    func getAddButton(isAdded: Bool) -> some View {
+        var textColour: Color
+        var background: Color
+        if isAdded {
+            textColour = .white
+            background = .yellow
+        } else {
+            textColour = .yellow
+            background = .white
+        }
+        return CloudLabel(text: "Select" , textColor: textColour)
+            .padding(.horizontal, 20)
+            .padding(.vertical, 5)
+            .background(background)
+            .clipShape(RoundedRectangle(cornerRadius: 5))
+            .addBorder(cornerRadius: 5)
     }
 }
 
-#Preview {
-    DurationSelectionView()
-}
+//#Preview {
+//    DurationSelectionView()
+//}

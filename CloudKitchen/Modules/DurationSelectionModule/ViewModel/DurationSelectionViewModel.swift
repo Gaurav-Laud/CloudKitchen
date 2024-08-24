@@ -10,6 +10,7 @@ import Foundation
 class DurationSelectionViewModel {
     var startDate: Date = Date()
     var endDate: Date = Date()
+    var mealDetailModel: MealDetailModel?
     var slotModels: [SlotModel] = [
         SlotModel(slotNo: 1, startTime: "12:30", endTime: "01:00", isSelected: true),
         SlotModel(slotNo: 2, startTime: "01:00", endTime: "01:30", isSelected: false),
@@ -17,6 +18,7 @@ class DurationSelectionViewModel {
         SlotModel(slotNo: 4, startTime: "02:00", endTime: "02:30", isSelected: false)
     ]
     func selectSlot(_ slot: SlotModel) {
+        slotModels.forEach({ $0.isSelected = false })
         guard let index = slotModels.firstIndex(where: { $0.slotNo == slot.slotNo }) else { return }
         slotModels[index].isSelected = true
     }

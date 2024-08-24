@@ -6,9 +6,16 @@
 //
 
 import Foundation
-struct SlotModel {
+@Observable
+class SlotModel {
     var slotNo: Int
     var startTime: String
     var endTime: String
     var isSelected: Bool
+    init(slotNo: Int, startTime: String, endTime: String, isSelected: Bool) {
+        self.slotNo = slotNo
+        self.startTime = startTime
+        self.endTime = endTime
+        self.isSelected = isSelected
+    }
 }

@@ -29,6 +29,8 @@
 		EC7314DE2C342B140050B4A0 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7314DD2C342B140050B4A0 /* LoginView.swift */; };
 		EC7314E02C342B4F0050B4A0 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7314DF2C342B4F0050B4A0 /* LoginViewModel.swift */; };
 		EC7AD1CD2C5FC068007FD6F4 /* PlanSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7AD1CC2C5FC068007FD6F4 /* PlanSelectionViewModel.swift */; };
+		EC873A062C77AC120064BF6C /* OrderConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC873A052C77AC120064BF6C /* OrderConfirmationView.swift */; };
+		EC873A092C77BBD10064BF6C /* OrderConfirmationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC873A082C77BBD10064BF6C /* OrderConfirmationViewModel.swift */; };
 		EC9813DD2C343E1B00E19F6D /* CloudTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9813DC2C343E1B00E19F6D /* CloudTextField.swift */; };
 		EC9813DF2C36285300E19F6D /* OTPVerificationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9813DE2C36285300E19F6D /* OTPVerificationScreen.swift */; };
 		EC9813E12C362F2200E19F6D /* CloudLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9813E02C362F2200E19F6D /* CloudLabel.swift */; };
@@ -96,6 +98,8 @@
 		EC7314DD2C342B140050B4A0 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		EC7314DF2C342B4F0050B4A0 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		EC7AD1CC2C5FC068007FD6F4 /* PlanSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanSelectionViewModel.swift; sourceTree = "<group>"; };
+		EC873A052C77AC120064BF6C /* OrderConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmationView.swift; sourceTree = "<group>"; };
+		EC873A082C77BBD10064BF6C /* OrderConfirmationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmationViewModel.swift; sourceTree = "<group>"; };
 		EC9813DC2C343E1B00E19F6D /* CloudTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudTextField.swift; sourceTree = "<group>"; };
 		EC9813DE2C36285300E19F6D /* OTPVerificationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVerificationScreen.swift; sourceTree = "<group>"; };
 		EC9813E02C362F2200E19F6D /* CloudLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudLabel.swift; sourceTree = "<group>"; };
@@ -296,6 +300,7 @@
 		EC7314CB2C31BCB00050B4A0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				EC873A032C77ABEB0064BF6C /* OrderConfirmationModule */,
 				EC6885892C5A743400A3A9A7 /* DurationSelectionModule */,
 				EC6885852C5A634900A3A9A7 /* PlanSelectionModule */,
 				EC6885792C5814D700A3A9A7 /* MealDetailsModule */,
@@ -378,6 +383,31 @@
 			isa = PBXGroup;
 			children = (
 				EC7AD1CC2C5FC068007FD6F4 /* PlanSelectionViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EC873A032C77ABEB0064BF6C /* OrderConfirmationModule */ = {
+			isa = PBXGroup;
+			children = (
+				EC873A072C77BBBB0064BF6C /* ViewModel */,
+				EC873A042C77ABFD0064BF6C /* View */,
+			);
+			path = OrderConfirmationModule;
+			sourceTree = "<group>";
+		};
+		EC873A042C77ABFD0064BF6C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EC873A052C77AC120064BF6C /* OrderConfirmationView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EC873A072C77BBBB0064BF6C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EC873A082C77BBD10064BF6C /* OrderConfirmationViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -652,6 +682,7 @@
 				EC7314D42C32F7850050B4A0 /* Constants.swift in Sources */,
 				EC68858C2C5A746C00A3A9A7 /* DurationSelectionView.swift in Sources */,
 				EC9C3FA52C47AC4A0027D2A8 /* AddressManagementViewModel.swift in Sources */,
+				EC873A062C77AC120064BF6C /* OrderConfirmationView.swift in Sources */,
 				EC6885822C581E2A00A3A9A7 /* MealDetailModel.swift in Sources */,
 				ECEF10392C4A4A4C008C9E00 /* AddAddressViewModel.swift in Sources */,
 				EC7AD1CD2C5FC068007FD6F4 /* PlanSelectionViewModel.swift in Sources */,
@@ -659,6 +690,7 @@
 				EC6885842C5823FF00A3A9A7 /* MenuItemView.swift in Sources */,
 				EC9813F72C395E3700E19F6D /* KitchenModel.swift in Sources */,
 				EC7314DE2C342B140050B4A0 /* LoginView.swift in Sources */,
+				EC873A092C77BBD10064BF6C /* OrderConfirmationViewModel.swift in Sources */,
 				EC9813FB2C3A786B00E19F6D /* KitchenCellView.swift in Sources */,
 				EC7314D62C32FF410050B4A0 /* UserDefaultsUtility.swift in Sources */,
 				EC7314CE2C31BD3F0050B4A0 /* WelcomeViewController.swift in Sources */,

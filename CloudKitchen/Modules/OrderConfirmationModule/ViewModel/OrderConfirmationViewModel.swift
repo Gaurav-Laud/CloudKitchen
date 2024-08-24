@@ -6,3 +6,7 @@
 //
 
 import Foundation
+@Observable
+class OrderConfirmationViewModel {
+    var mealDetailModel: MealDetailModel?
+}

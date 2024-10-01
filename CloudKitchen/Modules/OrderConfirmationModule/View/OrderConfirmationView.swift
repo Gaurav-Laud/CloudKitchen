@@ -25,6 +25,7 @@ struct OrderConfirmationView: View {
             self.getCostView()
             self.getOrderingView()
             Spacer()
+            self.getBottomButton()
         }
         .padding()
         .navigationBarBackButtonHidden()
@@ -149,6 +150,15 @@ struct OrderConfirmationView: View {
             }
             Spacer()
             CloudLabel(text: "Change", textColor: .red)
+        }
+    }
+    @ViewBuilder
+    private func getBottomButton() -> some View {
+        CloudButton(title: "Pay Now") {
+//            let str = """
+//{"amount":3096,"amount_due":3096,"amount_paid":0,"attempts":0,"created_at":1724520447,"currency":"INR","entity":"order","id":"order_OooolyodXDLNZR","notes":{"key1":"value3","key2":"value2"},"offer_id":null,"receipt":"receipt_66c503aac731092cba80cc7a","status":"created"}
+//"""
+//            RazorPayUtility.shared.startPayment(for: str, amount: 1000)
         }
     }
 }

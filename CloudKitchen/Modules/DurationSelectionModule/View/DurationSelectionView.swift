@@ -31,7 +31,7 @@ struct DurationSelectionView: View {
             getBottomButton()
                 .padding()
         }
-        .navigationDestination(isPresented: $showOrderView, destination: { OrderConfirmationView(mealDetailModel: self.durationSelectionViewModel.mealDetailModel) })
+        .navigationDestination(isPresented: $showOrderView, destination: { OrderConfirmationView(kitchenModel: self.durationSelectionViewModel.kitchenModel, mealDetailModel: self.durationSelectionViewModel.mealDetailModel) })
         .navigationBarBackButtonHidden()
         .toolbar {
             getToolbarView()

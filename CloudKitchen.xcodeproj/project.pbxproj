@@ -31,6 +31,8 @@
 		EC7AD1CD2C5FC068007FD6F4 /* PlanSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7AD1CC2C5FC068007FD6F4 /* PlanSelectionViewModel.swift */; };
 		EC873A062C77AC120064BF6C /* OrderConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC873A052C77AC120064BF6C /* OrderConfirmationView.swift */; };
 		EC873A092C77BBD10064BF6C /* OrderConfirmationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC873A082C77BBD10064BF6C /* OrderConfirmationViewModel.swift */; };
+		EC873A0B2C7A3BE00064BF6C /* RazorPayUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC873A0A2C7A3BE00064BF6C /* RazorPayUtility.swift */; };
+		EC873A0F2C7A4B900064BF6C /* Razorpay.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC873A0E2C7A4B900064BF6C /* Razorpay.xcframework */; };
 		EC9813DD2C343E1B00E19F6D /* CloudTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9813DC2C343E1B00E19F6D /* CloudTextField.swift */; };
 		EC9813DF2C36285300E19F6D /* OTPVerificationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9813DE2C36285300E19F6D /* OTPVerificationScreen.swift */; };
 		EC9813E12C362F2200E19F6D /* CloudLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9813E02C362F2200E19F6D /* CloudLabel.swift */; };
@@ -100,6 +102,8 @@
 		EC7AD1CC2C5FC068007FD6F4 /* PlanSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanSelectionViewModel.swift; sourceTree = "<group>"; };
 		EC873A052C77AC120064BF6C /* OrderConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmationView.swift; sourceTree = "<group>"; };
 		EC873A082C77BBD10064BF6C /* OrderConfirmationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmationViewModel.swift; sourceTree = "<group>"; };
+		EC873A0A2C7A3BE00064BF6C /* RazorPayUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RazorPayUtility.swift; sourceTree = "<group>"; };
+		EC873A0E2C7A4B900064BF6C /* Razorpay.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Razorpay.xcframework; sourceTree = "<group>"; };
 		EC9813DC2C343E1B00E19F6D /* CloudTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudTextField.swift; sourceTree = "<group>"; };
 		EC9813DE2C36285300E19F6D /* OTPVerificationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVerificationScreen.swift; sourceTree = "<group>"; };
 		EC9813E02C362F2200E19F6D /* CloudLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudLabel.swift; sourceTree = "<group>"; };
@@ -129,6 +133,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC9813E52C371A3F00E19F6D /* OtpView-SwiftUI in Frameworks */,
+				EC873A0F2C7A4B900064BF6C /* Razorpay.xcframework in Frameworks */,
 				EC9813F12C38641500E19F6D /* AlertToast in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,6 +345,7 @@
 				EC7314D52C32FF410050B4A0 /* UserDefaultsUtility.swift */,
 				EC9813E92C37E40100E19F6D /* CloudKitchenUtility.swift */,
 				EC9C3F8A2C3D63F80027D2A8 /* CloudLocationManager.swift */,
+				EC873A0A2C7A3BE00064BF6C /* RazorPayUtility.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -415,6 +421,7 @@
 		EC9813E32C371A3F00E19F6D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EC873A0E2C7A4B900064BF6C /* Razorpay.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -682,6 +689,7 @@
 				EC7314D42C32F7850050B4A0 /* Constants.swift in Sources */,
 				EC68858C2C5A746C00A3A9A7 /* DurationSelectionView.swift in Sources */,
 				EC9C3FA52C47AC4A0027D2A8 /* AddressManagementViewModel.swift in Sources */,
+				EC873A0B2C7A3BE00064BF6C /* RazorPayUtility.swift in Sources */,
 				EC873A062C77AC120064BF6C /* OrderConfirmationView.swift in Sources */,
 				EC6885822C581E2A00A3A9A7 /* MealDetailModel.swift in Sources */,
 				ECEF10392C4A4A4C008C9E00 /* AddAddressViewModel.swift in Sources */,

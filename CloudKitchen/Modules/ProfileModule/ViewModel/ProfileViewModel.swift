@@ -13,9 +13,9 @@ enum ProfileOption: Int {
     
     func getImage() -> String {
         switch self {
-        case .profileSetting: "circle.fill"
-        case .orderHistory: "arrow.right.circle.fill"
-        case .yourSubscription: "circle.fill"
+        case .profileSetting: "gearshape"
+        case .orderHistory: "doc.text.magnifyingglass"
+        case .yourSubscription: "doc.text.magnifyingglass"
         }
     }
     func getTitle() -> String {
@@ -23,6 +23,12 @@ enum ProfileOption: Int {
         case .profileSetting: "Profile Settings"
         case .orderHistory: "Order History"
         case .yourSubscription: "Your Subscription"
+        }
+    }
+    func getBackGroundColor() -> String {
+        switch self {
+        case .profileSetting: "#009999"
+        case .orderHistory, .yourSubscription: "#417C45"
         }
     }
 }

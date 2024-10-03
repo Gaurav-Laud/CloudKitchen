@@ -10,6 +10,7 @@ import SwiftUI
 struct ProfileView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var presentSettingView: Bool = false
+    @State private var orderHistoryView: Bool = false
     let profileViewModel = ProfileViewModel()
     var body: some View {
         Text(self.profileViewModel.getUserName())
@@ -28,9 +29,7 @@ struct ProfileView: View {
     @ViewBuilder
     private func getOptionView(for option: ProfileOption) -> some View {
         HStack {
-            Image(systemName: option.getImage())
-                .resizable()
-                .frame(width: 45, height: 45)
+            self.getOptionImageView(for: option)
             CloudLabel(text: option.getTitle(), font: .title2, fontWeight: .bold)
             Spacer()
             Image(systemName: "arrow.right")
@@ -51,9 +50,23 @@ struct ProfileView: View {
             .tint(.black)
         }
     }
+    @ViewBuilder
+    private func getOptionImageView(for option: ProfileOption) -> some View {
+        ZStack {
+            Circle()
+                .foregroundStyle(Color(hexString: option.getBackGroundColor()))
+                .frame(width: 50, height: 50)
+            Image(systemName: option.getImage())
+                .resizable()
+                .foregroundStyle(.white)
+                .frame(width: 25, height: 25)
+        }
+
+    }
     func optionSelected(option: ProfileOption) {
         switch option {
         case .profileSetting: self.presentSettingView = true
+        case .orderHistory: self.orderHistoryView = true
         default: break
         }
     }

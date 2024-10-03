@@ -55,6 +55,8 @@
 		EC9C3FA52C47AC4A0027D2A8 /* AddressManagementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9C3FA42C47AC4A0027D2A8 /* AddressManagementViewModel.swift */; };
 		ECEF10372C4A4105008C9E00 /* AddAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEF10362C4A4105008C9E00 /* AddAddressView.swift */; };
 		ECEF10392C4A4A4C008C9E00 /* AddAddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEF10382C4A4A4C008C9E00 /* AddAddressViewModel.swift */; };
+		ECF37D8B2CAEED3500D33FE6 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF37D8A2CAEED3500D33FE6 /* ProfileView.swift */; };
+		ECF37D8E2CAF0E6600D33FE6 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF37D8D2CAF0E6600D33FE6 /* ProfileViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +127,8 @@
 		EC9C3FA42C47AC4A0027D2A8 /* AddressManagementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressManagementViewModel.swift; sourceTree = "<group>"; };
 		ECEF10362C4A4105008C9E00 /* AddAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressView.swift; sourceTree = "<group>"; };
 		ECEF10382C4A4A4C008C9E00 /* AddAddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressViewModel.swift; sourceTree = "<group>"; };
+		ECF37D8A2CAEED3500D33FE6 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		ECF37D8D2CAF0E6600D33FE6 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,6 +309,7 @@
 		EC7314CB2C31BCB00050B4A0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				ECF37D882CAEED0800D33FE6 /* ProfileModule */,
 				EC873A032C77ABEB0064BF6C /* OrderConfirmationModule */,
 				EC6885892C5A743400A3A9A7 /* DurationSelectionModule */,
 				EC6885852C5A634900A3A9A7 /* PlanSelectionModule */,
@@ -539,6 +544,31 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		ECF37D882CAEED0800D33FE6 /* ProfileModule */ = {
+			isa = PBXGroup;
+			children = (
+				ECF37D8C2CAF0E5300D33FE6 /* ViewModel */,
+				ECF37D892CAEED1E00D33FE6 /* View */,
+			);
+			path = ProfileModule;
+			sourceTree = "<group>";
+		};
+		ECF37D892CAEED1E00D33FE6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ECF37D8A2CAEED3500D33FE6 /* ProfileView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ECF37D8C2CAF0E5300D33FE6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				ECF37D8D2CAF0E6600D33FE6 /* ProfileViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -683,6 +713,7 @@
 				EC9813EA2C37E40100E19F6D /* CloudKitchenUtility.swift in Sources */,
 				EC9C3FA12C47AB620027D2A8 /* AddressManagementView.swift in Sources */,
 				EC9C3F972C3E99290027D2A8 /* KitchenDetailsViewModel.swift in Sources */,
+				ECF37D8E2CAF0E6600D33FE6 /* ProfileViewModel.swift in Sources */,
 				EC6885882C5A637300A3A9A7 /* PlanSelectionView.swift in Sources */,
 				EC9813EE2C381C0A00E19F6D /* HomeView.swift in Sources */,
 				EC9813DF2C36285300E19F6D /* OTPVerificationScreen.swift in Sources */,
@@ -690,6 +721,7 @@
 				EC68858C2C5A746C00A3A9A7 /* DurationSelectionView.swift in Sources */,
 				EC9C3FA52C47AC4A0027D2A8 /* AddressManagementViewModel.swift in Sources */,
 				EC873A0B2C7A3BE00064BF6C /* RazorPayUtility.swift in Sources */,
+				ECF37D8B2CAEED3500D33FE6 /* ProfileView.swift in Sources */,
 				EC873A062C77AC120064BF6C /* OrderConfirmationView.swift in Sources */,
 				EC6885822C581E2A00A3A9A7 /* MealDetailModel.swift in Sources */,
 				ECEF10392C4A4A4C008C9E00 /* AddAddressViewModel.swift in Sources */,

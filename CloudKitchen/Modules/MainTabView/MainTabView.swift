@@ -14,7 +14,7 @@ struct MainTabView: View {
             .tabItem {
                 Label("Order", image: ImageResource(name: Constants.order_tab_image, bundle: Bundle.main))
             }
-            NavigationStack { Text("Profile") }
+            NavigationStack { ProfileView() }
             .tabItem {
                 Label("Profile", image: ImageResource(name: Constants.profile_tab_image, bundle: Bundle.main))
             }

@@ -24,7 +24,7 @@ struct MealCardView: View {
         .shadow(radius: 5)
     }
     @ViewBuilder
-    func getMealInfoView() -> some View {
+    private func getMealInfoView() -> some View {
         VStack() {
             self.getMealDetailsView()
                 .padding()
@@ -32,7 +32,7 @@ struct MealCardView: View {
         }
     }
     @ViewBuilder
-    func getMealDetailsView() -> some View {
+    private func getMealDetailsView() -> some View {
         VStack(alignment: .leading) {
             HStack(alignment: .top) {
                 CloudLabel(text: self.mealModel.name, font: .title,textColor: .yellow, fontWeight: .bold)
@@ -44,7 +44,7 @@ struct MealCardView: View {
         }
     }
     
-    func getAddButton() -> some View {
+    private func getAddButton() -> some View {
         var title: String
         var textColour: Color
         var background: Color
@@ -65,14 +65,14 @@ struct MealCardView: View {
             .addBorder(cornerRadius: 5)
     }
     @ViewBuilder
-    func getReviewView() -> some View {
+    private func getReviewView() -> some View {
         HStack {
             getRatingStars()
             CloudLabel(text: "\(self.mealModel.ratingModel?.noOfRatings ?? 0) \(Constants.reviews)")
         }
     }
     @ViewBuilder
-    func getSubscriptionsView() -> some View {
+    private func getSubscriptionsView() -> some View {
         HStack(spacing: 2) {
             HStack {
                 VStack(alignment: .leading) {
@@ -99,7 +99,7 @@ struct MealCardView: View {
         )
     }
     @ViewBuilder
-    func getRatingStars() -> some View {
+    private func getRatingStars() -> some View {
         let totalStars: Int = 5
         let filledStars: Int = Int(self.mealModel.ratingModel?.avgRating.rounded(.down) ?? 0)
         let halfStars: Int = (self.mealModel.ratingModel?.avgRating ?? 0 - Float(filledStars)) > 0 ? 1 : 0

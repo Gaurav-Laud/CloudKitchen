@@ -39,7 +39,7 @@ class ProfileViewModel {
         .yourSubscription
     ]
     func getUserName() -> String {
-        "ABD"
+        UserDefaultsUtility.getUser()?.name ?? ""
     }
     func getOptions() -> [ProfileOption] { sections }
 }

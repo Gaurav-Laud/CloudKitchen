@@ -13,7 +13,7 @@ struct ProfileView: View {
     @State private var orderHistoryView: Bool = false
     let profileViewModel = ProfileViewModel()
     var body: some View {
-        Text(self.profileViewModel.getUserName())
+        CloudLabel(text: self.profileViewModel.getUserName(), font: .largeTitle, fontWeight: .bold)
         VStack(spacing: 23) {
             ForEach(self.profileViewModel.getOptions(), id: \.rawValue, content: { option in
                 self.getOptionView(for: option)

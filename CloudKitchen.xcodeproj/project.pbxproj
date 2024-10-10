@@ -45,6 +45,7 @@
 		EC9813F72C395E3700E19F6D /* KitchenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9813F62C395E3700E19F6D /* KitchenModel.swift */; };
 		EC9813F92C395E5F00E19F6D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9813F82C395E5F00E19F6D /* HomeViewModel.swift */; };
 		EC9813FB2C3A786B00E19F6D /* KitchenCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9813FA2C3A786B00E19F6D /* KitchenCellView.swift */; };
+		EC9A63262CB849CF00D043B9 /* SubscriptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9A63252CB849CF00D043B9 /* SubscriptionModel.swift */; };
 		EC9C3F892C3D48600027D2A8 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9C3F882C3D48600027D2A8 /* MainTabView.swift */; };
 		EC9C3F8B2C3D63F80027D2A8 /* CloudLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9C3F8A2C3D63F80027D2A8 /* CloudLocationManager.swift */; };
 		EC9C3F952C3E98EA0027D2A8 /* KitchenDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9C3F942C3E98EA0027D2A8 /* KitchenDetailsView.swift */; };
@@ -57,6 +58,11 @@
 		ECEF10392C4A4A4C008C9E00 /* AddAddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEF10382C4A4A4C008C9E00 /* AddAddressViewModel.swift */; };
 		ECF37D8B2CAEED3500D33FE6 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF37D8A2CAEED3500D33FE6 /* ProfileView.swift */; };
 		ECF37D8E2CAF0E6600D33FE6 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF37D8D2CAF0E6600D33FE6 /* ProfileViewModel.swift */; };
+		ECF37D942CB66EFB00D33FE6 /* YourSubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF37D932CB66EFB00D33FE6 /* YourSubscriptionView.swift */; };
+		ECF37D982CB6793D00D33FE6 /* ManageSubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF37D972CB6793D00D33FE6 /* ManageSubscriptionView.swift */; };
+		ECF37D9A2CB6799200D33FE6 /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF37D992CB6799200D33FE6 /* SubscriptionView.swift */; };
+		ECF37D9D2CB69D2800D33FE6 /* YourSubscriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF37D9C2CB69D2800D33FE6 /* YourSubscriptionViewModel.swift */; };
+		ECF37DA02CB69D8B00D33FE6 /* ManageSubscriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF37D9F2CB69D8B00D33FE6 /* ManageSubscriptionViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +122,7 @@
 		EC9813F62C395E3700E19F6D /* KitchenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenModel.swift; sourceTree = "<group>"; };
 		EC9813F82C395E5F00E19F6D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		EC9813FA2C3A786B00E19F6D /* KitchenCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenCellView.swift; sourceTree = "<group>"; };
+		EC9A63252CB849CF00D043B9 /* SubscriptionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionModel.swift; sourceTree = "<group>"; };
 		EC9C3F862C3D1F700027D2A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		EC9C3F882C3D48600027D2A8 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		EC9C3F8A2C3D63F80027D2A8 /* CloudLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudLocationManager.swift; sourceTree = "<group>"; };
@@ -129,6 +136,11 @@
 		ECEF10382C4A4A4C008C9E00 /* AddAddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressViewModel.swift; sourceTree = "<group>"; };
 		ECF37D8A2CAEED3500D33FE6 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		ECF37D8D2CAF0E6600D33FE6 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		ECF37D932CB66EFB00D33FE6 /* YourSubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourSubscriptionView.swift; sourceTree = "<group>"; };
+		ECF37D972CB6793D00D33FE6 /* ManageSubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageSubscriptionView.swift; sourceTree = "<group>"; };
+		ECF37D992CB6799200D33FE6 /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
+		ECF37D9C2CB69D2800D33FE6 /* YourSubscriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourSubscriptionViewModel.swift; sourceTree = "<group>"; };
+		ECF37D9F2CB69D8B00D33FE6 /* ManageSubscriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageSubscriptionViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,6 +321,8 @@
 		EC7314CB2C31BCB00050B4A0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				ECF37D952CB6790F00D33FE6 /* ManageSubscriptionModule */,
+				ECF37D912CB66EC200D33FE6 /* YourSubscriptionModule */,
 				ECF37D882CAEED0800D33FE6 /* ProfileModule */,
 				EC873A032C77ABEB0064BF6C /* OrderConfirmationModule */,
 				EC6885892C5A743400A3A9A7 /* DurationSelectionModule */,
@@ -474,6 +488,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		EC9A63242CB849A900D043B9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EC9A63252CB849CF00D043B9 /* SubscriptionModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		EC9C3F872C3D48450027D2A8 /* MainTabView */ = {
 			isa = PBXGroup;
 			children = (
@@ -565,6 +587,58 @@
 			isa = PBXGroup;
 			children = (
 				ECF37D8D2CAF0E6600D33FE6 /* ProfileViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		ECF37D912CB66EC200D33FE6 /* YourSubscriptionModule */ = {
+			isa = PBXGroup;
+			children = (
+				EC9A63242CB849A900D043B9 /* Model */,
+				ECF37D9B2CB69D0A00D33FE6 /* ViewModel */,
+				ECF37D922CB66EDD00D33FE6 /* View */,
+			);
+			path = YourSubscriptionModule;
+			sourceTree = "<group>";
+		};
+		ECF37D922CB66EDD00D33FE6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ECF37D932CB66EFB00D33FE6 /* YourSubscriptionView.swift */,
+				ECF37D992CB6799200D33FE6 /* SubscriptionView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ECF37D952CB6790F00D33FE6 /* ManageSubscriptionModule */ = {
+			isa = PBXGroup;
+			children = (
+				ECF37D9E2CB69D7A00D33FE6 /* ViewModel */,
+				ECF37D962CB6792500D33FE6 /* View */,
+			);
+			path = ManageSubscriptionModule;
+			sourceTree = "<group>";
+		};
+		ECF37D962CB6792500D33FE6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ECF37D972CB6793D00D33FE6 /* ManageSubscriptionView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ECF37D9B2CB69D0A00D33FE6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				ECF37D9C2CB69D2800D33FE6 /* YourSubscriptionViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		ECF37D9E2CB69D7A00D33FE6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				ECF37D9F2CB69D8B00D33FE6 /* ManageSubscriptionViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -707,8 +781,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECF37D982CB6793D00D33FE6 /* ManageSubscriptionView.swift in Sources */,
 				EC9813F92C395E5F00E19F6D /* HomeViewModel.swift in Sources */,
 				EC6885922C5B736000A3A9A7 /* SlotModel.swift in Sources */,
+				ECF37D942CB66EFB00D33FE6 /* YourSubscriptionView.swift in Sources */,
 				EC9C3F9C2C4301EF0027D2A8 /* MealCardView.swift in Sources */,
 				EC9813EA2C37E40100E19F6D /* CloudKitchenUtility.swift in Sources */,
 				EC9C3FA12C47AB620027D2A8 /* AddressManagementView.swift in Sources */,
@@ -743,6 +819,10 @@
 				EC6885802C58163B00A3A9A7 /* MealDetailsView.swift in Sources */,
 				ECEF10372C4A4105008C9E00 /* AddAddressView.swift in Sources */,
 				EC9813F32C38711000E19F6D /* Extensions.swift in Sources */,
+				ECF37D9D2CB69D2800D33FE6 /* YourSubscriptionViewModel.swift in Sources */,
+				ECF37D9A2CB6799200D33FE6 /* SubscriptionView.swift in Sources */,
+				EC9A63262CB849CF00D043B9 /* SubscriptionModel.swift in Sources */,
+				ECF37DA02CB69D8B00D33FE6 /* ManageSubscriptionViewModel.swift in Sources */,
 				EC9C3F952C3E98EA0027D2A8 /* KitchenDetailsView.swift in Sources */,
 				EC9813E12C362F2200E19F6D /* CloudLabel.swift in Sources */,
 				EC7314A22C31AA820050B4A0 /* CloudKitchenApp.swift in Sources */,

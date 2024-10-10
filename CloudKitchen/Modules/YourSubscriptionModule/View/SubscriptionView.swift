@@ -9,12 +9,14 @@ import SwiftUI
 
 struct SubscriptionView: View {
     var showManageButton: Bool = false
-    init(showManageButton: Bool = false) {
+    @State var subscriptionModel: SubscriptionModel
+    init(showManageButton: Bool = false, subscription: SubscriptionModel) {
         self.showManageButton = showManageButton
+        self.subscriptionModel = subscription
     }
     var body: some View {
         VStack {
-            AsyncImage(url: URL(string: "https://res.cloudinary.com/mealboxhyd/image/upload/v1722669849/mealbox/meals/Veg%20and%20NonvVeg%20Combo%20Thali/616_ma7ruo.jpg"), content: { image in
+            AsyncImage(url: URL(string: self.subscriptionModel.meal?.images.first ?? ""), content: { image in
                 image.resizable()
             }, placeholder: {
                 ProgressView()
@@ -31,8 +33,8 @@ struct SubscriptionView: View {
         VStack(alignment: .leading, spacing: 1) {
             HStack {
                 VStack(alignment: .leading) {
-                    CloudLabel(text: "South Indian", font: .title, textColor: .yellow, fontWeight: .bold)
-                    CloudLabel(text: "Idly · Dosa · Vada · Appam")
+                    CloudLabel(text: subscriptionModel.meal?.name ?? "", font: .title, textColor: .yellow, fontWeight: .bold)
+                    CloudLabel(text: subscriptionModel.meal?.description ?? "")
                 }
                 Spacer()
                 self.getAmountView()
@@ -51,20 +53,20 @@ struct SubscriptionView: View {
     }
     @ViewBuilder
     private func getAddressView() -> some View {
-        CloudLabel(text: /*UserDefaultsUtility.getUser()?.addresses.first?.addressLine1 ??*/ "8358 Liaison De la Passerelle, 92235 Tremblay-en-France", font: .footnote, textColor: .gray)
+        CloudLabel(text: UserDefaultsUtility.getUser()?.addresses.first?.addressLine1 ?? "", font: .footnote, textColor: .gray)
     }
     @ViewBuilder
     private func getReviewView() -> some View {
         HStack {
             self.getRatingStars()
-            CloudLabel(text: "53 \(Constants.reviews)")
+            CloudLabel(text: "\(subscriptionModel.meal?.ratingModel?.noOfRatings ?? 0) \(Constants.reviews)")
         }
     }
     @ViewBuilder
     private func getRatingStars() -> some View {
         let totalStars: Int = 5
-        let filledStars: Int = 5 // Int(self.mealModel.ratingModel?.avgRating.rounded(.down) ?? 0)
-        let halfStars: Int = 0 // (self.mealModel.ratingModel?.avgRating ?? 0 - Float(filledStars)) > 0 ? 1 : 0
+        let filledStars: Int = Int(self.subscriptionModel.meal?.ratingModel?.avgRating.rounded(.down) ?? 0)
+        let halfStars: Int = (self.subscriptionModel.meal?.ratingModel?.avgRating ?? 0 - Float(filledStars)) > 0 ? 1 : 0
         let emptyStars: Int = totalStars - filledStars - halfStars
         HStack {
             ForEach(0..<filledStars, id: \.self) { _ in
@@ -83,13 +85,13 @@ struct SubscriptionView: View {
     }
     @ViewBuilder
     private func getSubscriptionDateView() -> some View {
-        CloudLabel(text: "10 Apr-16 Apr", textAlignment: .trailing)
+        CloudLabel(text: self.subscriptionModel.deliveryTimeSlot, textAlignment: .trailing)
     }
     @ViewBuilder
     private func getAmountView() -> some View {
         VStack {
             CloudLabel(text: "Paid")
-            CloudLabel(text: "420₹", font: .title2, fontWeight: .bold)
+            CloudLabel(text: "\(self.subscriptionModel.amount) \(Constants.rupee_symbol)", font: .title2, fontWeight: .bold)
         }
     }
     @ViewBuilder
@@ -100,7 +102,7 @@ struct SubscriptionView: View {
         }
     }
 }
-
-#Preview {
-    SubscriptionView()
-}
+//
+//#Preview {
+//    SubscriptionView()
+//}

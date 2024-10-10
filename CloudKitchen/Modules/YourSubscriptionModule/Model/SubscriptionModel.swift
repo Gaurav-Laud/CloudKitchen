@@ -6,6 +6,7 @@
 //
 
 import Foundation
+@Observable
 class SubscriptionModel: Codable {
     var _id: String
     var meal: MealModel?
@@ -61,5 +62,25 @@ class SubscriptionModel: Codable {
         self.donatedDates = try container.decodeIfPresent([String].self, forKey: .donatedDates) ?? []
         self.deliveredDates = try container.decodeIfPresent([String].self, forKey: .deliveredDates) ?? []
         self.undeliveredDates = try container.decodeIfPresent([String].self, forKey: .undeliveredDates) ?? []
+    }
+    
+    func encode(to encoder: any Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self._id, forKey: ._id)
+        try container.encode(self.meal, forKey: .meal)
+        try container.encode(self.kitchen, forKey: .kitchen)
+        try container.encode(self.user, forKey: .user)
+        try container.encode(self.plan, forKey: .plan)
+        try container.encode(self.delieveryAddress, forKey: .delieveryAddress)
+        try container.encode(self.amount, forKey: .amount)
+        try container.encode(self.status, forKey: .status)
+        try container.encode(self.plannedDates, forKey: .plannedDates)
+        try container.encode(self.startDate, forKey: .startDate)
+        try container.encode(self.endDate, forKey: .endDate)
+        try container.encode(self.deliveryTimeSlot, forKey: .deliveryTimeSlot)
+        try container.encode(self.pausedDates, forKey: .pausedDates)
+        try container.encode(self.donatedDates, forKey: .donatedDates)
+        try container.encode(self.deliveredDates, forKey: .deliveredDates)
+        try container.encode(self.undeliveredDates, forKey: .undeliveredDates)
     }
 }

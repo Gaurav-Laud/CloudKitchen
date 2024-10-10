@@ -11,8 +11,8 @@ struct YourSubscriptionView: View {
     @Environment(\.dismiss) private var dismiss
     @State var yourSubscriptionViewModel = YourSubscriptionViewModel()
     var body: some View {
-        VStack {
-            self.getSubscriptionCell()
+        List(yourSubscriptionViewModel.subscriptions, id: \._id) { subscription in
+            self.getSubscriptionCell(for: subscription)
         }
         .padding()
         .navigationBarBackButtonHidden()
@@ -31,8 +31,8 @@ struct YourSubscriptionView: View {
         }
     }
     @ViewBuilder
-    private func getSubscriptionCell() -> some View {
-        SubscriptionView(showManageButton: true)
+    private func getSubscriptionCell(for subscription: SubscriptionModel) -> some View {
+        SubscriptionView(showManageButton: true, subscription: subscription)
     }
 }
 

@@ -12,11 +12,11 @@ struct MainTabView: View {
         TabView() {
             NavigationStack { HomeView() }
             .tabItem {
-                Label("Order", image: ImageResource(name: Constants.order_tab_image, bundle: Bundle.main))
+                getTabItem(title: "Order", image: Image(uiImage: UIImage(named: Constants.order_tab_image) ?? UIImage()))
             }
             NavigationStack { ProfileView() }
             .tabItem {
-                Label("Profile", image: ImageResource(name: Constants.profile_tab_image, bundle: Bundle.main))
+                getTabItem(title: "Profile", image: Image(uiImage: UIImage(named: Constants.profile_tab_image) ?? UIImage()))
             }
         }
         .tint(.yellow)

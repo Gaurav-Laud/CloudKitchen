@@ -8,5 +8,8 @@
 import Foundation
 @Observable
 class ManageSubscriptionViewModel {
-    
+    var subscriptionModel: SubscriptionModel
+    init(subscriptionModel: SubscriptionModel) {
+        self.subscriptionModel = subscriptionModel
+    }
 }

@@ -9,12 +9,15 @@ import SwiftUI
 
 struct ManageSubscriptionView: View {
     @Environment(\.dismiss) private var dismiss
-    @State var manageSubscriptionViewModel = ManageSubscriptionViewModel()
+    @State var manageSubscriptionViewModel: ManageSubscriptionViewModel
     @State var ind: Int = 0
+    init(subscriptionModel: SubscriptionModel) {
+        self.manageSubscriptionViewModel = ManageSubscriptionViewModel(subscriptionModel: subscriptionModel)
+    }
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                SubscriptionView()
+                SubscriptionView(subscription: manageSubscriptionViewModel.subscriptionModel)
                 self.getPickerView()
                 self.getMealView()
                 self.getActionView()

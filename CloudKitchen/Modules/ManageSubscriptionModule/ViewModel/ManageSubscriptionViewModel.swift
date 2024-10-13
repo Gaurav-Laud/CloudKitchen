@@ -12,4 +12,11 @@ class ManageSubscriptionViewModel {
     init(subscriptionModel: SubscriptionModel) {
         self.subscriptionModel = subscriptionModel
     }
+    
+    func pauseSubscription() {
+        Task { [weak self] in
+            guard let self = self, !self.subscriptionModel._id.isEmpty else { return }
+            let responce = try await APIHandler.shared.makePutAPICall([String: String].self, url: "https://whale-app-ct2dl.ondigitalocean.app/subscriptions/\(self.subscriptionModel._id)/pauseSubscription")
+        }
+    }
 }

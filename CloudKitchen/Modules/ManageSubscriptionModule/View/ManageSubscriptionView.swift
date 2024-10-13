@@ -87,20 +87,25 @@ struct ManageSubscriptionView: View {
         .padding()
     }
     @ViewBuilder
-    private func getButton(title: String, textColor: Color, backgroundColor: Color) -> some View {
+    private func getButton(title: String, textColor: Color, backgroundColor: Color, action: @escaping (() -> Void) = { }) -> some View {
         CloudLabel(text: title , textColor: textColor)
             .padding(.horizontal, 20)
             .padding(.vertical, 5)
             .background(backgroundColor)
             .clipShape(RoundedRectangle(cornerRadius: 5))
             .addBorder(cornerRadius: 5)
+            .onTapGesture {
+                action()
+            }
     }
     @ViewBuilder
     private func getDateView() -> some View {
         HStack {
             CloudLabel(text: "10 Apr-16 Apr")
             Spacer()
-            getButton(title: "Pause", textColor: .white, backgroundColor: .yellow)
+            getButton(title: "Pause", textColor: .white, backgroundColor: .yellow) {
+                self.manageSubscriptionViewModel.pauseSubscription()
+            }
         }
     }
     @ViewBuilder
@@ -131,7 +136,7 @@ struct ManageSubscriptionView: View {
         }
     }
 }
-
-#Preview {
-    ManageSubscriptionView()
-}
+//
+//#Preview {
+//    ManageSubscriptionView()
+//}

@@ -1,0 +1,24 @@
+{
+  "originHash" : "e74a0ed1b58da300fab6ed172eb3b2f0ee0ebd755968a0cc069b958056992c0b",
+  "pins" : [
+    {
+      "identity" : "alerttoast",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/elai950/AlertToast",
+      "state" : {
+        "revision" : "b39252eacd159904afd7d718bba0afabb87f2f2f",
+        "version" : "1.3.9"
+      }
+    },
+    {
+      "identity" : "otpview-swiftui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kenagt/OtpView-SwiftUI",
+      "state" : {
+        "revision" : "48e7cd0eb56a6548652ddc5ad284c509b63de3b2",
+        "version" : "1.0.3"
+      }
+    }
+  ],
+  "version" : 3
+}

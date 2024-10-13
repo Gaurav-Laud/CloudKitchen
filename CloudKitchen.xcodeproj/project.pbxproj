@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA28ED161B7734B71D0931FA /* Pods_CloudKitchenTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B366F23100F639ED27D6FA0 /* Pods_CloudKitchenTests.framework */; };
+		DDD057D16148A35B99368AE1 /* Pods_CloudKitchen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4A6D9A76CC6DA5C218B12BE /* Pods_CloudKitchen.framework */; };
 		EC68857E2C58150800A3A9A7 /* MealDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68857D2C58150800A3A9A7 /* MealDetailsViewModel.swift */; };
 		EC6885802C58163B00A3A9A7 /* MealDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC68857F2C58163B00A3A9A7 /* MealDetailsView.swift */; };
 		EC6885822C581E2A00A3A9A7 /* MealDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6885812C581E2A00A3A9A7 /* MealDetailModel.swift */; };
@@ -32,7 +34,6 @@
 		EC873A062C77AC120064BF6C /* OrderConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC873A052C77AC120064BF6C /* OrderConfirmationView.swift */; };
 		EC873A092C77BBD10064BF6C /* OrderConfirmationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC873A082C77BBD10064BF6C /* OrderConfirmationViewModel.swift */; };
 		EC873A0B2C7A3BE00064BF6C /* RazorPayUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC873A0A2C7A3BE00064BF6C /* RazorPayUtility.swift */; };
-		EC873A0F2C7A4B900064BF6C /* Razorpay.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC873A0E2C7A4B900064BF6C /* Razorpay.xcframework */; };
 		EC9813DD2C343E1B00E19F6D /* CloudTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9813DC2C343E1B00E19F6D /* CloudTextField.swift */; };
 		EC9813DF2C36285300E19F6D /* OTPVerificationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9813DE2C36285300E19F6D /* OTPVerificationScreen.swift */; };
 		EC9813E12C362F2200E19F6D /* CloudLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9813E02C362F2200E19F6D /* CloudLabel.swift */; };
@@ -65,6 +66,7 @@
 		ECF37D9A2CB6799200D33FE6 /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF37D992CB6799200D33FE6 /* SubscriptionView.swift */; };
 		ECF37D9D2CB69D2800D33FE6 /* YourSubscriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF37D9C2CB69D2800D33FE6 /* YourSubscriptionViewModel.swift */; };
 		ECF37DA02CB69D8B00D33FE6 /* ManageSubscriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF37D9F2CB69D8B00D33FE6 /* ManageSubscriptionViewModel.swift */; };
+		EDFBD0F596CA0F5D95CCF6F8 /* Pods_CloudKitchen_CloudKitchenUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E331928A660097EE0068C51D /* Pods_CloudKitchen_CloudKitchenUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +87,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00B5FFE7C8BA67BD095968B8 /* Pods-CloudKitchenTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CloudKitchenTests.release.xcconfig"; path = "Target Support Files/Pods-CloudKitchenTests/Pods-CloudKitchenTests.release.xcconfig"; sourceTree = "<group>"; };
+		1C2D41F7142A55119DAD7F6F /* Pods-CloudKitchen-CloudKitchenUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CloudKitchen-CloudKitchenUITests.debug.xcconfig"; path = "Target Support Files/Pods-CloudKitchen-CloudKitchenUITests/Pods-CloudKitchen-CloudKitchenUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		262B1447577176630B900E08 /* Pods-CloudKitchen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CloudKitchen.debug.xcconfig"; path = "Target Support Files/Pods-CloudKitchen/Pods-CloudKitchen.debug.xcconfig"; sourceTree = "<group>"; };
+		273D5C34172A34AE6C99D5A2 /* Pods-CloudKitchenTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CloudKitchenTests.debug.xcconfig"; path = "Target Support Files/Pods-CloudKitchenTests/Pods-CloudKitchenTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3B366F23100F639ED27D6FA0 /* Pods_CloudKitchenTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CloudKitchenTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9B3003AF2A065AD1A2247A9 /* Pods-CloudKitchen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CloudKitchen.release.xcconfig"; path = "Target Support Files/Pods-CloudKitchen/Pods-CloudKitchen.release.xcconfig"; sourceTree = "<group>"; };
+		C9C09311710A2BDB05E461C3 /* Pods-CloudKitchen-CloudKitchenUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CloudKitchen-CloudKitchenUITests.release.xcconfig"; path = "Target Support Files/Pods-CloudKitchen-CloudKitchenUITests/Pods-CloudKitchen-CloudKitchenUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E331928A660097EE0068C51D /* Pods_CloudKitchen_CloudKitchenUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CloudKitchen_CloudKitchenUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4A6D9A76CC6DA5C218B12BE /* Pods_CloudKitchen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CloudKitchen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC68857D2C58150800A3A9A7 /* MealDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailsViewModel.swift; sourceTree = "<group>"; };
 		EC68857F2C58163B00A3A9A7 /* MealDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailsView.swift; sourceTree = "<group>"; };
 		EC6885812C581E2A00A3A9A7 /* MealDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailModel.swift; sourceTree = "<group>"; };
@@ -113,7 +124,6 @@
 		EC873A052C77AC120064BF6C /* OrderConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmationView.swift; sourceTree = "<group>"; };
 		EC873A082C77BBD10064BF6C /* OrderConfirmationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmationViewModel.swift; sourceTree = "<group>"; };
 		EC873A0A2C7A3BE00064BF6C /* RazorPayUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RazorPayUtility.swift; sourceTree = "<group>"; };
-		EC873A0E2C7A4B900064BF6C /* Razorpay.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Razorpay.xcframework; sourceTree = "<group>"; };
 		EC9813DC2C343E1B00E19F6D /* CloudTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudTextField.swift; sourceTree = "<group>"; };
 		EC9813DE2C36285300E19F6D /* OTPVerificationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVerificationScreen.swift; sourceTree = "<group>"; };
 		EC9813E02C362F2200E19F6D /* CloudLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudLabel.swift; sourceTree = "<group>"; };
@@ -153,8 +163,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC9813E52C371A3F00E19F6D /* OtpView-SwiftUI in Frameworks */,
-				EC873A0F2C7A4B900064BF6C /* Razorpay.xcframework in Frameworks */,
 				EC9813F12C38641500E19F6D /* AlertToast in Frameworks */,
+				DDD057D16148A35B99368AE1 /* Pods_CloudKitchen.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,6 +172,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA28ED161B7734B71D0931FA /* Pods_CloudKitchenTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,12 +180,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDFBD0F596CA0F5D95CCF6F8 /* Pods_CloudKitchen_CloudKitchenUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B66124B13098E10ED9B56DD6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				262B1447577176630B900E08 /* Pods-CloudKitchen.debug.xcconfig */,
+				A9B3003AF2A065AD1A2247A9 /* Pods-CloudKitchen.release.xcconfig */,
+				1C2D41F7142A55119DAD7F6F /* Pods-CloudKitchen-CloudKitchenUITests.debug.xcconfig */,
+				C9C09311710A2BDB05E461C3 /* Pods-CloudKitchen-CloudKitchenUITests.release.xcconfig */,
+				273D5C34172A34AE6C99D5A2 /* Pods-CloudKitchenTests.debug.xcconfig */,
+				00B5FFE7C8BA67BD095968B8 /* Pods-CloudKitchenTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		EC6885792C5814D700A3A9A7 /* MealDetailsModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,6 +294,7 @@
 				EC7314BB2C31AA830050B4A0 /* CloudKitchenUITests */,
 				EC73149F2C31AA820050B4A0 /* Products */,
 				EC9813E32C371A3F00E19F6D /* Frameworks */,
+				B66124B13098E10ED9B56DD6 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -444,7 +470,9 @@
 		EC9813E32C371A3F00E19F6D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EC873A0E2C7A4B900064BF6C /* Razorpay.xcframework */,
+				E4A6D9A76CC6DA5C218B12BE /* Pods_CloudKitchen.framework */,
+				E331928A660097EE0068C51D /* Pods_CloudKitchen_CloudKitchenUITests.framework */,
+				3B366F23100F639ED27D6FA0 /* Pods_CloudKitchenTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -656,9 +684,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EC7314C22C31AA840050B4A0 /* Build configuration list for PBXNativeTarget "CloudKitchen" */;
 			buildPhases = (
+				6306CBA76541FDA9D19EA0CD /* [CP] Check Pods Manifest.lock */,
 				EC73149A2C31AA820050B4A0 /* Sources */,
 				EC73149B2C31AA820050B4A0 /* Frameworks */,
 				EC73149C2C31AA820050B4A0 /* Resources */,
+				A0B7AF04863EDEA2689970E2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -677,6 +707,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EC7314C52C31AA840050B4A0 /* Build configuration list for PBXNativeTarget "CloudKitchenTests" */;
 			buildPhases = (
+				30DC9BFE094EBC6A8D2F272E /* [CP] Check Pods Manifest.lock */,
 				EC7314AA2C31AA830050B4A0 /* Sources */,
 				EC7314AB2C31AA830050B4A0 /* Frameworks */,
 				EC7314AC2C31AA830050B4A0 /* Resources */,
@@ -695,9 +726,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EC7314C82C31AA840050B4A0 /* Build configuration list for PBXNativeTarget "CloudKitchenUITests" */;
 			buildPhases = (
+				8A42CC9B8AAEA30696A64008 /* [CP] Check Pods Manifest.lock */,
 				EC7314B42C31AA830050B4A0 /* Sources */,
 				EC7314B52C31AA830050B4A0 /* Frameworks */,
 				EC7314B62C31AA830050B4A0 /* Resources */,
+				3A98EFE11276FB86879D8889 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -781,6 +814,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		30DC9BFE094EBC6A8D2F272E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CloudKitchenTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3A98EFE11276FB86879D8889 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CloudKitchen-CloudKitchenUITests/Pods-CloudKitchen-CloudKitchenUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CloudKitchen-CloudKitchenUITests/Pods-CloudKitchen-CloudKitchenUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CloudKitchen-CloudKitchenUITests/Pods-CloudKitchen-CloudKitchenUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6306CBA76541FDA9D19EA0CD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CloudKitchen-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8A42CC9B8AAEA30696A64008 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CloudKitchen-CloudKitchenUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A0B7AF04863EDEA2689970E2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CloudKitchen/Pods-CloudKitchen-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CloudKitchen/Pods-CloudKitchen-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CloudKitchen/Pods-CloudKitchen-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EC73149A2C31AA820050B4A0 /* Sources */ = {
@@ -994,6 +1130,7 @@
 		};
 		EC7314C32C31AA840050B4A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 262B1447577176630B900E08 /* Pods-CloudKitchen.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1003,6 +1140,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"CloudKitchen/Preview Content\"";
 				DEVELOPMENT_TEAM = U6UPZ8KCS7;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Please provide location access to access your address";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Please provide location access to access your address";
@@ -1028,6 +1166,7 @@
 		};
 		EC7314C42C31AA840050B4A0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9B3003AF2A065AD1A2247A9 /* Pods-CloudKitchen.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1037,6 +1176,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"CloudKitchen/Preview Content\"";
 				DEVELOPMENT_TEAM = U6UPZ8KCS7;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Please provide location access to access your address";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Please provide location access to access your address";
@@ -1062,6 +1202,7 @@
 		};
 		EC7314C62C31AA840050B4A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 273D5C34172A34AE6C99D5A2 /* Pods-CloudKitchenTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1083,6 +1224,7 @@
 		};
 		EC7314C72C31AA840050B4A0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00B5FFE7C8BA67BD095968B8 /* Pods-CloudKitchenTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1104,6 +1246,7 @@
 		};
 		EC7314C92C31AA840050B4A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C2D41F7142A55119DAD7F6F /* Pods-CloudKitchen-CloudKitchenUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1121,6 +1264,7 @@
 		};
 		EC7314CA2C31AA840050B4A0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9C09311710A2BDB05E461C3 /* Pods-CloudKitchen-CloudKitchenUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

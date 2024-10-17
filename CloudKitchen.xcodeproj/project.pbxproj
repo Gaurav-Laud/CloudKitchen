@@ -57,6 +57,10 @@
 		EC9C3F9C2C4301EF0027D2A8 /* MealCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9C3F9B2C4301EF0027D2A8 /* MealCardView.swift */; };
 		EC9C3FA12C47AB620027D2A8 /* AddressManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9C3FA02C47AB620027D2A8 /* AddressManagementView.swift */; };
 		EC9C3FA52C47AC4A0027D2A8 /* AddressManagementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9C3FA42C47AC4A0027D2A8 /* AddressManagementViewModel.swift */; };
+		ECC6A36E2CBD7F62002F402A /* OrderHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC6A36D2CBD7F62002F402A /* OrderHistoryView.swift */; };
+		ECC6A3712CBD8090002F402A /* OrderHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC6A3702CBD8090002F402A /* OrderHistoryViewModel.swift */; };
+		ECC6A3742CBD80ED002F402A /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC6A3732CBD80ED002F402A /* OrderModel.swift */; };
+		ECD20F7A2CBC81DE0055DF06 /* OrderIdModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD20F792CBC81DE0055DF06 /* OrderIdModel.swift */; };
 		ECEF10372C4A4105008C9E00 /* AddAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEF10362C4A4105008C9E00 /* AddAddressView.swift */; };
 		ECEF10392C4A4A4C008C9E00 /* AddAddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEF10382C4A4A4C008C9E00 /* AddAddressViewModel.swift */; };
 		ECF37D8B2CAEED3500D33FE6 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF37D8A2CAEED3500D33FE6 /* ProfileView.swift */; };
@@ -146,6 +150,10 @@
 		EC9C3F9B2C4301EF0027D2A8 /* MealCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCardView.swift; sourceTree = "<group>"; };
 		EC9C3FA02C47AB620027D2A8 /* AddressManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressManagementView.swift; sourceTree = "<group>"; };
 		EC9C3FA42C47AC4A0027D2A8 /* AddressManagementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressManagementViewModel.swift; sourceTree = "<group>"; };
+		ECC6A36D2CBD7F62002F402A /* OrderHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryView.swift; sourceTree = "<group>"; };
+		ECC6A3702CBD8090002F402A /* OrderHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryViewModel.swift; sourceTree = "<group>"; };
+		ECC6A3732CBD80ED002F402A /* OrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
+		ECD20F792CBC81DE0055DF06 /* OrderIdModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderIdModel.swift; sourceTree = "<group>"; };
 		ECEF10362C4A4105008C9E00 /* AddAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressView.swift; sourceTree = "<group>"; };
 		ECEF10382C4A4A4C008C9E00 /* AddAddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressViewModel.swift; sourceTree = "<group>"; };
 		ECF37D8A2CAEED3500D33FE6 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -351,6 +359,7 @@
 		EC7314CB2C31BCB00050B4A0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				ECC6A36B2CBD7F27002F402A /* OrderHistoryModule */,
 				ECF37D952CB6790F00D33FE6 /* ManageSubscriptionModule */,
 				ECF37D912CB66EC200D33FE6 /* YourSubscriptionModule */,
 				ECF37D882CAEED0800D33FE6 /* ProfileModule */,
@@ -445,6 +454,7 @@
 		EC873A032C77ABEB0064BF6C /* OrderConfirmationModule */ = {
 			isa = PBXGroup;
 			children = (
+				ECD20F782CBC800B0055DF06 /* Model */,
 				EC873A072C77BBBB0064BF6C /* ViewModel */,
 				EC873A042C77ABFD0064BF6C /* View */,
 			);
@@ -596,6 +606,48 @@
 				ECEF10382C4A4A4C008C9E00 /* AddAddressViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		ECC6A36B2CBD7F27002F402A /* OrderHistoryModule */ = {
+			isa = PBXGroup;
+			children = (
+				ECC6A3722CBD80E2002F402A /* Model */,
+				ECC6A36F2CBD8080002F402A /* ViewModel */,
+				ECC6A36C2CBD7F53002F402A /* View */,
+			);
+			path = OrderHistoryModule;
+			sourceTree = "<group>";
+		};
+		ECC6A36C2CBD7F53002F402A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ECC6A36D2CBD7F62002F402A /* OrderHistoryView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ECC6A36F2CBD8080002F402A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				ECC6A3702CBD8090002F402A /* OrderHistoryViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		ECC6A3722CBD80E2002F402A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ECC6A3732CBD80ED002F402A /* OrderModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ECD20F782CBC800B0055DF06 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ECD20F792CBC81DE0055DF06 /* OrderIdModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		ECF37D882CAEED0800D33FE6 /* ProfileModule */ = {
@@ -936,6 +988,7 @@
 				EC9813EE2C381C0A00E19F6D /* HomeView.swift in Sources */,
 				EC9813DF2C36285300E19F6D /* OTPVerificationScreen.swift in Sources */,
 				EC7314D42C32F7850050B4A0 /* Constants.swift in Sources */,
+				ECC6A3712CBD8090002F402A /* OrderHistoryViewModel.swift in Sources */,
 				EC68858C2C5A746C00A3A9A7 /* DurationSelectionView.swift in Sources */,
 				EC9C3FA52C47AC4A0027D2A8 /* AddressManagementViewModel.swift in Sources */,
 				EC873A0B2C7A3BE00064BF6C /* RazorPayUtility.swift in Sources */,
@@ -950,6 +1003,7 @@
 				EC6885842C5823FF00A3A9A7 /* MenuItemView.swift in Sources */,
 				EC9813F72C395E3700E19F6D /* KitchenModel.swift in Sources */,
 				EC7314DE2C342B140050B4A0 /* LoginView.swift in Sources */,
+				ECC6A3742CBD80ED002F402A /* OrderModel.swift in Sources */,
 				EC873A092C77BBD10064BF6C /* OrderConfirmationViewModel.swift in Sources */,
 				EC9813FB2C3A786B00E19F6D /* KitchenCellView.swift in Sources */,
 				EC7314D62C32FF410050B4A0 /* UserDefaultsUtility.swift in Sources */,
@@ -968,10 +1022,12 @@
 				EC9A63262CB849CF00D043B9 /* SubscriptionModel.swift in Sources */,
 				ECF37DA02CB69D8B00D33FE6 /* ManageSubscriptionViewModel.swift in Sources */,
 				EC9C3F952C3E98EA0027D2A8 /* KitchenDetailsView.swift in Sources */,
+				ECD20F7A2CBC81DE0055DF06 /* OrderIdModel.swift in Sources */,
 				EC9813E12C362F2200E19F6D /* CloudLabel.swift in Sources */,
 				EC7314A22C31AA820050B4A0 /* CloudKitchenApp.swift in Sources */,
 				EC9813E82C37D26300E19F6D /* UserModel.swift in Sources */,
 				EC68858F2C5B72D200A3A9A7 /* DurationSelectionViewModel.swift in Sources */,
+				ECC6A36E2CBD7F62002F402A /* OrderHistoryView.swift in Sources */,
 				EC7314D12C31BE750050B4A0 /* CloudButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

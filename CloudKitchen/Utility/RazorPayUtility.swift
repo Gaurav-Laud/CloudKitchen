@@ -10,8 +10,8 @@ import Razorpay
 class RazorPayUtility {
     static let shared: RazorPayUtility = RazorPayUtility()
     private let razorPayKey = "rzp_test_CLECjNaCmPM9pH"
-    private var paymentResponceCallback: ((Result<String, Error>) -> Void) = { _ in }
-    func startPayment(for orderId: String, amount: Int, callback: @escaping ((Result<String, Error>) -> Void)) {
+    private var paymentResponceCallback: ((Result<[String: String], Error>) -> Void) = { _ in }
+    func startPayment(for orderId: String, amount: Int, callback: @escaping ((Result<[String: String], Error>) -> Void)) {
         let razorPay = RazorpayCheckout.initWithKey(razorPayKey, andDelegate: self)
         self.paymentResponceCallback = callback
         let options: [String:Any] = [
@@ -21,7 +21,7 @@ class RazorPayUtility {
                 "theme": ["color": "#3399cc"],
                 "currency": "INR",
                 "order_id": orderId,
-                "amount": amount, // Amount is in currency subunits, e.g., for ₹100 pass 10000
+                "amount": "\(amount * 100)", // Amount is in currency subunits, e.g., for ₹100 pass 10000
                 "prefill": [
                     "email": "madhurao527@gmail.com",
                     "contact": "6300592930"
@@ -31,14 +31,17 @@ class RazorPayUtility {
     }
 }
 
-extension RazorPayUtility: RazorpayPaymentCompletionProtocol {
-    func onPaymentError(_ code: Int32, description str: String) {
-        print("payment failure: \(code) - \(str)")
-        self.paymentResponceCallback(.failure(NSError(domain: "", code: Int(code), userInfo: ["desc": str])))
-    }
-    
-    func onPaymentSuccess(_ payment_id: String) {
-        print("Payment success: \(payment_id)")
-        self.paymentResponceCallback(.success(payment_id))
+extension RazorPayUtility: RazorpayResultProtocol {
+    func onComplete(response: [AnyHashable : Any]) {
+        print("Payment completed with response: \(response)")
+        guard let response = response as? [String: Any] else {
+            self.paymentResponceCallback(.failure(DecodingError.typeMismatch(String.self, .init(codingPath: [], debugDescription: ""))))
+            return
+        }
+        if let statusCode = response["http_status_code"] as? Int, !(200..<300).contains(statusCode) {
+            self.paymentResponceCallback(.failure(URLError(URLError.Code(rawValue: statusCode))))
+        } else if let response = response as? [String: String] {
+            self.paymentResponceCallback(.success(response))
+        }
     }
 }

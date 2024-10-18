@@ -26,6 +26,7 @@ class KitchenDetailsViewModel: ObservableObject {
         self.convertImageUrls(for: kitchenDetailsModel)
         self.setupDefaultValues(kitchenDetailsModel: kitchenDetailsModel)
         self.kitchenDetailsModel = kitchenDetailsModel
+        self.kitchenModel?.kitchenDetailsModel = kitchenDetailsModel
     }
     private func convertImageUrls(for kitchenDetailsModel: KitchenDetailsModel) {
         kitchenDetailsModel.bannerImage = kitchenDetailsModel.bannerImage.replacingOccurrences(of: "http:", with: "https:")

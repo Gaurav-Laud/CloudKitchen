@@ -32,6 +32,9 @@ struct OrderConfirmationView: View {
         .toolbar {
             getToolbarView()
         }
+        .onAppear {
+            self.orderConfirmationViewModel.fetchOrder()
+        }
     }
     @ToolbarContentBuilder
     private func getToolbarView() -> some ToolbarContent {
@@ -49,7 +52,7 @@ struct OrderConfirmationView: View {
                 .resizable()
                 .frame(width: 40, height: 40)
             VStack(alignment: .leading) {
-                CloudLabel(text: "Deliver at Home")
+                CloudLabel(text: "Deliver at \(UserDefaultsUtility.getSelectedAddress()?.fullName ?? "")")
                 CloudLabel(text: CloudKitchenUtility.shared.selectedAddress?.addressLine1 ?? "", font: .caption, textColor: .gray)
             }
             Spacer()
@@ -64,7 +67,7 @@ struct OrderConfirmationView: View {
         HStack {
             CloudLabel(text: "Your Total Savings", textColor: .blue)
             Spacer()
-            CloudLabel(text: "₹ 325.00", textColor: .blue)
+            CloudLabel(text: "₹ \(self.orderConfirmationViewModel.reviewOrderModel?.savedAmount ?? 0)", textColor: .blue)
         }
         .padding(.horizontal)
         .padding(.vertical, 6.0)
@@ -112,7 +115,7 @@ struct OrderConfirmationView: View {
             HStack {
                 CloudLabel(text: "Plan duration", font: .title3, textColor: .gray)
                 Spacer()
-                CloudLabel(text: "\(self.orderConfirmationViewModel.mealDetailModel?.startDate ?? "") - \(self.orderConfirmationViewModel.mealDetailModel?.endDate ?? "")")
+                CloudLabel(text: "\(self.orderConfirmationViewModel.mealDetailModel?.startDate?.convertFormatOfDate() ?? "") - \(self.orderConfirmationViewModel.mealDetailModel?.endDate?.convertFormatOfDate() ?? "")")
             }
             HStack {
                 CloudLabel(text: "Delivery Slot", font: .title3, textColor: .gray)
@@ -132,7 +135,7 @@ struct OrderConfirmationView: View {
             HStack {
                 CloudLabel(text: "Delivery Charges", font: .title3, textColor: .gray)
                 Spacer()
-                CloudLabel(text: "\(Constants.rupee_symbol) \(self.orderConfirmationViewModel.getSubscriptionCost())", textColor: .gray)
+                CloudLabel(text: "\(Constants.rupee_symbol) \(self.orderConfirmationViewModel.getDeliveryCost())", textColor: .gray)
             }
             HStack {
                 CloudLabel(text: "Grand Total", font: .title2, fontWeight: .bold)
@@ -146,7 +149,7 @@ struct OrderConfirmationView: View {
         HStack {
             VStack(alignment: .leading) {
                 CloudLabel(text: "ORDERING", font: .title3, textColor: .gray, fontWeight: .bold)
-                CloudLabel(text: "Raja, 9848120717", font: .headline, textColor: .gray)
+                CloudLabel(text: "\(UserDefaultsUtility.getUser()?.name ?? ""), \(UserDefaultsUtility.getUser()?.mobileNumber ?? "")", font: .headline, textColor: .gray)
             }
             Spacer()
             CloudLabel(text: "Change", textColor: .red)
@@ -155,10 +158,7 @@ struct OrderConfirmationView: View {
     @ViewBuilder
     private func getBottomButton() -> some View {
         CloudButton(title: "Pay Now") {
-//            let str = """
-//{"amount":3096,"amount_due":3096,"amount_paid":0,"attempts":0,"created_at":1724520447,"currency":"INR","entity":"order","id":"order_OooolyodXDLNZR","notes":{"key1":"value3","key2":"value2"},"offer_id":null,"receipt":"receipt_66c503aac731092cba80cc7a","status":"created"}
-//"""
-//            RazorPayUtility.shared.startPayment(for: str, amount: 1000)
+            self.orderConfirmationViewModel.startPayment()
         }
     }
 }

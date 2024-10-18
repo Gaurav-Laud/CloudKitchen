@@ -20,3 +20,20 @@ class OrderIdModel: Codable {
     var receipt: String
     var status: String
 }
+class ReviewOrderModel: Codable {
+    var totalAmount: Double
+    var plannedDates: [PlannedDates]
+    var discount: String
+    var grandTotal: Double
+    var savedAmount: Double
+}
+class PlannedDates: Codable {
+    var date: String
+    var menuItem: MenuItem
+}
+class MenuItem: Codable {
+    var id: Int
+    var dayCount: Int
+    var items: [String]
+    var image: String?
+}

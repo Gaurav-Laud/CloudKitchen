@@ -24,4 +24,8 @@ class DurationSelectionViewModel {
         slotModels[index].isSelected = true
         mealDetailModel?.slot = slotModels[index]
     }
+    func setStartAndEndDate() {
+        mealDetailModel?.startDate = startDate.convertToString()
+        mealDetailModel?.endDate = endDate.convertToString()
+    }
 }

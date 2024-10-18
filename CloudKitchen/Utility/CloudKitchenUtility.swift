@@ -52,3 +52,35 @@ class CloudKitchenUtility {
         }
     }
 }
+extension Date {
+    public func convertToString(_ format: String? = String.datePostingFormat, _ withUTC: Bool = false) -> String {
+        let dateFormatter = DateFormatter()
+        if withUTC { dateFormatter.timeZone = TimeZone(secondsFromGMT: 0) }
+        dateFormatter.dateFormat = format
+        return dateFormatter.string(from: self)
+    }
+}
+extension String {
+    public static let datePostingFormat: String = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+    public static let dateDisplayFormat: String = "dd-MM-yyyy"
+    public func convertFormatOfDate(from originalFormat: String = String.datePostingFormat, to destinationFormat: String = String.dateDisplayFormat, _ withUTC: Bool = false) -> String? {
+
+        // Orginal format:
+        let dateOriginalFormat = DateFormatter()
+        if withUTC { dateOriginalFormat.timeZone = TimeZone(secondsFromGMT: 0) }
+        dateOriginalFormat.dateFormat = originalFormat
+
+        // Destination format:
+        let dateDestinationFormat = DateFormatter()
+        if withUTC { dateDestinationFormat.timeZone = TimeZone(secondsFromGMT: 0) }
+        dateDestinationFormat.dateFormat = destinationFormat
+
+        // Convert current String Date to NSDate
+        guard let dateFromString = dateOriginalFormat.date(from: self) else { return nil }
+
+        // Convert new NSDate created above to String with the good format
+        let dateFormatted = dateDestinationFormat.string(from: dateFromString)
+
+        return dateFormatted
+    }
+}

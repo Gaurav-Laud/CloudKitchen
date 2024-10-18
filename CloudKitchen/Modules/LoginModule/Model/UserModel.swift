@@ -47,4 +47,19 @@ class UserModel: Codable {
         self.image = try container.decodeIfPresent(String.self, forKey: .image) ?? ""
         self.location = try container.decodeIfPresent(LocationModel.self, forKey: .location)
     }
+    
+    func encode(to encoder: any Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.id, forKey: .id)
+        try container.encode(self.mobileNumber, forKey: .mobileNumber)
+        try container.encode(self.isAppAdmin, forKey: .isAppAdmin)
+        try container.encode(self.isKitchenOwner, forKey: .isKitchenOwner)
+        try container.encode(self.name, forKey: .name)
+        try container.encode(self.addresses, forKey: .addresses)
+        try container.encode(self.email, forKey: .email)
+        try container.encode(self.password, forKey: .password)
+        try container.encode(self.ownedKitchens, forKey: .ownedKitchens)
+        try container.encode(self.image, forKey: .image)
+        try container.encode(self.location, forKey: .location)
+    }
 }

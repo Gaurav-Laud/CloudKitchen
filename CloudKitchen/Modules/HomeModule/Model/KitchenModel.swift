@@ -6,6 +6,7 @@
 //
 
 import Foundation
+@Observable
 class KitchenModel: Codable, Identifiable {
     var _id: String
     var name: String
@@ -26,6 +27,30 @@ class KitchenModel: Codable, Identifiable {
     var updatedAt: String
     var owner: UserModel?
     var contact: [String]
+    
+    var kitchenDetailsModel: KitchenDetailsModel?
+    
+    private enum CodingKeys: String, CodingKey {
+        case _id
+        case name
+        case description
+        case addresses
+        case availablePlans
+        case avgRating
+        case noOfRatings
+        case reviews
+        case images
+        case location
+        case badges
+        case meals
+        case startingPrice
+        case type
+        case bannerImage
+        case createdAt
+        case updatedAt
+        case owner
+        case contact
+    }
     
     required init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -48,6 +73,29 @@ class KitchenModel: Codable, Identifiable {
         self.updatedAt = try container.decodeIfPresent(String.self, forKey: .updatedAt) ?? ""
         self.owner = try container.decodeIfPresent(UserModel.self, forKey: .owner)
         self.contact = try container.decodeIfPresent([String].self, forKey: .contact) ?? []
+    }
+    
+    func encode(to encoder: any Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self._id, forKey: ._id)
+        try container.encode(self.name, forKey: .name)
+        try container.encode(self.description, forKey: .description)
+        try container.encode(self.addresses, forKey: .addresses)
+        try container.encode(self.availablePlans, forKey: .availablePlans)
+        try container.encode(self.avgRating, forKey: .avgRating)
+        try container.encode(self.noOfRatings, forKey: .noOfRatings)
+        try container.encode(self.reviews, forKey: .reviews)
+        try container.encode(self.images, forKey: .images)
+        try container.encode(self.location, forKey: .location)
+        try container.encode(self.badges, forKey: .badges)
+        try container.encode(self.meals, forKey: .meals)
+        try container.encode(self.startingPrice, forKey: .startingPrice)
+        try container.encode(self.type, forKey: .type)
+        try container.encode(self.bannerImage, forKey: .bannerImage)
+        try container.encode(self.createdAt, forKey: .createdAt)
+        try container.encode(self.updatedAt, forKey: .updatedAt)
+        try container.encode(self.owner, forKey: .owner)
+        try container.encode(self.contact, forKey: .contact)
     }
 }
 

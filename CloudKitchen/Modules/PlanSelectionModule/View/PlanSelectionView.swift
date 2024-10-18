@@ -18,8 +18,9 @@ struct PlanSelectionView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
             CloudLabel(text: "Select your Plan", font: .title, fontWeight: .bold, textAlignment: .leading)
-            getWeeklyView()
-            getMonthlyView()
+            ForEach(planSelectionViewModel.kitchenModel?.kitchenDetailsModel?.availablePlans ?? [], id: \._id) { availablePlan in
+                self.getPlanView(for: availablePlan)
+            }
             Spacer()
             getBottomButton()
         }
@@ -40,35 +41,17 @@ struct PlanSelectionView: View {
         }
     }
     @ViewBuilder
-    private func getWeeklyView() -> some View {
+    private func getPlanView(for availableplanModel: AvailablePlanModel) -> some View {
         HStack {
             VStack(alignment: .leading, spacing: 4) {
-                CloudLabel(text: "Weekly Subscription", font: .title3)
-                CloudLabel(text: "(5 Meals)")
-                CloudLabel(text: "\(Constants.rupee_symbol) \(planSelectionViewModel.mealDetailModel?.weeklySubscriptionCost ?? 0)/Meal", font: .title2, fontWeight: .bold)
+                CloudLabel(text: availableplanModel.name, font: .title3)
+                CloudLabel(text: "(\(availableplanModel.noOfMeals) Meals)")
+                CloudLabel(text: "\(Constants.rupee_symbol) \(planSelectionViewModel.getSubscriptionCost(for: availableplanModel.type) ?? 0)/Meal", font: .title2, fontWeight: .bold)
             }
             Spacer()
-            getAddButton(isAdded: planSelectionViewModel.mealDetailModel?.selectedSubscriptionType == .weekly)
+            getAddButton(isAdded: availableplanModel.isSelected)
                 .onTapGesture {
-                    planSelectionViewModel.selectSubscription(.weekly)
-                }
-        }
-        .padding()
-        .roundCorners(16)
-        .addBorder()
-    }
-    @ViewBuilder
-    private func getMonthlyView() -> some View {
-        HStack {
-            VStack(alignment: .leading, spacing: 4) {
-                CloudLabel(text: "Monthly Subscription", font: .title3)
-                CloudLabel(text: "(25 Meals)")
-                CloudLabel(text: "\(Constants.rupee_symbol) \(planSelectionViewModel.mealDetailModel?.monthlySubscriptionCost ?? 0)/Meal", font: .title2, fontWeight: .bold)
-            }
-            Spacer()
-            getAddButton(isAdded: planSelectionViewModel.mealDetailModel?.selectedSubscriptionType == .monthly)
-                .onTapGesture {
-                    planSelectionViewModel.selectSubscription(.monthly)
+                    planSelectionViewModel.selectSubscription(availableplanModel.type)
                 }
         }
         .padding()

@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ProfileSettingView: View {
     @Environment(\.dismiss) private var dismiss
-    @State var fullName: String = ""
-    @State var email: String = ""
+    @State var fullName: String = UserDefaultsUtility.getUser()?.name ?? ""
+    @State var email: String = UserDefaultsUtility.getUser()?.email ?? ""
     var profileSettingViewModel = ProfileSettingViewModel()
     var body: some View {
         VStack {

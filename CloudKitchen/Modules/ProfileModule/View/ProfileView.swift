@@ -10,7 +10,8 @@ import SwiftUI
 struct ProfileView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var presentSettingView: Bool = false
-    @State private var orderHistoryView: Bool = false
+    @State private var presentOrderHistoryView: Bool = false
+    @State private var presentSubscriptionsView: Bool = false
     let profileViewModel = ProfileViewModel()
     var body: some View {
         CloudLabel(text: self.profileViewModel.getUserName(), font: .largeTitle, fontWeight: .bold)
@@ -22,6 +23,9 @@ struct ProfileView: View {
                     }
             })
         }
+        .navigationDestination(isPresented: $presentSettingView, destination: { ProfileSettingView() })
+        .navigationDestination(isPresented: $presentOrderHistoryView, destination: { OrderHistoryView() })
+        .navigationDestination(isPresented: $presentSubscriptionsView, destination: { YourSubscriptionView() })
         .padding()
         .toolbar { getToolbarView() }
         .navigationBarBackButtonHidden()
@@ -66,8 +70,8 @@ struct ProfileView: View {
     func optionSelected(option: ProfileOption) {
         switch option {
         case .profileSetting: self.presentSettingView = true
-        case .orderHistory: self.orderHistoryView = true
-        default: break
+        case .orderHistory: self.presentOrderHistoryView = true
+        case .yourSubscription: self.presentSubscriptionsView = true
         }
     }
 }

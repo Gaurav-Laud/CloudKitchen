@@ -9,7 +9,7 @@ import SwiftUI
 
 struct OrderHistoryView: View {
     @Environment(\.dismiss) private var dismiss
-    @State var orderHistoryViewModel = OrderHistoryViewModel()
+    @State private var orderHistoryViewModel = OrderHistoryViewModel()
     var body: some View {
         List(orderHistoryViewModel.orders, id: \._id) { order in
             Text("\(order._id)***")

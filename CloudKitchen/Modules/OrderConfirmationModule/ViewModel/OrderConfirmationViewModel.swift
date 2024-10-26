@@ -34,7 +34,7 @@ class OrderConfirmationViewModel {
                 let response = try await APIHandler.shared.makePostAPICall([String: String].self, url: "https://whale-app-ct2dl.ondigitalocean.app/orders", parameters: self.getOrderData(for: response))
                 print("response of post call: \(response)")
             } catch {
-                print("error while fetching kitchens: \(error)")
+                print("error while posting order: \(error)")
             }
         }
     }
@@ -117,7 +117,7 @@ class OrderConfirmationViewModel {
         Task { [weak self] in
             guard let self = self else { return }
             guard let mealId = self.mealDetailModel?._id, let planId = self.kitchenModel?.kitchenDetailsModel?.availablePlans.filter({ $0.isSelected }).first?._id else { return }
-            guard let startDate = self.mealDetailModel?.slot?.startTime, let endDate = mealDetailModel?.slot?.endTime else { return }
+            guard let startDate = self.mealDetailModel?.startDate, let endDate = mealDetailModel?.endDate else { return }
             do {
                 let urlString =  "https://whale-app-ct2dl.ondigitalocean.app/orders/processOrder" + "?planId=\(planId)&mealId=\(mealId)&startDate\(startDate)&endDate=\(endDate)"
                 self.reviewOrderModel = try await APIHandler.shared.makeFetchAPICall(ReviewOrderModel.self, url: urlString)

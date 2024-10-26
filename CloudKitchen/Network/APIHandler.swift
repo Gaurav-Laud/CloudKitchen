@@ -65,7 +65,7 @@ class APIHandler {
         guard let response = response as? HTTPURLResponse else { throw URLError(.badServerResponse) }
         guard (200..<300).contains(response.statusCode) else {
             let responseData = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
-            print("error response while POST API: \(responseData ?? [:])")
+            print("error response while PUT API: \(responseData ?? [:])")
             throw URLError(URLError.Code(rawValue: response.statusCode))
         }
         guard let type = type else { return nil }
@@ -78,7 +78,7 @@ class APIHandler {
         guard let response = response as? HTTPURLResponse else { throw URLError(.badServerResponse) }
         guard (200..<300).contains(response.statusCode) else {
             let responseData = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
-            print("error response while POST API: \(responseData ?? [:])")
+            print("error response while Delete API: \(responseData ?? [:])")
             throw URLError(URLError.Code(rawValue: response.statusCode))
         }
         guard let type = type else { return nil }

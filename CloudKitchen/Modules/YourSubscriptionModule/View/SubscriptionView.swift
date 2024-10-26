@@ -31,7 +31,7 @@ struct SubscriptionView: View {
     @ViewBuilder
     private func getSubscriptionInfoView() -> some View {
         VStack(alignment: .leading, spacing: 1) {
-            HStack {
+            HStack(alignment: .top) {
                 VStack(alignment: .leading) {
                     CloudLabel(text: subscriptionModel.meal?.name ?? "", font: .title, textColor: .yellow, fontWeight: .bold)
                     CloudLabel(text: subscriptionModel.meal?.description ?? "")

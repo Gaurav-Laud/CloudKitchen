@@ -88,6 +88,7 @@ struct DurationSelectionView: View {
     @ViewBuilder
     private func getBottomButton() -> some View {
         CloudButton(title: "PLACE ORDER") {
+            self.durationSelectionViewModel.setStartAndEndDate()
             self.showOrderView = true
         }
     }

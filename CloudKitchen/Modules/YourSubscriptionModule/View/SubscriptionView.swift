@@ -16,7 +16,7 @@ struct SubscriptionView: View {
     }
     var body: some View {
         VStack {
-            AsyncImage(url: URL(string: self.subscriptionModel.meal?.images.first ?? ""), content: { image in
+            AsyncImage(url: URL(string: self.subscriptionModel.kitchen?.bannerImage ?? ""), content: { image in
                 image.resizable()
             }, placeholder: {
                 ProgressView()

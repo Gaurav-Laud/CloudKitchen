@@ -55,6 +55,9 @@ class LoginViewModel: ObservableObject {
     }
     private func setUser(userModel: UserModel) {
         UserDefaultsUtility.setUser(userModel)
+        let address = UserDefaultsUtility.getSelectedAddress() ?? LocationModel()
+        address.phoneNumber = userModel.mobileNumber
+        UserDefaultsUtility.setSelectedAddress(address)
     }
     func setupTimer() {
         time = 0

@@ -15,6 +15,9 @@ class AddressManagementViewModel {
         CloudLocationManager.shared.getLocation { [weak self] latitude, longitude in
             guard let self = self else { return }
             CloudLocationManager.shared.getCityName(latitude: latitude, longitude: longitude) { location in
+                let address = UserDefaultsUtility.getSelectedAddress()
+                location.fullName = address?.fullName ?? ""
+                location.phoneNumber = address?.phoneNumber ?? ""
                 CloudKitchenUtility.shared.selectedAddress = location
                 self.addresses.append(location)
                 self.postAddress(locationModel: location)

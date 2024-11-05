@@ -10,29 +10,35 @@ import SwiftUI
 struct ManageSubscriptionView: View {
     @Environment(\.dismiss) private var dismiss
     @State var manageSubscriptionViewModel: ManageSubscriptionViewModel
-    @State var ind: Int = 0
-    init(subscriptionModel: SubscriptionModel) {
+    init(subscriptionModel: SubscriptionModel?) {
         self.manageSubscriptionViewModel = ManageSubscriptionViewModel(subscriptionModel: subscriptionModel)
     }
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading) {
-                SubscriptionView(subscription: manageSubscriptionViewModel.subscriptionModel)
-                self.getPickerView()
-                self.getMealView()
-                self.getActionView()
-                CloudLabel(text: "Subscription", font: .title2, fontWeight: .bold, textAlignment: .leading)
-                self.getDateView()
-                self.getSeperator()
-                self.getAddressView()
-                self.getDeliveryTimeView()
+        if let subscriptionModel = manageSubscriptionViewModel.subscriptionModel {
+            ScrollView {
+                VStack(alignment: .leading) {
+                    SubscriptionView(subscription: subscriptionModel)
+                    self.getPickerView()
+                    self.getMealView(for: self.manageSubscriptionViewModel.getSelectedMenuItem())
+//                    self.getActionView()
+                    CloudLabel(text: "Subscription", font: .title2, fontWeight: .bold, textAlignment: .leading)
+                    self.getDateView()
+                    self.getSeperator()
+                    self.getAddressView()
+                    self.getDeliveryTimeView()
+                }
             }
-        }
-        .scrollIndicators(.never)
-        .padding()
-        .navigationBarBackButtonHidden()
-        .toolbar {
-            self.getToolbarView()
+            .scrollIndicators(.never)
+            .padding()
+            .navigationBarBackButtonHidden()
+            .toolbar {
+                self.getToolbarView()
+            }
+        } else {
+            EmptyView()
+                .toolbar {
+                    self.getToolbarView()
+                }
         }
     }
     @ToolbarContentBuilder
@@ -45,18 +51,19 @@ struct ManageSubscriptionView: View {
         }
     }
     @ViewBuilder
-    private func getMealView() -> some View {
+    private func getMealView(for menuItemModel: MenuItemModel) -> some View {
         HStack(spacing: 15) {
-            self.getMealImageView()
+            self.getMealImageView(menuItemModel: menuItemModel)
             VStack(alignment: .leading) {
-                CloudLabel(text: "Biryani", font: .title3, fontWeight: .bold)
-                CloudLabel(text: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.", font: .caption)
+                ForEach(menuItemModel.items, id: \.self) { item in
+                    CloudLabel(text: item, font: .title3, fontWeight: .bold)
+                }
             }
         }
     }
     @ViewBuilder
-    private func getMealImageView() -> some View {
-        AsyncImage(url: URL(string: "https://res.cloudinary.com/mealboxhyd/image/upload/v1722669849/mealbox/meals/Veg%20and%20NonvVeg%20Combo%20Thali/616_ma7ruo.jpg"), content: { image in
+    private func getMealImageView(menuItemModel: MenuItemModel) -> some View {
+        AsyncImage(url: URL(string: menuItemModel.image), content: { image in
             image.resizable()
         }, placeholder: {
             ProgressView()
@@ -69,10 +76,11 @@ struct ManageSubscriptionView: View {
         HStack {
             VStack(alignment: .leading) {
                 CloudLabel(text: "Delivery Address", textAlignment: .leading)
-                CloudLabel(text: "8358 Liaison De la Passerelle, 92235 Tremblay-en-France", textAlignment: .leading)
+                CloudLabel(text: "\(self.manageSubscriptionViewModel.subscriptionModel?.delieveryAddress?.addressLine1 ?? "")", textAlignment: .leading)
+                CloudLabel(text: "\(self.manageSubscriptionViewModel.subscriptionModel?.delieveryAddress?.addressLine2 ?? "")", textAlignment: .leading)
             }
             Spacer()
-            CloudLabel(text: "Change", textColor: .yellow, fontWeight: .bold)
+//            CloudLabel(text: "Change", textColor: .yellow, fontWeight: .bold)
         }
     }
     @ViewBuilder
@@ -101,8 +109,11 @@ struct ManageSubscriptionView: View {
     @ViewBuilder
     private func getDateView() -> some View {
         HStack {
-            CloudLabel(text: "10 Apr-16 Apr")
+            CloudLabel(text: "\(self.manageSubscriptionViewModel.subscriptionModel?.startDate ?? "") - \(self.manageSubscriptionViewModel.subscriptionModel?.endDate ?? "")")
             Spacer()
+            getButton(title: "Donate", textColor: .white, backgroundColor: .yellow) {
+                self.manageSubscriptionViewModel.donateSubscription()
+            }
             getButton(title: "Pause", textColor: .white, backgroundColor: .yellow) {
                 self.manageSubscriptionViewModel.pauseSubscription()
             }
@@ -116,8 +127,8 @@ struct ManageSubscriptionView: View {
     }
     @ViewBuilder
     private func getPickerView() -> some View {
-        Picker("", selection: $ind) {
-            ForEach(["1","2"], id: \.self) { weekTitle in
+        Picker("", selection: $manageSubscriptionViewModel.selectedWeek) {
+            ForEach(self.manageSubscriptionViewModel.weeks, id: \.self) { weekTitle in
                 Text(weekTitle)
             }
         }

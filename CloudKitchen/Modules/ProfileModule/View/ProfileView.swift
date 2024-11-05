@@ -27,7 +27,7 @@ struct ProfileView: View {
         .navigationDestination(isPresented: $presentOrderHistoryView, destination: { OrderHistoryView() })
         .navigationDestination(isPresented: $presentSubscriptionsView, destination: { YourSubscriptionView() })
         .padding()
-        .toolbar { getToolbarView() }
+//        .toolbar { getToolbarView() }
         .navigationBarBackButtonHidden()
     }
     @ViewBuilder

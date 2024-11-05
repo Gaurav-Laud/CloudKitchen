@@ -35,6 +35,9 @@ struct ProfileSettingView: View {
             })
             .tint(.black)
         }
+        ToolbarItem(placement: .topBarLeading) {
+            CloudLabel(text: "Profile Settings", font: .title2)
+        }
     }
     @ViewBuilder
     private func getNameFieldView() -> some View {

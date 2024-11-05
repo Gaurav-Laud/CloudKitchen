@@ -6,13 +6,17 @@
 //
 
 import SwiftUI
-
+protocol SubscriptionViewDelegate {
+    func manageButtonClicked(subscription: SubscriptionModel)
+}
 struct SubscriptionView: View {
     var showManageButton: Bool = false
+    var delegate: SubscriptionViewDelegate?
     @State var subscriptionModel: SubscriptionModel
-    init(showManageButton: Bool = false, subscription: SubscriptionModel) {
+    init(showManageButton: Bool = false, subscription: SubscriptionModel, delegate: SubscriptionViewDelegate? = nil) {
         self.showManageButton = showManageButton
         self.subscriptionModel = subscription
+        self.delegate = delegate
     }
     var body: some View {
         VStack {
@@ -97,7 +101,9 @@ struct SubscriptionView: View {
     @ViewBuilder
     private func getBottomView() -> some View {
         HStack {
-            CloudButton(title: "Manage Subscription")
+            CloudButton(title: "Manage Subscription") {
+                self.delegate?.manageButtonClicked(subscription: self.subscriptionModel)
+            }
 //            CloudLabel(text: "item not available", textColor: .yellow)
         }
     }

@@ -18,6 +18,7 @@ class UserModel: Codable {
     var ownedKitchens: [KitchenModel]
     var image: String
     var location: LocationModel?
+    var walletAmount: Double?
     
     private enum CodingKeys: String, CodingKey {
         case id = "_id"
@@ -31,6 +32,7 @@ class UserModel: Codable {
         case ownedKitchens
         case image
         case location
+        case walletAmount
     }
     
     required init(from decoder: any Decoder) throws {
@@ -46,6 +48,7 @@ class UserModel: Codable {
         self.ownedKitchens = try container.decodeIfPresent([KitchenModel].self, forKey: .ownedKitchens) ?? []
         self.image = try container.decodeIfPresent(String.self, forKey: .image) ?? ""
         self.location = try container.decodeIfPresent(LocationModel.self, forKey: .location)
+        self.walletAmount = try container.decodeIfPresent(Double.self, forKey: .walletAmount) ?? 0
     }
     
     func encode(to encoder: any Encoder) throws {
@@ -61,5 +64,6 @@ class UserModel: Codable {
         try container.encode(self.ownedKitchens, forKey: .ownedKitchens)
         try container.encode(self.image, forKey: .image)
         try container.encode(self.location, forKey: .location)
+        try container.encode(self.walletAmount, forKey: .walletAmount)
     }
 }

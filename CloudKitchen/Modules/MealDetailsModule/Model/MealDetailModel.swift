@@ -122,6 +122,12 @@ class MenuItemModel: Codable {
         self.image = try container.decodeIfPresent(String.self, forKey: .image) ?? ""
         self.items = items.compactMap({ $0 })
     }
+    init() {
+        self.id = 0
+        self.dayCount = 0
+        self.items = []
+        self.image = ""
+    }
 }
 class MealReviewModel: ReviewModel {
     var mealId: String

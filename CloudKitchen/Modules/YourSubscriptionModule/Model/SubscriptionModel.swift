@@ -24,6 +24,7 @@ class SubscriptionModel: Codable {
     var donatedDates: [String]
     var deliveredDates: [String]
     var undeliveredDates: [String]
+    var menu: [PlannedDates]
     
     private enum CodingKeys: String, CodingKey {
         case _id
@@ -42,6 +43,7 @@ class SubscriptionModel: Codable {
         case donatedDates
         case deliveredDates
         case undeliveredDates
+        case menu
     }
     
     required init(from decoder: any Decoder) throws {
@@ -62,6 +64,7 @@ class SubscriptionModel: Codable {
         self.donatedDates = try container.decodeIfPresent([String].self, forKey: .donatedDates) ?? []
         self.deliveredDates = try container.decodeIfPresent([String].self, forKey: .deliveredDates) ?? []
         self.undeliveredDates = try container.decodeIfPresent([String].self, forKey: .undeliveredDates) ?? []
+        self.menu = try container.decodeIfPresent([PlannedDates].self, forKey: .menu) ?? []
     }
     
     func encode(to encoder: any Encoder) throws {
@@ -82,5 +85,6 @@ class SubscriptionModel: Codable {
         try container.encode(self.donatedDates, forKey: .donatedDates)
         try container.encode(self.deliveredDates, forKey: .deliveredDates)
         try container.encode(self.undeliveredDates, forKey: .undeliveredDates)
+        try container.encode(self.menu, forKey: .menu)
     }
 }

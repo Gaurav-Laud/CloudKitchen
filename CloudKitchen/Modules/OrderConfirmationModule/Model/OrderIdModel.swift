@@ -26,14 +26,9 @@ class ReviewOrderModel: Codable {
     var discount: String
     var grandTotal: Double
     var savedAmount: Double
+    var walletAmount: Double
 }
 class PlannedDates: Codable {
     var date: String
-    var menuItem: MenuItem
-}
-class MenuItem: Codable {
-    var id: Int
-    var dayCount: Int
-    var items: [String]
-    var image: String?
+    var menuItem: MenuItemModel
 }

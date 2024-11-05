@@ -36,6 +36,9 @@ struct DurationSelectionView: View {
         .toolbar {
             getToolbarView()
         }
+        .onAppear {
+            durationSelectionViewModel.selectSlot(durationSelectionViewModel.slotModels[0])
+        }
     }
     @ToolbarContentBuilder
     private func getToolbarView() -> some ToolbarContent {

@@ -30,6 +30,9 @@ struct PlanSelectionView: View {
         .toolbar {
             getToolbarView()
         }
+        .onAppear {
+            planSelectionViewModel.selectSubscription(planSelectionViewModel.kitchenModel?.kitchenDetailsModel?.availablePlans.first?.type ?? "")
+        }
     }
     @ToolbarContentBuilder
     private func getToolbarView() -> some ToolbarContent {

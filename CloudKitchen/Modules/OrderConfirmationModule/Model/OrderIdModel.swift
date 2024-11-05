@@ -32,3 +32,16 @@ class PlannedDates: Codable {
     var date: String
     var menuItem: MenuItemModel
 }
+enum RadioButtonOption: String, CaseIterable, Identifiable {
+    case yes
+    case no
+    var id: RawValue {
+        rawValue
+    }
+    var title: String {
+        switch self {
+        case .yes: "Yes"
+        case .no: "No"
+        }
+    }
+}

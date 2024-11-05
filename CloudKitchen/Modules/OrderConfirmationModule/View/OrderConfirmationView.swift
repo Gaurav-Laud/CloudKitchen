@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import RadioButton
 struct OrderConfirmationView: View {
     @Environment(\.dismiss) private var dismiss
     @State var orderConfirmationViewModel = OrderConfirmationViewModel()
@@ -17,13 +17,14 @@ struct OrderConfirmationView: View {
         self.orderConfirmationViewModel.mealDetailModel = mealDetailModel
     }
     var body: some View {
-        VStack(spacing: 15) {
+        VStack(alignment: .leading, spacing: 15) {
             self.getAddressView()
             self.getSavingView()
             self.getMealView()
             self.getSubscriptionDetailsView()
             self.getCostView()
             self.getOrderingView()
+            self.getUseWalletView()
             Spacer()
             self.getBottomButton()
         }
@@ -33,7 +34,7 @@ struct OrderConfirmationView: View {
             getToolbarView()
         }
         .onAppear {
-            self.orderConfirmationViewModel.fetchOrder()
+            self.orderConfirmationViewModel.processOrder()
         }
     }
     @ToolbarContentBuilder
@@ -138,6 +139,11 @@ struct OrderConfirmationView: View {
                 CloudLabel(text: "\(Constants.rupee_symbol) \(self.orderConfirmationViewModel.getDeliveryCost())", textColor: .gray)
             }
             HStack {
+                CloudLabel(text: "Wallet Amount", font: .title2, fontWeight: .bold)
+                Spacer()
+                CloudLabel(text: "\(Constants.rupee_symbol) \(self.orderConfirmationViewModel.getWalletAmount())")
+            }
+            HStack {
                 CloudLabel(text: "Grand Total", font: .title2, fontWeight: .bold)
                 Spacer()
                 CloudLabel(text: "\(Constants.rupee_symbol) \(self.orderConfirmationViewModel.getTotalCost())")
@@ -160,6 +166,12 @@ struct OrderConfirmationView: View {
         CloudButton(title: "Pay Now") {
             self.orderConfirmationViewModel.startPayment()
         }
+    }
+    @ViewBuilder
+    private func getUseWalletView() -> some View {
+        CloudLabel(text: "Do you want to use your wallet amount for payment?", textColor: .gray)
+        RadioButton(alignment: .horizontal, title: "", itemTitle: \.title, isSelected: $orderConfirmationViewModel.selectedWalletOption)
+            .onChange(of: orderConfirmationViewModel.selectedWalletOption) { self.orderConfirmationViewModel.processOrder() }
     }
 }
 

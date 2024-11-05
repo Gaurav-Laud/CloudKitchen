@@ -1,5 +1,5 @@
 {
-  "originHash" : "e74a0ed1b58da300fab6ed172eb3b2f0ee0ebd755968a0cc069b958056992c0b",
+  "originHash" : "f9a6435b317466886107478af621db9dcf53570147ddc30f0f9dfc0cfe6abac7",
   "pins" : [
     {
       "identity" : "alerttoast",
@@ -17,6 +17,15 @@
       "state" : {
         "revision" : "48e7cd0eb56a6548652ddc5ad284c509b63de3b2",
         "version" : "1.0.3"
+      }
+    },
+    {
+      "identity" : "radiobutton",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/lukluca/RadioButton",
+      "state" : {
+        "revision" : "c481cecb8133775210ba0487c57d1d9174e3aa6d",
+        "version" : "1.2.0"
       }
     }
   ],

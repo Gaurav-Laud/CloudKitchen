@@ -15,6 +15,7 @@ class OrderConfirmationViewModel {
     var kitchenModel: KitchenModel?
     var mealDetailModel: MealDetailModel?
     var reviewOrderModel: ReviewOrderModel?
+    var selectedWalletOption: RadioButtonOption = .no
     func getSubscriptionCost() -> Double {
         mealDetailModel?.selectedSubscriptionType == .weekly ? mealDetailModel?.weeklySubscriptionCost ?? 0.0 : mealDetailModel?.monthlySubscriptionCost ?? 0.0
     }
@@ -23,6 +24,9 @@ class OrderConfirmationViewModel {
     }
     func getTotalCost() -> Double {
         reviewOrderModel?.grandTotal ?? 0
+    }
+    func getWalletAmount() -> Double {
+        reviewOrderModel?.walletAmount ?? 0
     }
     func getMealCount() -> Int {
         self.kitchenModel?.kitchenDetailsModel?.availablePlans.filter({ $0.isSelected }).first?.noOfMeals ?? 0
@@ -59,6 +63,7 @@ class OrderConfirmationViewModel {
             "paymentType": "UPI",
             "savedAmount": reviewOrderModel.savedAmount,
             "totalAmount": reviewOrderModel.totalAmount,
+            "walletAmount": reviewOrderModel.walletAmount,
             "deliveryCharges": 0,
             "grandTotal": reviewOrderModel.grandTotal,
             "deliveryAddress": [
@@ -78,9 +83,9 @@ class OrderConfirmationViewModel {
             "planEndDate": endDate,
             "deliveryTimeSlot": mealDetailModel.slot?.startTime ?? "",
             "paymentInfo": [
-                "razorpay_payment_id": response["razorpay_payment_id"],
-                "razorpay_order_id": response["razorpay_order_id"],
-                "razorpay_signature": response["razorpay_signature"]
+                "razorpay_payment_id": response["razorpay_payment_id"] ?? "",
+                "razorpay_order_id": response["razorpay_order_id"] ?? "",
+                "razorpay_signature": response["razorpay_signature"] ?? ""
             ]
         ]
         return parameters
@@ -101,6 +106,9 @@ class OrderConfirmationViewModel {
         return orderId
     }
     func startPayment() {
+        
+        guard self.getTotalCost() > 0 else { self.postOrder(with: [:]); return }
+        
         Task { [weak self] in
             guard let self = self, let orderId = await self.getOrderId(), self.getTotalCost().isFinite else { return }
             RazorPayUtility.shared.startPayment(for: orderId, amount: Int(self.getTotalCost())) { result in
@@ -113,13 +121,14 @@ class OrderConfirmationViewModel {
             }
         }
     }
-    func fetchOrder() {
+    func processOrder() {
         Task { [weak self] in
             guard let self = self else { return }
             guard let mealId = self.mealDetailModel?._id, let planId = self.kitchenModel?.kitchenDetailsModel?.availablePlans.filter({ $0.isSelected }).first?._id else { return }
             guard let startDate = self.mealDetailModel?.startDate, let endDate = mealDetailModel?.endDate else { return }
+            let useWalletAmtParameter = selectedWalletOption == .yes ? "Y" : "N"
             do {
-                let urlString =  "https://whale-app-ct2dl.ondigitalocean.app/orders/processOrder" + "?planId=\(planId)&mealId=\(mealId)&startDate\(startDate)&endDate=\(endDate)"
+                let urlString =  "https://whale-app-ct2dl.ondigitalocean.app/orders/processOrder" + "?planId=\(planId)&mealId=\(mealId)&startDate\(startDate)&endDate=\(endDate)&useWalletAmt=\(useWalletAmtParameter)"
                 self.reviewOrderModel = try await APIHandler.shared.makeFetchAPICall(ReviewOrderModel.self, url: urlString)
             } catch {
                 print("Error while processing order: \(error)")

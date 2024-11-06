@@ -19,12 +19,17 @@ struct ProfileSettingView: View {
             Spacer()
             CloudButton(title: "Change settings", isTextCaps: true) {
                 profileSettingViewModel.setProfile(userName: fullName, email: email)
+                dismiss()
             }
         }
         .padding()
         .navigationBarBackButtonHidden()
         .toolbar {
             self.getToolbarView()
+        }
+        .onAppear {
+            fullName = UserDefaultsUtility.getUser()?.name ?? ""
+            email = UserDefaultsUtility.getUser()?.email ?? ""
         }
     }
     @ToolbarContentBuilder

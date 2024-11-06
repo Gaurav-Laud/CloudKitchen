@@ -12,9 +12,10 @@ struct ProfileView: View {
     @State private var presentSettingView: Bool = false
     @State private var presentOrderHistoryView: Bool = false
     @State private var presentSubscriptionsView: Bool = false
-    let profileViewModel = ProfileViewModel()
+    private let profileViewModel = ProfileViewModel()
+    @State private var userName = ""
     var body: some View {
-        CloudLabel(text: self.profileViewModel.getUserName(), font: .largeTitle, fontWeight: .bold)
+        CloudLabel(text: userName, font: .largeTitle, fontWeight: .bold)
         VStack(spacing: 23) {
             ForEach(self.profileViewModel.getOptions(), id: \.rawValue, content: { option in
                 self.getOptionView(for: option)
@@ -29,6 +30,9 @@ struct ProfileView: View {
         .padding()
 //        .toolbar { getToolbarView() }
         .navigationBarBackButtonHidden()
+        .onAppear {
+            userName = profileViewModel.getUserName()
+        }
     }
     @ViewBuilder
     private func getOptionView(for option: ProfileOption) -> some View {

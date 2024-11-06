@@ -69,7 +69,7 @@ struct AddressManagementView: View {
         .padding()
         .background(.white)
         .roundCorners()
-        .shadow(color: .yellow, radius: 5)
+        .shadow(color: address.isSelected ? .yellow : .clear, radius: 5)
         .onTapGesture {
             addressManagementViewModel.selectAddress(address)
         }

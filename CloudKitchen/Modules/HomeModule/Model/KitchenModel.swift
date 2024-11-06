@@ -230,6 +230,17 @@ class LocationModel: Codable, Identifiable {
         try container.encode(self.phoneNumber, forKey: .phoneNumber)
     }
 }
+extension LocationModel: Equatable {
+    static func == (lhs: LocationModel, rhs: LocationModel) -> Bool {
+        lhs.houseNo == rhs.houseNo &&
+        lhs.addressLine1 == rhs.addressLine1 &&
+        lhs.addressLine2 == rhs.addressLine2 &&
+        lhs.city == rhs.city &&
+        lhs.state == rhs.state &&
+        lhs.pincode == rhs.pincode &&
+        lhs.country == rhs.country
+    }
+}
 
 @Observable
 class MealModel: Codable, Identifiable {

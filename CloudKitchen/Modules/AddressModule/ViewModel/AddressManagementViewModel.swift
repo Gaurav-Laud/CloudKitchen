@@ -31,6 +31,9 @@ class AddressManagementViewModel {
             do {
                 let userInfo = try await APIHandler.shared.makeFetchAPICall(UserModel.self, url: "https://whale-app-ct2dl.ondigitalocean.app/users/\(userId)")
                 self.addresses = userInfo.addresses
+                if let chosenAddress = addresses.filter({ $0 == CloudKitchenUtility.shared.selectedAddress }).first {
+                    self.selectAddress(chosenAddress)
+                }
                 self.displayAddresses = getSearchResults(for: searchString)
             } catch {
                 print("Error while fetching user data: \(error)")
@@ -39,7 +42,7 @@ class AddressManagementViewModel {
     }
     func getSearchResults(for searchTerm: String) -> [LocationModel] {
         guard !searchTerm.isEmpty else { return addresses }
-        return addresses.filter({ $0.fullName.contains(searchTerm) })
+        return addresses.filter({ $0.fullName.localizedCaseInsensitiveContains(searchTerm) })
     }
     func selectAddress(_ address: LocationModel) {
         addresses.forEach({ $0.isSelected = $0.id == address.id })

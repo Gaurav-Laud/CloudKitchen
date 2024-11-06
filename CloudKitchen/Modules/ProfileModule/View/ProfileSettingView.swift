@@ -17,10 +17,7 @@ struct ProfileSettingView: View {
             self.getNameFieldView()
             self.getEmailView()
             Spacer()
-            CloudButton(title: "Change settings", isTextCaps: true) {
-                profileSettingViewModel.setProfile(userName: fullName, email: email)
-                dismiss()
-            }
+            self.getBottomView()
         }
         .padding()
         .navigationBarBackButtonHidden()
@@ -63,6 +60,19 @@ struct ProfileSettingView: View {
             Rectangle()
                 .frame(height: 1)
                 .foregroundStyle(.gray)
+        }
+    }
+    @ViewBuilder
+    private func getBottomView() -> some View {
+        VStack {
+            CloudButton(title: "Change settings", isTextCaps: true) {
+                profileSettingViewModel.setProfile(userName: fullName, email: email)
+                dismiss()
+            }
+//            CloudButton(title: "Logout", isTextCaps: true) {
+//                profileSettingViewModel.setProfile(userName: fullName, email: email)
+//                dismiss()
+//            }
         }
     }
 }

@@ -21,6 +21,7 @@ struct DurationSelectionView: View {
                 CloudLabel(text: "Select Duration", font: .title, fontWeight: .bold, textAlignment: .leading)
                 HStack {
                     getDatePickerView(date: $durationSelectionViewModel.startDate)
+                    Spacer()
                     getDatePickerView(date: $durationSelectionViewModel.endDate)
                 }
                 CloudLabel(text: "Select Slot", font: .title, fontWeight: .bold, textAlignment: .leading)

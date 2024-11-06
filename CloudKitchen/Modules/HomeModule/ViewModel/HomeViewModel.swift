@@ -10,6 +10,7 @@ class HomeViewModel: ObservableObject {
     @Published var searchString: String = ""
     @Published var kitchenModels: [KitchenModel] = []
     @Published var selectedAddress: LocationModel?
+    @Published var displayKitchenModels: [KitchenModel] = []
     
     func fetchKitchens() {
         Task { @MainActor [weak self] in
@@ -25,6 +26,7 @@ class HomeViewModel: ObservableObject {
     private func fetchKitchensSuccessResponse(kitchenModels: [KitchenModel]) {
         self.kitchenModels = kitchenModels
         self.convertImageUrls(for: kitchenModels)
+        self.updateDisplayModels()
     }
     private func convertImageUrls(for kitchenModels: [KitchenModel]) {
         kitchenModels.forEach({
@@ -32,5 +34,12 @@ class HomeViewModel: ObservableObject {
             let images = $0.images.map({ $0.replacingOccurrences(of: "http:", with: "https:")})
             $0.images = images
         })
+    }
+    func getSearchResults(for searchTerm: String) -> [KitchenModel] {
+        guard !searchTerm.isEmpty else { return kitchenModels }
+        return kitchenModels.filter({ $0.name.localizedCaseInsensitiveContains(searchTerm) })
+    }
+    func updateDisplayModels() {
+        self.displayKitchenModels = self.getSearchResults(for: self.searchString)
     }
 }

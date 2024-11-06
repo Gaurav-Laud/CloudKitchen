@@ -14,8 +14,11 @@ struct HomeView: View {
         NavigationStack {
             VStack {
                 CloudTextField(inputString: $homeViewModel.searchString, image: Constants.magnifying_glass)
+                    .onChange(of: homeViewModel.searchString) { _, newValue in
+                        self.homeViewModel.updateDisplayModels()
+                    }
                     .padding()
-                List($homeViewModel.kitchenModels, id: \._id) { kitchenModel in
+                List($homeViewModel.displayKitchenModels, id: \._id) { kitchenModel in
                     ZStack {
                         NavigationLink(destination: KitchenDetailsView(kitchenModel: kitchenModel.wrappedValue), label: {
                             EmptyView()

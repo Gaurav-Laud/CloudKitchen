@@ -17,6 +17,7 @@ class OrderConfirmationViewModel {
     var reviewOrderModel: ReviewOrderModel?
     var selectedWalletOption: RadioButtonOption = .no
     var delegate: OrderConfirmationViewModelDelegate?
+    var presentSuccessAlert = false
     func getSubscriptionCost() -> Double {
         mealDetailModel?.selectedSubscriptionType == .weekly ? mealDetailModel?.weeklySubscriptionCost ?? 0.0 : mealDetailModel?.monthlySubscriptionCost ?? 0.0
     }
@@ -38,6 +39,7 @@ class OrderConfirmationViewModel {
             do {
                 let response = try await APIHandler.shared.makePostAPICall([String: String].self, url: "https://whale-app-ct2dl.ondigitalocean.app/orders", parameters: self.getOrderData(for: response))
                 print("response of post call: \(response)")
+                presentSuccessAlert = true
                 self.delegate?.placeOrderSuccessReponse()
             } catch {
                 print("error while posting order: \(error)")

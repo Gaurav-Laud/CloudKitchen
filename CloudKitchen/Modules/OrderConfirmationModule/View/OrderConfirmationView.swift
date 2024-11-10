@@ -15,6 +15,7 @@ struct OrderConfirmationView: View {
     init(kitchenModel: KitchenModel?, mealDetailModel: MealDetailModel?) {
         self.orderConfirmationViewModel.kitchenModel = kitchenModel
         self.orderConfirmationViewModel.mealDetailModel = mealDetailModel
+        self.orderConfirmationViewModel.delegate = self
     }
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
@@ -35,6 +36,9 @@ struct OrderConfirmationView: View {
         }
         .onAppear {
             self.orderConfirmationViewModel.processOrder()
+        }
+        .alert("Order Placed Successfully", isPresented: $orderConfirmationViewModel.presentSuccessAlert) {
+            Button("OK", role: .cancel) { dismiss() }
         }
     }
     @ToolbarContentBuilder
@@ -173,6 +177,10 @@ struct OrderConfirmationView: View {
         RadioButton(alignment: .horizontal, title: "", itemTitle: \.title, isSelected: $orderConfirmationViewModel.selectedWalletOption)
             .onChange(of: orderConfirmationViewModel.selectedWalletOption) { self.orderConfirmationViewModel.processOrder() }
     }
+}
+extension OrderConfirmationView: OrderConfirmationViewModelDelegate {
+    func placeOrderSuccessReponse() { }
+    func placeOrderFailureReponse() { }
 }
 
 //#Preview {

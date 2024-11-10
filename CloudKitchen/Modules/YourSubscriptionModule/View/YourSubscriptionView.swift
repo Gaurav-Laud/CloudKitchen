@@ -18,7 +18,7 @@ struct YourSubscriptionView: View {
                 .listRowBackground(Color.clear)
         }
         .listStyle(.inset)
-        .padding()
+//        .padding()
         .navigationBarBackButtonHidden()
         .navigationDestination(isPresented: $showManageSubscriptionView, destination: { ManageSubscriptionView(subscriptionModel: self.yourSubscriptionViewModel.selectedSubscription) })
         .toolbar {

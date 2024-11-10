@@ -51,6 +51,12 @@ class CloudKitchenUtility {
             UserDefaultsUtility.getSelectedAddress()
         }
     }
+    func signOut() {
+        UserDefaultsUtility.setSignedInStatus(false)
+        UserDefaultsUtility.removeAccessToken()
+        UserDefaultsUtility.removeUser()
+        UserDefaultsUtility.removeSelectedAddress()
+    }
 }
 extension Date {
     public func convertToString(_ format: String? = String.datePostingFormat, _ withUTC: Bool = false) -> String {

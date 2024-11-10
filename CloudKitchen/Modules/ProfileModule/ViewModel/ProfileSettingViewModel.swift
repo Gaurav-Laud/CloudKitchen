@@ -33,4 +33,7 @@ class ProfileSettingViewModel {
             }
         }
     }
+    func signOut() {
+        CloudKitchenUtility.shared.signOut()
+    }
 }

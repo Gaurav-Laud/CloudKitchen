@@ -69,10 +69,9 @@ struct ProfileSettingView: View {
                 profileSettingViewModel.setProfile(userName: fullName, email: email)
                 dismiss()
             }
-//            CloudButton(title: "Logout", isTextCaps: true) {
-//                profileSettingViewModel.setProfile(userName: fullName, email: email)
-//                dismiss()
-//            }
+            CloudButton(title: "Logout", isTextCaps: true) {
+                profileSettingViewModel.signOut()
+            }
         }
     }
 }

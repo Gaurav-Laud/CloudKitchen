@@ -146,6 +146,9 @@ struct ManageSubscriptionView: View {
             CloudLabel(text: "Reschedule", textColor: .gray)
         }
     }
+    private func getWeekTitles(for dateString: String) -> String {
+        dateString.convertFormatOfDate(from: "yyyy-MM-dd", to: "dd MMM") ?? dateString
+    }
 }
 //
 //#Preview {

@@ -53,7 +53,11 @@ class SubscriptionModel: Codable {
         self.kitchen = try container.decodeIfPresent(KitchenModel.self, forKey: .kitchen)
         self.user = try container.decodeIfPresent(UserModel.self, forKey: .user)
         self.plan = try container.decodeIfPresent(PlanModel.self, forKey: .plan)
-        self.delieveryAddress = try container.decodeIfPresent(LocationModel.self, forKey: .delieveryAddress)
+        if let delieveryAddress = try? container.decodeIfPresent(LocationModel.self, forKey: .delieveryAddress) {
+            self.delieveryAddress = delieveryAddress
+        } else if let addressString = try container.decodeIfPresent(String.self, forKey: .delieveryAddress), let data = addressString.data(using: .utf8) {
+            self.delieveryAddress = try JSONDecoder().decode(LocationModel.self, from: data)
+        }
         self.amount = try container.decodeIfPresent(Float.self, forKey: .amount) ?? 0
         self.status = try container.decodeIfPresent(String.self, forKey: .status) ?? ""
         self.plannedDates = try container.decodeIfPresent([String].self, forKey: .plannedDates) ?? []

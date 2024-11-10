@@ -18,15 +18,12 @@ struct ProfileView: View {
         CloudLabel(text: userName, font: .largeTitle, fontWeight: .bold)
         VStack(spacing: 23) {
             ForEach(self.profileViewModel.getOptions(), id: \.rawValue, content: { option in
-                self.getOptionView(for: option)
-                    .onTapGesture {
-                        self.optionSelected(option: option)
-                    }
+                NavigationLink(value: option) {
+                    self.getOptionView(for: option)
+                }
             })
         }
-        .navigationDestination(isPresented: $presentSettingView, destination: { ProfileSettingView() })
-        .navigationDestination(isPresented: $presentOrderHistoryView, destination: { OrderHistoryView() })
-        .navigationDestination(isPresented: $presentSubscriptionsView, destination: { YourSubscriptionView() })
+        .navigationDestination(for: ProfileOption.self) { option in self.getNavigationDestination(for: option) }
         .padding()
 //        .toolbar { getToolbarView() }
         .navigationBarBackButtonHidden()
@@ -76,6 +73,14 @@ struct ProfileView: View {
         case .profileSetting: self.presentSettingView = true
         case .orderHistory: self.presentOrderHistoryView = true
         case .yourSubscription: self.presentSubscriptionsView = true
+        }
+    }
+    @ViewBuilder
+    private func getNavigationDestination(for option: ProfileOption) -> some View {
+        switch option {
+        case .profileSetting: ProfileSettingView()
+        case .orderHistory: OrderHistoryView()
+        case .yourSubscription: YourSubscriptionView()
         }
     }
 }

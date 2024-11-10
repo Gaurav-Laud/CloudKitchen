@@ -24,7 +24,9 @@ struct OrderConfirmationView: View {
             self.getSavingView()
             self.getMealView()
             self.getSubscriptionDetailsView()
+            self.getSeperator()
             self.getCostView()
+            self.getSeperator()
             self.getOrderingView()
             self.getUseWalletView()
             Spacer()
@@ -112,8 +114,14 @@ struct OrderConfirmationView: View {
             .addBorder(cornerRadius: 5, borderColor: .red)
     }
     @ViewBuilder
+    private func getSeperator() -> some View {
+        Rectangle()
+            .foregroundStyle(.gray)
+            .frame(height: 1)
+    }
+    @ViewBuilder
     private func getSubscriptionDetailsView() -> some View {
-        VStack {
+        VStack(spacing: 16) {
             HStack {
                 CloudLabel(text: "SUBSCRIPTION", font: .title3, textColor: .gray, fontWeight: .bold)
                 Spacer()
@@ -136,7 +144,7 @@ struct OrderConfirmationView: View {
     }
     @ViewBuilder
     private func getCostView() -> some View {
-        VStack {
+        VStack(spacing: 16) {
             HStack {
                 CloudLabel(text: "\(self.orderConfirmationViewModel.mealDetailModel?.selectedSubscriptionType.rawValue.capitalized ?? "") Subscription", font: .title3, textColor: .gray)
                 Spacer()

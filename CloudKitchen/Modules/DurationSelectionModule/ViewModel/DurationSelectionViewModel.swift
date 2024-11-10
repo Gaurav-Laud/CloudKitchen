@@ -18,6 +18,11 @@ class DurationSelectionViewModel {
         SlotModel(slotNo: 3, startTime: "01:30", endTime: "02:00", isSelected: false),
         SlotModel(slotNo: 4, startTime: "02:00", endTime: "02:30", isSelected: false)
     ]
+    func setupDurationSelectionViewModel() {
+        startDate = mealDetailModel?.startDate?.convertToDate() ?? Date()
+        endDate = mealDetailModel?.endDate?.convertToDate() ?? Date()
+        if let slot = mealDetailModel?.slot { selectSlot(slot) }
+    }
     func selectSlot(_ slot: SlotModel) {
         slotModels.forEach({ $0.isSelected = false })
         guard let index = slotModels.firstIndex(where: { $0.slotNo == slot.slotNo }) else { return }

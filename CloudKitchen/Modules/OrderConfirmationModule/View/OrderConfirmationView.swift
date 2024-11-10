@@ -12,6 +12,7 @@ struct OrderConfirmationView: View {
     @State var orderConfirmationViewModel = OrderConfirmationViewModel()
     @State var presentDurationView = false
     @State var presentPlanView = false
+    @State var showAddressManagementView = false
     init(kitchenModel: KitchenModel?, mealDetailModel: MealDetailModel?) {
         self.orderConfirmationViewModel.kitchenModel = kitchenModel
         self.orderConfirmationViewModel.mealDetailModel = mealDetailModel
@@ -31,6 +32,7 @@ struct OrderConfirmationView: View {
         }
         .padding()
         .navigationBarBackButtonHidden()
+        .navigationDestination(isPresented: $showAddressManagementView, destination: { AddressManagementView() })
         .toolbar {
             getToolbarView()
         }
@@ -62,6 +64,9 @@ struct OrderConfirmationView: View {
             }
             Spacer()
             CloudLabel(text: "Change", textColor: .red)
+                .onTapGesture {
+                    showAddressManagementView = true
+                }
         }
         .padding()
         .background(.green.opacity(0.2))
@@ -114,7 +119,7 @@ struct OrderConfirmationView: View {
                 Spacer()
                 CloudLabel(text: "Change", textColor: .red)
                     .onTapGesture {
-                        presentDurationView = true
+                        dismiss()
                     }
             }
             HStack {

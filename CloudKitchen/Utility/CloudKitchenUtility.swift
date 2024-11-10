@@ -89,4 +89,11 @@ extension String {
 
         return dateFormatted
     }
+    public func convertToDate(_ format: String? = datePostingFormat, withUTC: Bool = false) -> Date? {
+        let dateFormatter = DateFormatter()
+        if withUTC { dateFormatter.timeZone = TimeZone(secondsFromGMT: 0) }
+        dateFormatter.dateFormat = format
+        guard let dateFromString = dateFormatter.date(from: self) else { return nil}
+        return dateFromString
+    }
 }

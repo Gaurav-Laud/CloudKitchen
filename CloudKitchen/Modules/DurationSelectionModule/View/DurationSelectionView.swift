@@ -14,6 +14,7 @@ struct DurationSelectionView: View {
     init(kitchenModel: KitchenModel?, mealDetailModel: MealDetailModel?) {
         self.durationSelectionViewModel.kitchenModel = kitchenModel
         self.durationSelectionViewModel.mealDetailModel = mealDetailModel
+        self.durationSelectionViewModel.setupDurationSelectionViewModel()
     }
     var body: some View {
         VStack(alignment: .leading) {

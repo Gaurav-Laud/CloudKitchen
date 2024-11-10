@@ -11,32 +11,30 @@ struct HomeView: View {
     @StateObject private var homeViewModel = HomeViewModel()
     @State private var showAddressManagementView = false
     var body: some View {
-        NavigationStack {
-            VStack {
-                CloudTextField(inputString: $homeViewModel.searchString, image: Constants.magnifying_glass)
-                    .onChange(of: homeViewModel.searchString) { _, newValue in
-                        self.homeViewModel.updateDisplayModels()
-                    }
-                    .padding()
-                List($homeViewModel.displayKitchenModels, id: \._id) { kitchenModel in
-                    ZStack {
-                        NavigationLink(destination: KitchenDetailsView(kitchenModel: kitchenModel.wrappedValue), label: {
-                            EmptyView()
-                        })
-                        KitchenCellView(kitchenModel: kitchenModel.wrappedValue)
-                    }
-                    .listRowSeparator(.hidden)
-                    .listRowBackground(Color.clear)
+        VStack {
+            CloudTextField(inputString: $homeViewModel.searchString, image: Constants.magnifying_glass)
+                .onChange(of: homeViewModel.searchString) { _, newValue in
+                    self.homeViewModel.updateDisplayModels()
                 }
-                .listStyle(.inset)
-                .scrollIndicators(.never)
-                Spacer()
+                .padding()
+            List($homeViewModel.displayKitchenModels, id: \._id) { kitchenModel in
+                ZStack {
+                    NavigationLink(destination: KitchenDetailsView(kitchenModel: kitchenModel.wrappedValue), label: {
+                        EmptyView()
+                    })
+                    KitchenCellView(kitchenModel: kitchenModel.wrappedValue)
+                }
+                .listRowSeparator(.hidden)
+                .listRowBackground(Color.clear)
             }
-            .navigationDestination(isPresented: $showAddressManagementView, destination: { AddressManagementView() })
-            .toolbarRole(.navigationStack)
-            .toolbar {
-                getToolBarView()
-            }
+            .listStyle(.inset)
+            .scrollIndicators(.never)
+            Spacer()
+        }
+        .navigationDestination(isPresented: $showAddressManagementView, destination: { AddressManagementView() })
+        .toolbarRole(.navigationStack)
+        .toolbar {
+            getToolBarView()
         }
         .navigationBarBackButtonHidden()
         .onAppear(perform: { homeViewModel.fetchKitchens() })

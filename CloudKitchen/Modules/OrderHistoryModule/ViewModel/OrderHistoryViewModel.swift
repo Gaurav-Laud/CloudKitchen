@@ -25,6 +25,7 @@ class OrderHistoryViewModel {
     private func convertImageUrls(for orders: [OrderModel]) {
         orders.forEach {
             $0.kitchen?.bannerImage = $0.kitchen?.bannerImage.replacingOccurrences(of: "http:", with: "https:") ?? ""
+            $0.meal?.bannerImage = $0.meal?.bannerImage.replacingOccurrences(of: "http:", with: "https:") ?? ""
             let images = $0.kitchen?.kitchenDetailsModel?.images.map({ $0.replacingOccurrences(of: "http:", with: "https:") })
             $0.kitchen?.kitchenDetailsModel?.images = images ?? []
             $0.kitchen?.kitchenDetailsModel?.meals.forEach({

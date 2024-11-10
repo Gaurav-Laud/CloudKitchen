@@ -42,7 +42,11 @@ class OrderModel: Codable {
         self.totalAmount = try container.decodeIfPresent(Double.self, forKey: .totalAmount) ?? 0
         self.deliveryCharges = try container.decodeIfPresent(Double.self, forKey: .deliveryCharges) ?? 0
         self.grandTotal = try container.decodeIfPresent(Double.self, forKey: .grandTotal) ?? 0
-        self.deliveryAddress = try container.decodeIfPresent(LocationModel.self, forKey: .deliveryAddress)
+        if let delieveryAddress = try? container.decodeIfPresent(LocationModel.self, forKey: .deliveryAddress) {
+            self.deliveryAddress = delieveryAddress
+        } else if let addressString = try container.decodeIfPresent(String.self, forKey: .deliveryAddress), let data = addressString.data(using: .utf8) {
+            self.deliveryAddress = try JSONDecoder().decode(LocationModel.self, from: data)
+        }
         self.createdBy = try container.decodeIfPresent(String.self, forKey: .createdBy) ?? ""
         self.updatedBy = try container.decodeIfPresent(String.self, forKey: .updatedBy) ?? ""
         self.isPaymentDone = try container.decodeIfPresent(Bool.self, forKey: .isPaymentDone) ?? false

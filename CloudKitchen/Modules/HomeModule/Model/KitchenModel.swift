@@ -254,6 +254,7 @@ class MealModel: Codable, Identifiable {
     var monthlySubscriptionCost: Float
     var ratingModel: RatingModel?
     var isAdded: Bool = false
+    var bannerImage: String
     private enum CodingKeys: String, CodingKey {
         case _id
         case name
@@ -264,6 +265,7 @@ class MealModel: Codable, Identifiable {
         case weeklySubscriptionCost
         case monthlySubscriptionCost
         case ratingModel = "rating"
+        case bannerImage
     }
     required init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -276,6 +278,7 @@ class MealModel: Codable, Identifiable {
         self.weeklySubscriptionCost = try container.decodeIfPresent(Float.self, forKey: .weeklySubscriptionCost) ?? 0
         self.monthlySubscriptionCost = try container.decodeIfPresent(Float.self, forKey: .monthlySubscriptionCost) ?? 0
         self.ratingModel = try container.decodeIfPresent(RatingModel.self, forKey: .ratingModel)
+        self.bannerImage = try container.decodeIfPresent(String.self, forKey: .bannerImage) ?? ""
     }
     func encode(to encoder: any Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
@@ -292,5 +295,6 @@ class MealModel: Codable, Identifiable {
         try container.encode(self.name, forKey: .name)
         try container.encode(self.description, forKey: .description)
         try container.encode(self.badges, forKey: .badges)
+        try container.encode(self.bannerImage, forKey: .bannerImage)
     }
 }

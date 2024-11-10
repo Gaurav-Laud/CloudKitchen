@@ -41,7 +41,7 @@ struct OrderView: View {
     }
     var body: some View {
         VStack {
-            AsyncImage(url: URL(string: self.orderModel.kitchen?.bannerImage ?? ""), content: { image in
+            AsyncImage(url: URL(string: self.orderModel.meal?.bannerImage ?? ""), content: { image in
                 image.resizable()
             }, placeholder: {
                 ProgressView()

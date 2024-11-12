@@ -12,10 +12,10 @@ struct ProfileView: View {
     @State private var presentSettingView: Bool = false
     @State private var presentOrderHistoryView: Bool = false
     @State private var presentSubscriptionsView: Bool = false
-    private let profileViewModel = ProfileViewModel()
-    @State private var userName = ""
+    @State private var profileViewModel = ProfileViewModel()
     var body: some View {
-        CloudLabel(text: userName, font: .largeTitle, fontWeight: .bold)
+        CloudLabel(text: profileViewModel.userModel?.name ?? "", font: .largeTitle, fontWeight: .bold)
+        CloudLabel(text: "Wallet Amount: " + String(format: "%0.2f", profileViewModel.userModel?.walletAmount ?? 0), font: .title, textColor: .yellow)
         VStack(spacing: 23) {
             ForEach(self.profileViewModel.getOptions(), id: \.rawValue, content: { option in
                 NavigationLink(value: option) {
@@ -28,7 +28,7 @@ struct ProfileView: View {
 //        .toolbar { getToolbarView() }
         .navigationBarBackButtonHidden()
         .onAppear {
-            userName = profileViewModel.getUserName()
+            self.profileViewModel.fetchUser()
         }
     }
     @ViewBuilder

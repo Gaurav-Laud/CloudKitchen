@@ -16,7 +16,7 @@ class APIHandler {
     static let shared = APIHandler()
     private init() { }
     
-    private func prepareURLRequest(url: String, parameters: [String: Any]? = nil, httpMethod: HTTPMethodType, accessToken: String? = UserDefaultsUtility.getAccessToken()) throws -> URLRequest {
+    private func prepareURLRequest(url: String, parameters: Any? = nil, httpMethod: HTTPMethodType, accessToken: String? = UserDefaultsUtility.getAccessToken()) throws -> URLRequest {
         guard let url = URL(string: url) else { throw URLError(.badURL) }
         var request = URLRequest(url: url)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -34,7 +34,7 @@ class APIHandler {
         try JSONDecoder().decode(type, from: data)
     }
     
-    func makeFetchAPICall<T: Codable>(_ type: T.Type, url: String, parameters: [String: Any]? = nil) async throws -> T {
+    func makeFetchAPICall<T: Codable>(_ type: T.Type, url: String, parameters: Any? = nil) async throws -> T {
         let request = try prepareURLRequest(url: url, parameters: parameters, httpMethod: .get)
         let (data, response) = try await URLSession.shared.data(for: request)
         guard let response = response as? HTTPURLResponse else { throw URLError(.badServerResponse) }
@@ -46,7 +46,7 @@ class APIHandler {
         return try dataToModel(type, data)
     }
     
-    func makePostAPICall<T: Codable>(_ type: T.Type? = nil, url: String, parameters: [String: Any]? = nil) async throws -> T? {
+    func makePostAPICall<T: Codable>(_ type: T.Type? = nil, url: String, parameters: Any? = nil) async throws -> T? {
         let request = try prepareURLRequest(url: url, parameters: parameters, httpMethod: .post)
         let (data, response) = try await URLSession.shared.data(for: request)
         guard let response = response as? HTTPURLResponse else { throw URLError(.badServerResponse) }
@@ -59,7 +59,7 @@ class APIHandler {
         return try dataToModel(type, data)
     }
     
-    func makePutAPICall<T: Codable>(_ type: T.Type? = nil, url: String, parameters: [String: Any]? = nil) async throws -> T? {
+    func makePutAPICall<T: Codable>(_ type: T.Type? = nil, url: String, parameters: Any? = nil) async throws -> T? {
         let request = try prepareURLRequest(url: url, parameters: parameters, httpMethod: .put)
         let (data, response) = try await URLSession.shared.data(for: request)
         guard let response = response as? HTTPURLResponse else { throw URLError(.badServerResponse) }
@@ -72,7 +72,7 @@ class APIHandler {
         return try dataToModel(type, data)
     }
     
-    func makeDeleteAPICall<T: Codable>(_ type: T.Type? = nil, url: String, parameters: [String: Any]? = nil) async throws -> T? {
+    func makeDeleteAPICall<T: Codable>(_ type: T.Type? = nil, url: String, parameters: Any? = nil) async throws -> T? {
         let request = try prepareURLRequest(url: url, parameters: parameters, httpMethod: .delete)
         let (data, response) = try await URLSession.shared.data(for: request)
         guard let response = response as? HTTPURLResponse else { throw URLError(.badServerResponse) }

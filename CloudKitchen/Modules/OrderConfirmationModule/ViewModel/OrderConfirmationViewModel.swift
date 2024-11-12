@@ -15,7 +15,7 @@ class OrderConfirmationViewModel {
     var kitchenModel: KitchenModel?
     var mealDetailModel: MealDetailModel?
     var reviewOrderModel: ReviewOrderModel?
-    var selectedWalletOption: RadioButtonOption = .no
+    var selectedWalletOption: RadioButtonOption = .yes
     var delegate: OrderConfirmationViewModelDelegate?
     var presentSuccessAlert = false
     func getSubscriptionCost() -> Double {

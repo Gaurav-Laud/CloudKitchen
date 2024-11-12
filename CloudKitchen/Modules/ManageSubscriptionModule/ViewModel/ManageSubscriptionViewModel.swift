@@ -26,16 +26,20 @@ class ManageSubscriptionViewModel {
     }
     func pauseSubscription() {
         Task { [weak self] in
-            guard let self = self, let subscriptionModel = self.subscriptionModel, !subscriptionModel._id.isEmpty else { return }
-            let response = try await APIHandler.shared.makePutAPICall([String: String].self, url: "https://whale-app-ct2dl.ondigitalocean.app/subscriptions/\(subscriptionModel._id)/pauseSubscription")
-            print("Subscription paused respose: \(response)")
+            guard let self = self, let subscriptionId = self.subscriptionModel?._id, !subscriptionId.isEmpty else { return }
+            guard let startDate = subscriptionModel?.startDate, let endDate = subscriptionModel?.endDate else { return }
+            let datesArray = [startDate, endDate]
+            let response = try await APIHandler.shared.makePutAPICall([String: String].self, url:"https://whale-app-ct2dl.ondigitalocean.app/subscriptions/\(subscriptionId)/pauseSubscription", parameters: datesArray)
+            print("Subscription paused respose: \(String(describing: response))")
         }
     }
     func donateSubscription() {
         Task { [weak self] in
-            guard let self = self, let subscriptionModel = self.subscriptionModel, !subscriptionModel._id.isEmpty else { return }
-            let response = try await APIHandler.shared.makePutAPICall([String: String].self, url: "https://whale-app-ct2dl.ondigitalocean.app/subscriptions/\(subscriptionModel._id)/donateMeal")
-            print("Subscription doanted respose: \(response)")
+            guard let self = self, let subscriptionId = self.subscriptionModel?._id, !subscriptionId.isEmpty else { return }
+            guard let startDate = subscriptionModel?.startDate, let endDate = subscriptionModel?.endDate else { return }
+            let datesArray = [startDate, endDate]
+            let response = try await APIHandler.shared.makePutAPICall([String: String].self, url: "https://whale-app-ct2dl.ondigitalocean.app/subscriptions/\(subscriptionId)/donateMeal", parameters: datesArray)
+            print("Subscription doanted respose: \(String(describing: response))")
         }
     }
     private func parseWeeks() {

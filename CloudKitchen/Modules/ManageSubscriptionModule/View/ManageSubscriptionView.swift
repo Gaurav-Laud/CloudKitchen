@@ -51,13 +51,33 @@ struct ManageSubscriptionView: View {
         }
     }
     @ViewBuilder
-    private func getMealView(for menuItemModel: MenuItemModel) -> some View {
-        HStack(spacing: 15) {
-            self.getMealImageView(menuItemModel: menuItemModel)
-            VStack(alignment: .leading) {
-                ForEach(menuItemModel.items, id: \.self) { item in
-                    CloudLabel(text: item, font: .title3, fontWeight: .bold)
+    private func getMealView(for plannedDatesModel: PlannedDates?) -> some View {
+        if let plannedDatesModel = plannedDatesModel {
+            HStack(spacing: 15) {
+                self.getMealImageView(menuItemModel: plannedDatesModel.menuItem)
+                VStack(alignment: .leading) {
+                    ForEach(plannedDatesModel.menuItem.items, id: \.self) { item in
+                        CloudLabel(text: item, font: .title3, fontWeight: .bold)
+                    }
+                    self.getStatusView(plannedDatesModel.menuStatus)
                 }
+            }
+        } else {
+            EmptyView()
+        }
+    }
+    @ViewBuilder
+    private func getStatusView(_ menuStatus: MenuStatus) -> some View {
+        if menuStatus == .none {
+            EmptyView()
+        } else {
+            HStack {
+                Spacer()
+                CloudLabel(text: menuStatus.title, font: .title3, textColor: .white, fontWeight: .semibold)
+                    .padding(.vertical, 5)
+                    .padding(.horizontal, 5)
+                    .background(.yellow)
+                    .roundCorners(6)
             }
         }
     }
@@ -83,17 +103,17 @@ struct ManageSubscriptionView: View {
 //            CloudLabel(text: "Change", textColor: .yellow, fontWeight: .bold)
         }
     }
-    @ViewBuilder
-    private func getActionView() -> some View {
-        HStack {
-            self.getButton(title: "Swap", textColor: .white, backgroundColor: .yellow)
-            Spacer()
-            self.getButton(title: "Skip", textColor: .yellow, backgroundColor: .white)
-            Spacer()
-            self.getButton(title: "Cancel", textColor: .yellow, backgroundColor: .white)
-        }
-        .padding()
-    }
+//    @ViewBuilder
+//    private func getActionView() -> some View {
+//        HStack {
+//            self.getButton(title: "Swap", textColor: .white, backgroundColor: .yellow)
+//            Spacer()
+//            self.getButton(title: "Skip", textColor: .yellow, backgroundColor: .white)
+//            Spacer()
+//            self.getButton(title: "Cancel", textColor: .yellow, backgroundColor: .white)
+//        }
+//        .padding()
+//    }
     @ViewBuilder
     private func getButton(title: String, textColor: Color, backgroundColor: Color, action: @escaping (() -> Void) = { }) -> some View {
         CloudLabel(text: title , textColor: textColor)
@@ -111,6 +131,14 @@ struct ManageSubscriptionView: View {
         HStack {
             CloudLabel(text: "\(self.manageSubscriptionViewModel.subscriptionModel?.startDate ?? "") - \(self.manageSubscriptionViewModel.subscriptionModel?.endDate ?? "")")
             Spacer()
+            self.getActionButtons()
+        }
+    }
+    @ViewBuilder
+    private func getActionButtons() -> some View {
+        if self.manageSubscriptionViewModel.getSelectedMenuItem()?.menuStatus == .donated || self.manageSubscriptionViewModel.getSelectedMenuItem()?.menuStatus == .paused {
+            EmptyView()
+        } else {
             getButton(title: "Donate", textColor: .white, backgroundColor: .yellow) {
                 self.manageSubscriptionViewModel.donateSubscription()
             }

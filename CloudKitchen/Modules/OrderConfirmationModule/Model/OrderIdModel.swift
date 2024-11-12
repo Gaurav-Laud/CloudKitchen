@@ -31,6 +31,26 @@ class ReviewOrderModel: Codable {
 class PlannedDates: Codable {
     var date: String
     var menuItem: MenuItemModel
+    var status: String
+    var menuStatus: MenuStatus
+    private enum CodingKeys: String, CodingKey {
+        case date
+        case menuItem
+        case status
+    }
+    required init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.date = try container.decodeIfPresent(String.self, forKey: .date) ?? ""
+        self.menuItem = try container.decodeIfPresent(MenuItemModel.self, forKey: .menuItem) ?? MenuItemModel()
+        self.status = try container.decodeIfPresent(String.self, forKey: .status) ?? ""
+        self.menuStatus = MenuStatus(rawValue: status) ?? .none
+    }
+    func encode(to encoder: any Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.date, forKey: .date)
+        try container.encode(self.menuItem, forKey: .menuItem)
+        try container.encode(self.status, forKey: .status)
+    }
 }
 enum RadioButtonOption: String, CaseIterable, Identifiable {
     case yes
@@ -42,6 +62,20 @@ enum RadioButtonOption: String, CaseIterable, Identifiable {
         switch self {
         case .yes: "Yes"
         case .no: "No"
+        }
+    }
+}
+enum MenuStatus: String {
+    case none = ""
+    case donated = "Donated"
+    case undelivered = "Un delivered"
+    case paused = "Paused"
+    var title: String {
+        switch self {
+        case .none: ""
+        case .donated: "Donated"
+        case .undelivered: "Undelivered"
+        case .paused: "Paused"
         }
     }
 }

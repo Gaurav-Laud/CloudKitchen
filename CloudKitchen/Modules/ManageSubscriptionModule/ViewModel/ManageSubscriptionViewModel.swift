@@ -11,7 +11,7 @@ class ManageSubscriptionViewModel {
     var subscriptionModel: SubscriptionModel?
     var weeks: [String] = []
     var selectedWeek: String = ""
-    var menuItemMap: [String: MenuItemModel] = [:]
+    var menuItemMap: [String: PlannedDates] = [:]
     init(subscriptionModel: SubscriptionModel?) {
         self.subscriptionModel = subscriptionModel
         self.parseWeeks()
@@ -19,10 +19,10 @@ class ManageSubscriptionViewModel {
     }
     private func mapMenuItems() {
         guard let subscriptionModel = subscriptionModel else { return }
-        subscriptionModel.menu.forEach { menuItemMap[$0.date] = $0.menuItem }
+        subscriptionModel.menu.forEach { menuItemMap[$0.date] = $0 }
     }
-    func getSelectedMenuItem() -> MenuItemModel {
-        menuItemMap[selectedWeek] ?? MenuItemModel()
+    func getSelectedMenuItem() -> PlannedDates? {
+        menuItemMap[selectedWeek]
     }
     func pauseSubscription() {
         Task { [weak self] in

@@ -10,6 +10,7 @@ import SwiftUI
 struct ManageSubscriptionView: View {
     @Environment(\.dismiss) private var dismiss
     @State var manageSubscriptionViewModel: ManageSubscriptionViewModel
+    @State var presentDateSelectionView: Bool = false
     init(subscriptionModel: SubscriptionModel?) {
         self.manageSubscriptionViewModel = ManageSubscriptionViewModel(subscriptionModel: subscriptionModel)
     }
@@ -34,6 +35,13 @@ struct ManageSubscriptionView: View {
             .toolbar {
                 self.getToolbarView()
             }
+            .sheet(isPresented: $presentDateSelectionView, content: {
+                NavigationStack {
+                    DateSelectionView(delegate: self, source: self.manageSubscriptionViewModel.source, startDate: $manageSubscriptionViewModel.startDate, endDate: $manageSubscriptionViewModel.endDate)
+                }
+                .presentationDetents([.fraction(0.3)])
+            })
+            
         } else {
             EmptyView()
                 .toolbar {
@@ -140,10 +148,12 @@ struct ManageSubscriptionView: View {
             EmptyView()
         } else {
             getButton(title: "Donate", textColor: .white, backgroundColor: .yellow) {
-                self.manageSubscriptionViewModel.donateSubscription()
+                self.manageSubscriptionViewModel.source = MenuStatus.donated.rawValue
+                self.presentDateSelectionView = true
             }
             getButton(title: "Pause", textColor: .white, backgroundColor: .yellow) {
-                self.manageSubscriptionViewModel.pauseSubscription()
+                self.manageSubscriptionViewModel.source = MenuStatus.paused.rawValue
+                self.presentDateSelectionView = true
             }
         }
     }
@@ -176,6 +186,17 @@ struct ManageSubscriptionView: View {
     }
     private func getWeekTitles(for dateString: String) -> String {
         dateString.convertFormatOfDate(from: "yyyy-MM-dd", to: "dd MMM") ?? dateString
+    }
+}
+extension ManageSubscriptionView: DateSelectionViewDelegate {
+    func didSelectActionButton(source: String) {
+        switch source {
+        case MenuStatus.donated.rawValue:
+            self.manageSubscriptionViewModel.donateSubscription()
+        case MenuStatus.paused.rawValue:
+            self.manageSubscriptionViewModel.pauseSubscription()
+        default: break
+        }
     }
 }
 //

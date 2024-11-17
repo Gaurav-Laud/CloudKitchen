@@ -49,9 +49,6 @@ struct DurationSelectionView: View {
         .toolbar {
             getToolbarView()
         }
-        .onAppear {
-            durationSelectionViewModel.selectSlot(durationSelectionViewModel.slotModels[0])
-        }
     }
     @ToolbarContentBuilder
     private func getToolbarView() -> some ToolbarContent {
@@ -106,6 +103,7 @@ struct DurationSelectionView: View {
         CloudButton(title: "PLACE ORDER") {
             if toastMessage == nil {
                 self.durationSelectionViewModel.setStartAndEndDate()
+                self.durationSelectionViewModel.setSlot()
                 self.showOrderView = true
             } else {
                 self.showToast = true

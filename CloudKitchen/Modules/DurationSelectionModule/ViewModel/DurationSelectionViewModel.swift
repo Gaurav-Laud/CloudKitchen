@@ -43,11 +43,13 @@ class DurationSelectionViewModel {
         slotModels.forEach({ $0.isSelected = false })
         guard let index = slotModels.firstIndex(where: { $0.slotNo == slot.slotNo }) else { return }
         slotModels[index].isSelected = true
-        mealDetailModel?.slot = slotModels[index]
     }
     func setStartAndEndDate() {
         mealDetailModel?.startDate = startDate.convertToString()
         mealDetailModel?.endDate = endDate.convertToString()
+    }
+    func setSlot() {
+        mealDetailModel?.slot = slotModels.filter({ $0.isSelected }).first
     }
     func validateDates() -> String? {
         guard startDate < endDate else { return "Start date should not be later than the end date." }

@@ -155,10 +155,12 @@ struct OrderConfirmationView: View {
                 Spacer()
                 CloudLabel(text: "\(Constants.rupee_symbol) \(self.orderConfirmationViewModel.getDeliveryCost())", textColor: .gray)
             }
-            HStack {
-                CloudLabel(text: "Wallet Amount", font: .title2, fontWeight: .bold)
-                Spacer()
-                CloudLabel(text: "\(Constants.rupee_symbol) \(self.orderConfirmationViewModel.getWalletAmount())")
+            if orderConfirmationViewModel.selectedWalletOption == .yes {
+                HStack {
+                    CloudLabel(text: "Wallet Amount", font: .title2, fontWeight: .bold)
+                    Spacer()
+                    CloudLabel(text: "\(Constants.rupee_symbol) \(self.orderConfirmationViewModel.getWalletAmount())")
+                }
             }
             HStack {
                 CloudLabel(text: "Grand Total", font: .title2, fontWeight: .bold)

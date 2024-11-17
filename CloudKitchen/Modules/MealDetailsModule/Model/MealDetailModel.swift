@@ -9,7 +9,12 @@ import Foundation
 enum SubscriptionType: String {
     case weekly
     case monthly
-    
+    var numberOfDays: Int {
+        switch self {
+        case .weekly: 5
+        case .monthly: 26
+        }
+    }
 }
 @Observable
 class MealDetailModel: Codable {

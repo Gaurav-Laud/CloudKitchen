@@ -11,6 +11,8 @@ struct DurationSelectionView: View {
     @Environment(\.dismiss) private var dismiss
     @State var durationSelectionViewModel = DurationSelectionViewModel()
     @State var showOrderView = false
+    @State var showToast = false
+    @State var toastMessage: String? = nil
     init(kitchenModel: KitchenModel?, mealDetailModel: MealDetailModel?) {
         self.durationSelectionViewModel.kitchenModel = kitchenModel
         self.durationSelectionViewModel.mealDetailModel = mealDetailModel
@@ -21,9 +23,17 @@ struct DurationSelectionView: View {
             Group {
                 CloudLabel(text: "Select Duration", font: .title, fontWeight: .bold, textAlignment: .leading)
                 HStack {
-                    getDatePickerView(date: $durationSelectionViewModel.startDate)
+                    self.getDatePickerView(date: $durationSelectionViewModel.startDate)
+                        .onChange(of: durationSelectionViewModel.startDate) {
+                            self.toastMessage = self.durationSelectionViewModel.validateDates()
+                            showToast = toastMessage != nil
+                        }
                     Spacer()
-                    getDatePickerView(date: $durationSelectionViewModel.endDate)
+                    self.getDatePickerView(date: $durationSelectionViewModel.endDate)
+                        .onChange(of: durationSelectionViewModel.endDate) {
+                            self.toastMessage = self.durationSelectionViewModel.validateDates()
+                            showToast = toastMessage != nil
+                        }
                 }
                 CloudLabel(text: "Select Slot", font: .title, fontWeight: .bold, textAlignment: .leading)
             }
@@ -33,6 +43,7 @@ struct DurationSelectionView: View {
             getBottomButton()
                 .padding()
         }
+        .showToast(isPresenting: $showToast, title: toastMessage)
         .navigationDestination(isPresented: $showOrderView, destination: { OrderConfirmationView(kitchenModel: self.durationSelectionViewModel.kitchenModel, mealDetailModel: self.durationSelectionViewModel.mealDetailModel) })
         .navigationBarBackButtonHidden()
         .toolbar {
@@ -93,8 +104,12 @@ struct DurationSelectionView: View {
     @ViewBuilder
     private func getBottomButton() -> some View {
         CloudButton(title: "PLACE ORDER") {
-            self.durationSelectionViewModel.setStartAndEndDate()
-            self.showOrderView = true
+            if toastMessage == nil {
+                self.durationSelectionViewModel.setStartAndEndDate()
+                self.showOrderView = true
+            } else {
+                self.showToast = true
+            }
         }
     }
     func getAddButton(isAdded: Bool) -> some View {

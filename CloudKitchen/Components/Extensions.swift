@@ -12,7 +12,7 @@ extension View {
     func showToast(isPresenting: Binding<Bool>, title: String? = nil, duration: Double = 3) -> some View {
         self
             .toast(isPresenting: isPresenting, duration: 3, alert: {
-                AlertToast(type: .regular, title: title)
+                AlertToast(displayMode: .banner(.pop), type: .regular, title: title)
             })
     }
     func roundCorners(_ radius: Float = 16) -> some View {
@@ -37,5 +37,19 @@ extension Color {
         Scanner(string: cString).scanHexInt64(&rgbValue)
         
         self.init(.sRGB, red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0, green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0, blue: CGFloat(rgbValue & 0x0000FF) / 255.0,opacity: 1.0)
+    }
+}
+extension Date {
+    func localDate() -> Date {
+        let timeZoneOffset = Double(TimeZone.current.secondsFromGMT(for: self))
+        guard let localDate = Calendar.current.date(byAdding: .second, value: Int(timeZoneOffset), to: self) else {return self}
+    
+        return localDate
+    }
+    static func getNextWeekDay(after date: Date) -> Date? {
+        var dateComponents = DateComponents()
+        dateComponents.weekday = 2
+        let weekDay = Calendar.current.nextDate(after: date, matching: dateComponents, matchingPolicy: .nextTimePreservingSmallerComponents)
+        return weekDay
     }
 }

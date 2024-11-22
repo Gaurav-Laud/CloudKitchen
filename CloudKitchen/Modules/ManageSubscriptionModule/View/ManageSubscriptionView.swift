@@ -192,9 +192,9 @@ extension ManageSubscriptionView: DateSelectionViewDelegate {
     func didSelectActionButton(source: String) {
         switch source {
         case MenuStatus.donated.rawValue:
-            self.manageSubscriptionViewModel.donateSubscription()
+            self.manageSubscriptionViewModel.donateSubscription { dismiss() }
         case MenuStatus.paused.rawValue:
-            self.manageSubscriptionViewModel.pauseSubscription()
+            self.manageSubscriptionViewModel.pauseSubscription { dismiss() }
         default: break
         }
     }

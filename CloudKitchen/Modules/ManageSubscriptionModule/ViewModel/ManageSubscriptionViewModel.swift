@@ -29,7 +29,7 @@ class ManageSubscriptionViewModel {
     func getSelectedMenuItem() -> PlannedDates? {
         menuItemMap[selectedWeek]
     }
-    func pauseSubscription() {
+    func pauseSubscription(_ completion: () -> Void = { }) {
         Task { [weak self] in
             guard let self = self, let subscriptionId = self.subscriptionModel?._id, !subscriptionId.isEmpty else { return }
             let datesArray = [startDate.convertToString("yyyy-MM-dd"), endDate.convertToString("yyyy-MM-dd")]
@@ -37,7 +37,7 @@ class ManageSubscriptionViewModel {
             print("Subscription paused respose: \(String(describing: response))")
         }
     }
-    func donateSubscription() {
+    func donateSubscription(_ completion: () -> Void = { }) {
         Task { [weak self] in
             guard let self = self, let subscriptionId = self.subscriptionModel?._id, !subscriptionId.isEmpty else { return }
             let datesArray = [startDate.convertToString("yyyy-MM-dd"), endDate.convertToString("yyyy-MM-dd")]

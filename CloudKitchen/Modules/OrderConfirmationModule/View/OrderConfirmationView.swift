@@ -42,7 +42,7 @@ struct OrderConfirmationView: View {
             self.orderConfirmationViewModel.processOrder()
         }
         .alert("Order Placed Successfully", isPresented: $orderConfirmationViewModel.presentSuccessAlert) {
-            Button("OK", role: .cancel) { dismiss() }
+            Button("OK", role: .cancel) { NavigationUtil.popToRootView() }
         }
     }
     @ToolbarContentBuilder
